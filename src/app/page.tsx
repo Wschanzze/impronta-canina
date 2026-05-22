@@ -2,7 +2,9 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MosaicHero from "@/app/home/components/MosaicHero";
+import ServicesSection from "@/app/home/components/ServicesSection";
 import CardGrid from "@/app/home/components/CardGrid";
+import TestimonialsSection from "@/app/home/components/TestimonialsSection";
 import BlueprintCTA from "@/app/home/components/BlueprintCTA";
 import StickyCTABar from "@/app/home/components/StickyCTABar";
 
@@ -32,10 +34,16 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* 3. Modular Card Grid with Ribbons */}
+        {/* 3. Services Visual Tabs */}
+        <ServicesSection />
+
+        {/* 4. Modular Card Grid with Ribbons */}
         <CardGrid />
 
-        {/* 4. CTA + Contacto */}
+        {/* 5. Testimonials */}
+        <TestimonialsSection />
+
+        {/* 6. CTA + Contacto */}
         <BlueprintCTA />
       </main>
 
