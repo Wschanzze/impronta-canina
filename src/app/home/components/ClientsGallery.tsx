@@ -157,20 +157,15 @@ const ClientsGallery: React.FC = () => {
                 />
 
                 {/* Overlay y Texto (Aparece en Hover) */}
-                <div className="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 md:p-8">
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
-                  >
+                <div className="absolute inset-0 bg-charcoal/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 md:p-8 pointer-events-none">
+                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     <h3 className="font-serif text-2xl font-bold text-honey-gold mb-2">
                       {dog.name}
                     </h3>
                     <p className="text-white/90 text-sm md:text-base font-medium leading-relaxed">
                       {dog.story}
                     </p>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -26,9 +26,6 @@ export default function HomePage() {
         {/* 2. Brand Pillars & Values */}
         <BrandPillars />
 
-        {/* 3. Services Visual Tabs */}
-        <ServicesSection />
-
         {/* Did You Know Ribbon #1 - Impronta */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 bg-white">
           <DidYouKnowRibbon
@@ -38,11 +35,8 @@ export default function HomePage() {
           />
         </div>
 
-        {/* 4. Clients Gallery */}
-        <ClientsGallery />
-
-        {/* 5. Modular Card Grid */}
-        <CardGrid />
+        {/* 3. Services Visual Tabs */}
+        <ServicesSection />
 
         {/* Did You Know Ribbon #2 - Obediencia */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 bg-white">
@@ -53,8 +47,11 @@ export default function HomePage() {
           />
         </div>
 
-        {/* 6. Testimonials */}
-        <TestimonialsSection />
+        {/* 4. Clients Gallery */}
+        <ClientsGallery />
+
+        {/* 5. Modular Card Grid */}
+        <CardGrid />
 
         {/* Did You Know Ribbon #3 - Refuerzo Positivo */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 bg-white">
@@ -64,6 +61,9 @@ export default function HomePage() {
             index={2}
           />
         </div>
+
+        {/* 6. Testimonials */}
+        <TestimonialsSection />
 
         {/* 7. CTA + Contacto */}
         <BlueprintCTA />

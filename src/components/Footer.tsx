@@ -4,6 +4,7 @@ import Icon from '@/components/ui/AppIcon';
 
 const Footer: React.FC = () => {
   return (
+    <>
     <footer
       className="pt-20 pb-10 px-4 md:px-8 relative overflow-hidden text-white"
       style={{ backgroundColor: 'var(--verde)' }}
@@ -162,6 +163,28 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
+    {/* Credits Banner */}
+    <div className="w-full bg-white py-3 border-t border-slate-200 relative z-50">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col sm:flex-row justify-center items-center gap-2 text-center">
+        <span className="text-slate-500 text-xs md:text-sm font-medium">Esta página fue creada por</span>
+        <a
+          href="https://www.notanother.company/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity group"
+        >
+          <span className="text-charcoal font-bold text-xs md:text-sm group-hover:text-verde transition-colors">Not another consultora</span>
+          <Image
+            src="/assets/images/Gemini_Generated_Image_b89zf1b89zf1b89z__1_-removebg-preview.png"
+            alt="Not another consultora logo"
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+        </a>
+      </div>
+    </div>
+    </>
   );
 };
 
