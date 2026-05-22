@@ -8,7 +8,7 @@ interface DogClient {
   name: string;
   story: string;
   image: string;
-  gridArea: string;
+  gridClasses: string;
 }
 
 const dogClients: DogClient[] = [
@@ -18,7 +18,7 @@ const dogClients: DogClient[] = [
     story:
       'Max destruía todos los muebles de la casa. Tras 4 semanas de adiestramiento en positivo, ahora canaliza su energía en juegos de olfato y largos paseos. ¡Un cambio de 180 grados!',
     image: 'https://images.unsplash.com/photo-1544568100-847a948585b9',
-    gridArea: 'span 2 / span 2', // Grande
+    gridClasses: 'col-span-1 md:col-span-2 md:row-span-2', // Grande en Desktop
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const dogClients: DogClient[] = [
     story:
       'Luna tenía terror a los ruidos fuertes y los coches. Con el protocolo de desensibilización, hoy pasea tranquila por el centro de la ciudad.',
     image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a',
-    gridArea: 'span 1 / span 2', // Ancho
+    gridClasses: 'col-span-1 md:col-span-1 md:row-span-1', // Normal
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const dogClients: DogClient[] = [
     story:
       'Reactividad extrema con otros perros. Nos tomó tiempo y paciencia, pero ahora Rocky puede cruzar la calle junto a otros peludos sin ladrar.',
     image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee',
-    gridArea: 'span 2 / span 1', // Alto
+    gridClasses: 'col-span-1 md:col-span-1 md:row-span-2', // Alto
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const dogClients: DogClient[] = [
     story:
       'Tiraba de la correa hasta ahogarse. Aprendió a caminar junto a su dueño usando refuerzo positivo y ahora los paseos son el mejor momento del día.',
     image: 'https://images.unsplash.com/photo-1552053831-71594a27632d',
-    gridArea: 'span 1 / span 1', // Pequeño
+    gridClasses: 'col-span-1 md:col-span-1 md:row-span-1', // Normal
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const dogClients: DogClient[] = [
     story:
       'Ansiedad por separación. Lloraba sin parar cuando se quedaba solo. Creamos rutinas de independencia y hoy puede quedarse en casa relajado.',
     image: 'https://images.unsplash.com/photo-1505628346881-b72b27e84530',
-    gridArea: 'span 1 / span 2', // Ancho
+    gridClasses: 'col-span-1 md:col-span-2 lg:col-span-1 md:row-span-1', // Ancho en Tablet, Normal en Desktop
   },
 ];
 
@@ -122,13 +122,8 @@ const ClientsGallery: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Masonry-like Grid */}
-        <div
-          className="grid gap-4 md:gap-6 auto-rows-[200px]"
-          style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          }}
-        >
+        {/* Stable CSS Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px]">
           {dogClients.map((dog, index) => (
             <motion.div
               key={dog.id}
@@ -136,12 +131,7 @@ const ClientsGallery: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative rounded-3xl group shadow-lg"
-              style={{
-                gridArea:
-                  typeof window !== 'undefined' && window.innerWidth >= 768 ? dog.gridArea : 'auto',
-                minHeight: '250px',
-              }}
+              className={`relative rounded-3xl group shadow-lg overflow-hidden ${dog.gridClasses}`}
             >
               {/* Balloon Dog / Paw Icon POP-UP on top border when hovering */}
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">

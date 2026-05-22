@@ -118,67 +118,103 @@ const BrandPillars: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {pillars.map((pillar, index) => (
-            <motion.div
-              key={pillar.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative group bg-white rounded-3xl p-8 shadow-warm-md hover:shadow-warm-lg transition-all duration-300 border border-slate-100/80 flex flex-col justify-between"
-            >
-              {/* Balloon Dog / Paw Icon POP-UP on top border when hovering */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">
-                <div
-                  className="px-3 py-1.5 rounded-full bg-white shadow-md border flex items-center justify-center"
-                  style={{ borderColor: pillar.tagColor }}
-                >
-                  {pillar.iconType === 'balloon' ? (
-                    <BalloonDogIcon className="w-8 h-5" color={pillar.tagColor} />
-                  ) : (
-                    <PawPrintIcon className="w-5 h-5" color={pillar.tagColor} />
-                  )}
-                </div>
-              </div>
-
-              <div>
-                {/* Visual indicator (Pill shape) */}
-                <div className="flex justify-between items-center mb-6">
-                  <span
-                    className="tag-badge text-[10px] px-3 py-1 rounded-full font-bold"
-                    style={{
-                      background: `${pillar.tagColor}15`,
-                      color: pillar.tagColor,
-                    }}
+        {/* 2-Column Layout */}
+        <div className="flex flex-col lg:flex-row gap-12 items-stretch">
+          {/* Left Column: Pillars Stack */}
+          <div className="lg:w-1/2 flex flex-col gap-6">
+            {pillars.map((pillar, index) => (
+              <motion.div
+                key={pillar.id}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="relative group bg-white rounded-3xl p-6 md:p-8 shadow-warm-md hover:shadow-warm-lg transition-all duration-300 border border-slate-100/80 flex flex-col justify-between"
+              >
+                {/* Balloon Dog / Paw Icon POP-UP on top border when hovering */}
+                <div className="absolute -top-5 right-8 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">
+                  <div
+                    className="px-3 py-1.5 rounded-full bg-white shadow-md border flex items-center justify-center"
+                    style={{ borderColor: pillar.tagColor }}
                   >
-                    {pillar.tag}
-                  </span>
-
-                  {/* Decorative faint background paw */}
-                  <div className="opacity-10 group-hover:opacity-20 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
                     {pillar.iconType === 'balloon' ? (
-                      <BalloonDogIcon className="w-10 h-7" color="var(--charcoal)" />
+                      <BalloonDogIcon className="w-8 h-5" color={pillar.tagColor} />
                     ) : (
-                      <PawPrintIcon className="w-8 h-8" color="var(--charcoal)" />
+                      <PawPrintIcon className="w-5 h-5" color={pillar.tagColor} />
                     )}
                   </div>
                 </div>
 
-                <h3 className="font-serif font-bold text-2xl text-charcoal mb-4">{pillar.title}</h3>
-                <p className="text-slate-mid text-sm font-medium leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
+                <div>
+                  {/* Visual indicator (Pill shape) */}
+                  <div className="flex justify-between items-center mb-4">
+                    <span
+                      className="tag-badge text-[10px] px-3 py-1 rounded-full font-bold"
+                      style={{
+                        background: `${pillar.tagColor}15`,
+                        color: pillar.tagColor,
+                      }}
+                    >
+                      {pillar.tag}
+                    </span>
 
-              {/* Bottom accent line on hover */}
-              <div
-                className="absolute bottom-0 left-8 right-8 h-1 rounded-t-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
-                style={{ backgroundColor: pillar.tagColor }}
-              />
-            </motion.div>
-          ))}
+                    {/* Decorative faint background paw */}
+                    <div className="opacity-10 group-hover:opacity-20 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                      {pillar.iconType === 'balloon' ? (
+                        <BalloonDogIcon className="w-10 h-7" color="var(--charcoal)" />
+                      ) : (
+                        <PawPrintIcon className="w-8 h-8" color="var(--charcoal)" />
+                      )}
+                    </div>
+                  </div>
+
+                  <h3 className="font-serif font-bold text-xl md:text-2xl text-charcoal mb-3">{pillar.title}</h3>
+                  <p className="text-slate-mid text-sm font-medium leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </div>
+
+                {/* Bottom accent line on hover */}
+                <div
+                  className="absolute bottom-0 left-8 right-8 h-1 rounded-t-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
+                  style={{ backgroundColor: pillar.tagColor }}
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Right Column: Video */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="lg:w-1/2 relative rounded-3xl overflow-hidden shadow-2xl min-h-[400px] lg:min-h-full border border-slate-200/50"
+          >
+            <video
+              src="/assets/videos/6011991_Dog_Animal_1280x720.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Elegant overlay to enhance premium feel */}
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent pointer-events-none" />
+            
+            {/* Decorative tag on video */}
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/20 inline-flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-verde flex items-center justify-center shrink-0">
+                  <PawPrintIcon className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="font-bold text-sm text-charcoal leading-tight">Resultados Reales</p>
+                  <p className="text-xs text-slate-500">Perros equilibrados y felices</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

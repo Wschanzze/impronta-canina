@@ -16,12 +16,12 @@ interface Tile {
 const tiles: Tile[] = [
   {
     id: 1,
-    src: '/assets/videos/6011991_Dog_Animal_1280x720.mp4',
-    alt: 'Perro entrenando',
+    src: 'https://images.unsplash.com/photo-1544568100-847a948585b9',
+    alt: 'Perro entrenando en positivo',
     colSpan: 2,
     rowSpan: 2,
     flipContent: 'metodo',
-    type: 'video',
+    type: 'image',
   },
   {
     id: 2,
@@ -186,14 +186,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <video
-                src={tiles[0].src}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover"
-              />
+              <AppImage src={tiles[0].src} alt={tiles[0].alt} fill priority className="object-cover" />
             </div>
             <div className="tile-back flex-col gap-3">
               <MetodoIcon />
