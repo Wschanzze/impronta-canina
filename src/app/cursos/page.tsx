@@ -105,9 +105,12 @@ const CursosPage: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] border border-slate-100"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=1000" 
-                alt="Adiestrador canino interactuando positivamente con un perro" 
+              <video 
+                src="/assets/videos/6012070_Dog_Animal_1280x720.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
