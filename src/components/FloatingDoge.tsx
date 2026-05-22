@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import Spline from '@splinetool/react-spline';
 
 export default function FloatingDoge() {
   const router = useRouter();
@@ -22,16 +23,10 @@ export default function FloatingDoge() {
       onClick={handleClick}
       title="¡Hablemos!"
     >
-      {/* Spline iframe con pointer-events-none para que el contenedor reciba el click */}
-      <iframe 
-        src="https://my.spline.design/doge-s9g1TxN4LH2UhLFS6U10FRVI/" 
-        frameBorder="0" 
-        width="100%" 
-        height="100%" 
-        className="w-full h-full rounded-full pointer-events-none"
+      <Spline 
+        scene="https://prod.spline.design/doge-s9g1TxN4LH2UhLFS6U10FRVI/scene.splinecode" 
+        className="w-full h-full"
       />
-      {/* Capa transparente por encima para asegurar la captura de eventos */}
-      <div className="absolute inset-0 z-10 rounded-full" />
     </div>
   );
 }
