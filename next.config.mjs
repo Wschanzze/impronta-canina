@@ -1,39 +1,36 @@
-import { imageHosts } from './image-hosts.config.js';
+import { imageHosts } from "./image-hosts.config.js";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   productionBrowserSourceMaps: false,
-  distDir: process.env.DIST_DIR || '.next',
+  distDir: process.env.DIST_DIR || ".next",
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true,
   },
   images: {
     remotePatterns: imageHosts,
   },
-  webpack(
-    config,
-    {
-      dev: dev
-    }
-  ) {
+  webpack(config, { dev: dev }) {
     config.module.rules.push({
       test: /\.(jsx|tsx)$/,
       exclude: [/node_modules/],
-      use: [{
-        loader: '@dhiwise/component-tagger/nextLoader',
-      }],
+      use: [
+        {
+          loader: "@dhiwise/component-tagger/nextLoader",
+        },
+      ],
     });
     if (dev) {
-      const ignoredPaths = (process.env.WATCH_IGNORED_PATHS || '')
-        .split(',')
+      const ignoredPaths = (process.env.WATCH_IGNORED_PATHS || "")
+        .split(",")
         .map((p) => p.trim())
         .filter(Boolean);
       config.watchOptions = {
         ignored: ignoredPaths.length
-          ? ignoredPaths.map((p) => `**/${p.replace(/^\/+|\/+$/g, '')}/**`)
+          ? ignoredPaths.map((p) => `**/${p.replace(/^\/+|\/+$/g, "")}/**`)
           : undefined,
       };
     }

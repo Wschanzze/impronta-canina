@@ -13,23 +13,27 @@ Una aplicación moderna construida con Next.js 15, React 19 y Tailwind CSS.
 ## 🛠️ Instalación Local
 
 1. Clonar el repositorio:
+
 ```bash
 git clone <tu-repo>
 cd pruebas
 ```
 
 2. Instalar dependencias:
+
 ```bash
 npm install
 ```
 
 3. Configurar variables de entorno:
+
 ```bash
 cp .env.example .env.local
 # Editar .env.local con tus valores
 ```
 
 4. Iniciar servidor de desarrollo:
+
 ```bash
 npm run dev
 ```
@@ -121,16 +125,19 @@ Los componentes principales están en `src/components/` y `src/app/home/componen
 ## 🔧 Troubleshooting
 
 ### Error: "Cannot find module"
+
 ```bash
 npm install
 ```
 
 ### Error de build en Vercel
+
 1. Verifica que todas las variables de entorno estén configuradas
 2. Revisa los logs de build en el dashboard de Vercel
 3. Asegúrate de que `package.json` tiene todas las dependencias
 
 ### Puerto 4028 en uso
+
 ```bash
 npm run dev -- -p 3000
 ```

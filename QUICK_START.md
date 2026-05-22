@@ -3,6 +3,7 @@
 ## En 5 Minutos
 
 ### 1. Inicializar Git (1 minuto)
+
 ```bash
 # Ejecuta el script
 setup-git.bat
@@ -16,11 +17,13 @@ git commit -m "Initial commit"
 ```
 
 ### 2. Crear Repositorio en GitHub (2 minutos)
+
 1. Ve a https://github.com/new
 2. Nombre: `impronta-canina`
 3. Copia el comando de push que te muestra GitHub
 
 ### 3. Hacer Push (1 minuto)
+
 ```bash
 git remote add origin https://github.com/TU_USUARIO/impronta-canina.git
 git branch -M main
@@ -28,6 +31,7 @@ git push -u origin main
 ```
 
 ### 4. Desplegar en Vercel (1 minuto)
+
 1. Ve a https://vercel.com
 2. Haz clic en "New Project"
 3. Selecciona tu repositorio
@@ -93,11 +97,13 @@ npm run format       # Formatear código
 ## ¿Problemas?
 
 1. **"Cannot find module"**
+
    ```bash
    npm install
    ```
 
 2. **Puerto 4028 en uso**
+
    ```bash
    npm run dev -- -p 3000
    ```
@@ -116,6 +122,7 @@ npm run format       # Formatear código
 ✅ Configuración optimizada
 
 Ahora:
+
 1. Sube a GitHub
 2. Despliega en Vercel
 3. ¡Comparte tu sitio!

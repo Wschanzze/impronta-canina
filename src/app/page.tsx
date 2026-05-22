@@ -1,10 +1,10 @@
-import React from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import MosaicHero from '@/app/home/components/MosaicHero';
-import CardGrid from '@/app/home/components/CardGrid';
-import BlueprintCTA from '@/app/home/components/BlueprintCTA';
-import StickyCTABar from '@/app/home/components/StickyCTABar';
+import React from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import MosaicHero from "@/app/home/components/MosaicHero";
+import CardGrid from "@/app/home/components/CardGrid";
+import BlueprintCTA from "@/app/home/components/BlueprintCTA";
+import StickyCTABar from "@/app/home/components/StickyCTABar";
 
 export default function HomePage() {
   return (
@@ -20,10 +20,15 @@ export default function HomePage() {
         {/* 2. Intro tagline strip */}
         <div
           className="py-8 px-4 text-center"
-          style={{ background: 'var(--honey-light)', borderBottom: '3px solid var(--honey-gold)' }}
+          style={{
+            background: "var(--honey-light)",
+            borderBottom: "3px solid var(--honey-gold)",
+          }}
         >
           <p className="text-verde text-sm md:text-base font-medium max-w-3xl mx-auto leading-relaxed">
-            Para dueños primerizos, familias con perros y amantes de los animales — adiestramiento, asesoramiento y acompañamiento canino con método, amor y resultados que perduran.
+            Para dueños primerizos, familias con perros y amantes de los
+            animales — adiestramiento, asesoramiento y acompañamiento canino con
+            método, amor y resultados que perduran.
           </p>
         </div>
 

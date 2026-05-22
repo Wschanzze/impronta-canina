@@ -3,6 +3,7 @@
 ## Opción 1: Crear un Repositorio en GitHub (Recomendado)
 
 ### Paso 1: Crear un nuevo repositorio en GitHub
+
 1. Ve a https://github.com/new
 2. Nombre del repositorio: `impronta-canina`
 3. Descripción: "Plataforma de adiestramiento y asesoramiento canino"
@@ -11,6 +12,7 @@
 6. Haz clic en "Create repository"
 
 ### Paso 2: Inicializar Git localmente
+
 Abre PowerShell o CMD en la carpeta del proyecto y ejecuta:
 
 ```bash
@@ -38,6 +40,7 @@ git push -u origin main
 ```
 
 ### Paso 3: Configurar Vercel para despliegue automático
+
 1. Ve a https://vercel.com
 2. Haz clic en "New Project"
 3. Selecciona tu repositorio `impronta-canina`
@@ -129,11 +132,13 @@ npm run type-check   # Verifica tipos TypeScript
 ## Troubleshooting
 
 ### Error: "fatal: not a git repository"
+
 ```bash
 git init
 ```
 
 ### Error: "Permission denied" al hacer push
+
 - Verifica que tengas acceso al repositorio en GitHub
 - Usa SSH en lugar de HTTPS si tienes problemas:
   ```bash
@@ -141,9 +146,11 @@ git init
   ```
 
 ### Error: "Branch 'main' set up to track remote 'origin/main'"
+
 Esto es normal. Significa que tu rama local está vinculada al repositorio remoto.
 
 ### El build falla en Vercel
+
 1. Verifica que todas las variables de entorno estén configuradas
 2. Revisa los logs de build en el dashboard de Vercel
 3. Asegúrate de que `package.json` tiene todas las dependencias
@@ -175,6 +182,7 @@ Una vez desplegado:
 ## Contacto y Soporte
 
 Para más información sobre Next.js, Vercel o Tailwind CSS, consulta:
+
 - [Next.js Docs](https://nextjs.org/docs)
 - [Vercel Docs](https://vercel.com/docs)
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
