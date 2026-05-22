@@ -16,18 +16,15 @@ export const metadata: Metadata = {
   },
 };
 
-import FloatingDoge from '../components/FloatingDoge';
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
         {children}
-        <FloatingDoge />
       </body>
     </html>
   );

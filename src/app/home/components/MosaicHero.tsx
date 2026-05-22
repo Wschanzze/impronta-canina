@@ -206,7 +206,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[1].src} alt={tiles[1].alt} fill priority className="object-cover" />
+              <AppImage src={tiles[1].src} alt={tiles[1].alt} fill className="object-cover" />
             </div>
             <div className="tile-back">
               <span className="text-charcoal text-2xl">🐾</span>
@@ -223,7 +223,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[2].src} alt={tiles[2].alt} fill priority className="object-cover" />
+              <AppImage src={tiles[2].src} alt={tiles[2].alt} fill className="object-cover" />
             </div>
             <div className="tile-back flex-col gap-3">
               <HuellaIcon />
@@ -243,7 +243,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[3].src} alt={tiles[3].alt} fill priority className="object-cover" />
+              <AppImage src={tiles[3].src} alt={tiles[3].alt} fill className="object-cover" />
             </div>
             <div className="tile-back">
               <span className="text-charcoal text-2xl">🎓</span>
@@ -260,7 +260,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[4].src} alt={tiles[4].alt} fill priority className="object-cover" />
+              <AppImage src={tiles[4].src} alt={tiles[4].alt} fill className="object-cover" />
             </div>
             <div className="tile-back">
               <span className="text-charcoal text-2xl">💛</span>
@@ -277,7 +277,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[5].src} alt={tiles[5].alt} fill priority className="object-cover" />
+              <AppImage src={tiles[5].src} alt={tiles[5].alt} fill className="object-cover" />
             </div>
             <div className="tile-back flex-col gap-2">
               <VinculoIcon />
@@ -297,7 +297,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[6].src} alt={tiles[6].alt} fill priority className="object-cover" />
+              <AppImage src={tiles[6].src} alt={tiles[6].alt} fill className="object-cover" />
             </div>
             <div className="tile-back">
               <span className="text-charcoal text-2xl">🌿</span>
