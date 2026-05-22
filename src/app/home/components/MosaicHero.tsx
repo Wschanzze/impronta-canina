@@ -176,16 +176,9 @@ const MosaicHero: React.FC = () => {
       style={{ background: '#1A1A1A' }}
     >
       {/* Mosaic Grid */}
-      <div
-        className="grid mosaic-gap"
-        style={{
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gridTemplateRows: 'repeat(3, 160px)',
-          padding: '3px',
-        }}
-      >
+      <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[120px] md:auto-rows-[160px] gap-1 md:gap-1.5 p-1">
         {/* Tile 1 — 2x2 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '1 / 3', gridRow: '1 / 3' }}>
+        <div className="mosaic-tile tile-wrapper col-span-2 row-span-2">
           <div
             className="tile-inner"
             ref={(el) => {
@@ -212,7 +205,7 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 2 — 1x1 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '3', gridRow: '1' }}>
+        <div className="mosaic-tile tile-wrapper col-span-1 row-span-1">
           <div
             className="tile-inner"
             ref={(el) => {
@@ -220,7 +213,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[1].src} alt={tiles[1].alt} fill className="object-cover" />
+              <AppImage src={tiles[1].src} alt={tiles[1].alt} fill priority className="object-cover" />
             </div>
             <div className="tile-back">
               <span className="text-charcoal text-2xl">🐾</span>
@@ -229,7 +222,7 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 3 — 1x2 (huella) */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '4', gridRow: '1 / 3' }}>
+        <div className="mosaic-tile tile-wrapper col-span-1 row-span-2">
           <div
             className="tile-inner"
             ref={(el) => {
@@ -237,7 +230,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[2].src} alt={tiles[2].alt} fill className="object-cover" />
+              <AppImage src={tiles[2].src} alt={tiles[2].alt} fill priority className="object-cover" />
             </div>
             <div className="tile-back flex-col gap-3">
               <HuellaIcon />
@@ -249,7 +242,7 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 4 — 1x1 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '3', gridRow: '2' }}>
+        <div className="mosaic-tile tile-wrapper col-span-1 row-span-1 hidden md:block">
           <div
             className="tile-inner"
             ref={(el) => {
@@ -257,7 +250,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[3].src} alt={tiles[3].alt} fill className="object-cover" />
+              <AppImage src={tiles[3].src} alt={tiles[3].alt} fill priority className="object-cover" />
             </div>
             <div className="tile-back">
               <span className="text-charcoal text-2xl">🎓</span>
@@ -266,7 +259,7 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 5 — 1x1 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '1', gridRow: '3' }}>
+        <div className="mosaic-tile tile-wrapper col-span-1 row-span-1">
           <div
             className="tile-inner"
             ref={(el) => {
@@ -274,7 +267,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[4].src} alt={tiles[4].alt} fill className="object-cover" />
+              <AppImage src={tiles[4].src} alt={tiles[4].alt} fill priority className="object-cover" />
             </div>
             <div className="tile-back">
               <span className="text-charcoal text-2xl">💛</span>
@@ -283,7 +276,7 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 6 — 2x1 (vinculo) */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '2 / 4', gridRow: '3' }}>
+        <div className="mosaic-tile tile-wrapper col-span-2 md:col-span-2 row-span-1">
           <div
             className="tile-inner"
             ref={(el) => {
@@ -291,7 +284,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[5].src} alt={tiles[5].alt} fill className="object-cover" />
+              <AppImage src={tiles[5].src} alt={tiles[5].alt} fill priority className="object-cover" />
             </div>
             <div className="tile-back flex-col gap-2">
               <VinculoIcon />
@@ -303,7 +296,7 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 7 — 1x1 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '4', gridRow: '3' }}>
+        <div className="mosaic-tile tile-wrapper col-span-1 row-span-1 hidden md:block">
           <div
             className="tile-inner"
             ref={(el) => {
@@ -311,7 +304,7 @@ const MosaicHero: React.FC = () => {
             }}
           >
             <div className="tile-front">
-              <AppImage src={tiles[6].src} alt={tiles[6].alt} fill className="object-cover" />
+              <AppImage src={tiles[6].src} alt={tiles[6].alt} fill priority className="object-cover" />
             </div>
             <div className="tile-back">
               <span className="text-charcoal text-2xl">🌿</span>

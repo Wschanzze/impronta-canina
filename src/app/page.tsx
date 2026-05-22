@@ -2,15 +2,16 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MosaicHero from '@/app/home/components/MosaicHero';
-import BrandPillars from '@/app/home/components/BrandPillars';
-import ServicesSection from '@/app/home/components/ServicesSection';
-import ClientsGallery from '@/app/home/components/ClientsGallery';
-import CardGrid from '@/app/home/components/CardGrid';
-import TestimonialsSection from '@/app/home/components/TestimonialsSection';
-import BlueprintCTA from '@/app/home/components/BlueprintCTA';
-import StickyCTABar from '@/app/home/components/StickyCTABar';
-import DidYouKnowRibbon from '@/app/home/components/DidYouKnowRibbon';
+import dynamic from 'next/dynamic';
 
+const BrandPillars = dynamic(() => import('@/app/home/components/BrandPillars'));
+const ServicesSection = dynamic(() => import('@/app/home/components/ServicesSection'));
+const ClientsGallery = dynamic(() => import('@/app/home/components/ClientsGallery'));
+const CardGrid = dynamic(() => import('@/app/home/components/CardGrid'));
+const TestimonialsSection = dynamic(() => import('@/app/home/components/TestimonialsSection'));
+const BlueprintCTA = dynamic(() => import('@/app/home/components/BlueprintCTA'));
+const DidYouKnowRibbon = dynamic(() => import('@/app/home/components/DidYouKnowRibbon'));
+const StickyCTABar = dynamic(() => import('@/app/home/components/StickyCTABar'));
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">

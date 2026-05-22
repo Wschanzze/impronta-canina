@@ -137,7 +137,7 @@ const ServicesSection: React.FC = () => {
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
           {/* Lado Izquierdo: Lista de pestañas */}
-          <div className="w-full lg:w-1/3 flex flex-col gap-3">
+          <div className="w-full lg:w-1/3 flex flex-row lg:flex-col gap-3 overflow-x-auto pb-4 lg:pb-0 snap-x hide-scrollbar" style={{ scrollbarWidth: 'none' }}>
             {services.map((service) => {
               const isActive = activeService.id === service.id;
               return (
@@ -145,7 +145,7 @@ const ServicesSection: React.FC = () => {
                   key={service.id}
                   onClick={() => setActiveService(service)}
                   onMouseEnter={() => setActiveService(service)}
-                  className={`w-full text-left p-5 rounded-2xl transition-all duration-300 flex items-center gap-4 border-2 group relative overflow-visible ${
+                  className={`w-[260px] lg:w-full shrink-0 text-left p-5 rounded-2xl transition-all duration-300 flex items-center gap-4 border-2 group relative overflow-visible snap-center ${
                     isActive
                       ? 'bg-slate-50 border-transparent shadow-lg'
                       : 'bg-white border-slate-100 hover:border-slate-200'
@@ -155,7 +155,7 @@ const ServicesSection: React.FC = () => {
                   }}
                 >
                   {/* Balloon Dog / Paw Icon POP-UP on top border when hovering */}
-                  <div className="absolute -top-3.5 right-6 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">
+                  <div className="absolute -top-3.5 right-6 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20 hidden md:block">
                     <div
                       className="px-2.5 py-1 rounded-full bg-white shadow-md border flex items-center justify-center"
                       style={{ borderColor: service.color }}
