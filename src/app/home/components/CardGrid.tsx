@@ -146,52 +146,6 @@ const cardData: BlogCardData[] = [
     statValue: "3-12",
     tag: "Fundamentos",
   },
-  {
-    id: 10,
-    title: "Problemas de conducta: ansiedad, agresividad y miedos",
-    excerpt:
-      "La mayoría de los problemas de conducta tienen solución con el enfoque correcto. Trabajamos con perros con ansiedad por separación, reactividad y miedos con protocolos específicos.",
-    category: "Conducta",
-    readTime: "8 min",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
-    imageAlt:
-      "Perro ansioso siendo trabajado con técnicas de desensibilización por especialista canino",
-    temperature: "cool",
-    microAnimation: "paw",
-    tag: "Conducta",
-  },
-  {
-    id: 11,
-    title: "Socialización temprana: la inversión más importante",
-    excerpt:
-      "Un cachorro bien socializado entre las 3 y 12 semanas de vida tiene muchas más probabilidades de convertirse en un perro equilibrado y confiado. Así lo hacemos.",
-    category: "Cachorros",
-    readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb",
-    imageAlt:
-      "Cachorro interactuando positivamente con personas y otros perros en clase de socialización",
-    temperature: "cool",
-    microAnimation: "geo",
-    statLabel: "de problemas evitables con buena socialización",
-    statValue: "80%",
-    tag: "Cachorros",
-  },
-  {
-    id: 12,
-    title: "El vínculo humano-canino: la base de todo",
-    excerpt:
-      "No entrenamos perros — construimos relaciones. Cuando el vínculo entre humano y perro es sólido, el aprendizaje fluye de manera natural y los resultados son duraderos.",
-    category: "Vínculo",
-    readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd",
-    imageAlt:
-      "Dueño y perro mirándose con confianza y afecto tras sesión de adiestramiento exitosa",
-    temperature: "cool",
-    microAnimation: "stat",
-    statLabel: "de nuestros clientes repiten o recomiendan",
-    statValue: "97%",
-    tag: "Vínculo",
-  },
 ];
 
 const ribbonFacts = [
@@ -260,7 +214,7 @@ const CardGrid: React.FC = () => {
             >
               <DidYouKnowRibbon
                 fact={ribbonFacts[rowIdx]}
-                temperature={rowIdx < 1 ? "warm" : "cool"}
+                temperature={rowIdx === 0 ? "warm" : rowIdx === 1 ? "cool" : "hot"}
                 index={rowIdx}
               />
             </motion.div>

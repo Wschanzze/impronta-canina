@@ -3,7 +3,7 @@ import React from "react";
 
 interface RibbonProps {
   fact: string;
-  temperature: "warm" | "cool";
+  temperature: "warm" | "cool" | "hot";
   index: number;
 }
 
@@ -109,18 +109,38 @@ const DidYouKnowRibbon: React.FC<RibbonProps> = ({
   temperature,
   index,
 }) => {
-  const isWarm = temperature === "warm";
+  let bg = "";
+  let silhouetteColor = "";
+  let hexColor = "";
+  let textColor = "";
+  let badgeBg = "";
+  let badgeText = "";
 
-  // Warm: yellow-gold ribbon | Cool: bright green ribbon
-  const bg = isWarm
-    ? "linear-gradient(135deg, #E8B800 0%, #C49A00 60%, #A88000 100%)"
-    : "linear-gradient(135deg, #1B7A3E 0%, #145E2F 60%, #0F4A25 100%)";
-
-  const silhouetteColor = isWarm ? "#1A1A1A" : "#E8B800";
-  const hexColor = isWarm ? "rgba(26,26,26,0.35)" : "rgba(232,184,0,0.45)";
-  const textColor = isWarm ? "#1A1A1A" : "#FFFFFF";
-  const badgeBg = isWarm ? "var(--tangerine)" : "rgba(232,184,0,0.22)";
-  const badgeText = isWarm ? "#ffffff" : "#E8B800";
+  if (temperature === "warm") {
+    // Amarillo / Dorado
+    bg = "linear-gradient(135deg, #E8B800 0%, #C49A00 60%, #A88000 100%)";
+    silhouetteColor = "#1A1A1A";
+    hexColor = "rgba(26,26,26,0.35)";
+    textColor = "#1A1A1A";
+    badgeBg = "var(--tangerine)";
+    badgeText = "#ffffff";
+  } else if (temperature === "cool") {
+    // Verde
+    bg = "linear-gradient(135deg, #1B7A3E 0%, #145E2F 60%, #0F4A25 100%)";
+    silhouetteColor = "#E8B800";
+    hexColor = "rgba(232,184,0,0.45)";
+    textColor = "#FFFFFF";
+    badgeBg = "rgba(232,184,0,0.22)";
+    badgeText = "#E8B800";
+  } else if (temperature === "hot") {
+    // Rojo
+    bg = "linear-gradient(135deg, #C8281E 0%, #A01F16 60%, #80160F 100%)";
+    silhouetteColor = "#E8B800";
+    hexColor = "rgba(232,184,0,0.45)";
+    textColor = "#FFFFFF";
+    badgeBg = "rgba(232,184,0,0.22)";
+    badgeText = "#E8B800";
+  }
 
   return (
     <div
@@ -136,7 +156,7 @@ const DidYouKnowRibbon: React.FC<RibbonProps> = ({
       {/* Center fact */}
       <div className="flex-1 text-center">
         <div
-          className="inline-block tag-badge px-4 py-1 rounded-full mb-3"
+          className="inline-block tag-badge px-4 py-1 rounded-full mb-3 font-bold"
           style={{
             background: badgeBg,
             color: badgeText,

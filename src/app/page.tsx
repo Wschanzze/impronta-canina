@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MosaicHero from "@/app/home/components/MosaicHero";
 import ServicesSection from "@/app/home/components/ServicesSection";
+import ClientsGallery from "@/app/home/components/ClientsGallery";
 import CardGrid from "@/app/home/components/CardGrid";
 import TestimonialsSection from "@/app/home/components/TestimonialsSection";
 import BlueprintCTA from "@/app/home/components/BlueprintCTA";
@@ -37,13 +38,16 @@ export default function HomePage() {
         {/* 3. Services Visual Tabs */}
         <ServicesSection />
 
-        {/* 4. Modular Card Grid with Ribbons */}
+        {/* 4. Clients Gallery */}
+        <ClientsGallery />
+
+        {/* 5. Modular Card Grid with Ribbons */}
         <CardGrid />
 
-        {/* 5. Testimonials */}
+        {/* 6. Testimonials */}
         <TestimonialsSection />
 
-        {/* 6. CTA + Contacto */}
+        {/* 7. CTA + Contacto */}
         <BlueprintCTA />
       </main>
 

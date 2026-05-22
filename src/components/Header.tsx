@@ -25,14 +25,21 @@ const Header: React.FC = () => {
 
   return (
     <>
+      {/* Barra superior de anuncios */}
+      <div className="bg-charcoal text-white text-xs md:text-sm font-medium py-2 px-4 text-center z-[101] relative flex justify-center items-center gap-2">
+        <span className="text-honey-gold">🗓️</span>
+        Evaluación inicial gratuita: ¡Reserva hoy y cambia la vida de tu perro!
+        <a href="#contacto" className="underline hover:text-honey-gold transition-colors ml-2 font-bold">Reservar ahora</a>
+      </div>
+
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-[100] transition-all duration-500 ${
           scrolled
-            ? "bg-white/85 backdrop-blur-xl shadow-warm-md border-b border-honey-gold/20 py-2"
-            : "bg-white/95 border-b border-verde/10 py-4"
+            ? "top-0 bg-white/85 backdrop-blur-xl shadow-warm-md border-b border-honey-gold/20 py-2"
+            : "top-[36px] md:top-[36px] bg-white/95 border-b border-verde/10 py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
@@ -48,15 +55,15 @@ const Header: React.FC = () => {
             />
           </div>
 
-          <div className="hidden md:flex items-center gap-8 text-[15px] font-semibold text-verde-dark">
+          <div className="hidden md:flex items-center gap-8 text-[15px] font-bold text-charcoal">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="relative group transition-colors hover:text-tangerine"
+                className="relative group transition-colors hover:text-verde"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tangerine transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-verde transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
@@ -74,9 +81,9 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center z-[101]">
             <button
-              className="p-2 text-verde-dark hover:text-tangerine transition-colors"
+              className={`p-2 transition-colors ${mobileMenuOpen ? "text-white hover:text-honey-gold" : "text-verde-dark hover:text-tangerine"}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
@@ -89,30 +96,38 @@ const Header: React.FC = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu Full Screen */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-[70px] left-0 right-0 z-[90] bg-white border-b border-verde/10 shadow-lg md:hidden"
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 z-[95] bg-charcoal text-white flex flex-col justify-center items-center"
           >
-            <div className="flex flex-col px-4 pt-2 pb-6 space-y-2">
-              {navLinks.map((link) => (
-                <a
+            <div className="flex flex-col space-y-8 w-full px-8 text-center">
+              {navLinks.map((link, i) => (
+                <motion.a
                   key={link.name}
                   href={link.href}
-                  className="block px-4 py-3 text-lg font-semibold text-verde-dark hover:bg-honey-light/50 hover:text-tangerine rounded-xl transition-colors"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 + 0.2 }}
+                  className="text-3xl font-serif font-bold hover:text-honey-gold transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </motion.a>
               ))}
-              <div className="pt-4 px-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="pt-8"
+              >
                 <button
-                  className="w-full btn-tangerine text-white text-base font-bold px-6 py-3 rounded-xl shadow-tangerine-glow"
+                  className="w-full max-w-xs mx-auto btn-tangerine text-white text-lg font-bold px-8 py-4 rounded-xl shadow-tangerine-glow"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     const el = document.getElementById("contacto");
@@ -121,7 +136,7 @@ const Header: React.FC = () => {
                 >
                   Consulta Gratuita
                 </button>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}
