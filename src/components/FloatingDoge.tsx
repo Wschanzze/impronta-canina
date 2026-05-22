@@ -24,7 +24,7 @@ export default function FloatingDoge() {
       title="¡Hablemos!"
     >
       <Spline 
-        scene="https://prod.spline.design/doge-s9g1TxN4LH2UhLFS6U10FRVI/scene.splinecode" 
+        scene="https://prod.spline.design/s9g1TxN4LH2UhLFS6U10FRVI/scene.splinecode" 
         className="w-full h-full"
       />
     </div>
