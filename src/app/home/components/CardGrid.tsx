@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import BlogCard, { BlogCardData } from "./BlogCard";
 import DidYouKnowRibbon from "./DidYouKnowRibbon";
 
@@ -209,6 +210,21 @@ const CardGrid: React.FC = () => {
 
   let cardIndex = 0;
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
   return (
     <section
       id="servicios"
@@ -217,24 +233,37 @@ const CardGrid: React.FC = () => {
       {rows.map((row, rowIdx) => (
         <React.Fragment key={rowIdx}>
           {/* Card row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {row.map((card) => {
               cardIndex++;
               return (
-                <div key={card.id} id={`card-${cardIndex}`}>
+                <motion.div variants={cardVariants} key={card.id} id={`card-${cardIndex}`}>
                   <BlogCard card={card} />
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
           {/* Ribbon after every row */}
           {rowIdx < ribbonFacts.length && (
-            <DidYouKnowRibbon
-              fact={ribbonFacts[rowIdx]}
-              temperature={rowIdx < 1 ? "warm" : "cool"}
-              index={rowIdx}
-            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <DidYouKnowRibbon
+                fact={ribbonFacts[rowIdx]}
+                temperature={rowIdx < 1 ? "warm" : "cool"}
+                index={rowIdx}
+              />
+            </motion.div>
           )}
         </React.Fragment>
       ))}
