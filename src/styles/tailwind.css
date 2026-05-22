@@ -188,6 +188,21 @@ h4 {
   transform-origin: 85% 60%;
 }
 
+/* ─── DOG SHAKE ANIMATION ─── */
+@keyframes dogShake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  15% { transform: translateX(-4px) rotate(-4deg); }
+  30% { transform: translateX(4px) rotate(4deg); }
+  45% { transform: translateX(-4px) rotate(-4deg); }
+  60% { transform: translateX(4px) rotate(4deg); }
+  75% { transform: translateX(-2px) rotate(-2deg); }
+  85% { transform: translateX(2px) rotate(2deg); }
+}
+
+.dog-shake-hover:hover {
+  animation: dogShake 0.6s ease-in-out;
+}
+
 /* ─── GEOMETRIC PATTERN ANIMATION ─── */
 @keyframes hexSpin {
   from {

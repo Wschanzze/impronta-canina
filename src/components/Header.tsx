@@ -43,8 +43,8 @@ const Header: React.FC = () => {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`fixed left-0 right-0 z-[100] transition-all duration-500 ${
           scrolled
-            ? 'top-0 bg-white/85 backdrop-blur-xl shadow-warm-md border-b border-honey-gold/20 py-2'
-            : 'top-[36px] md:top-[36px] bg-white/95 border-b border-verde/10 py-4'
+            ? 'top-0 bg-white/85 backdrop-blur-xl shadow-warm-md border-b border-honey-gold/20 py-3'
+            : 'top-[36px] md:top-[36px] bg-white/95 border-b border-verde/10 py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
@@ -52,10 +52,10 @@ const Header: React.FC = () => {
             <Image
               src="/assets/images/b7d66566-7b41-43ea-9cc1-dd65415791db-1779449981971.png"
               alt="Impronta Canina logo"
-              width={140}
-              height={45}
-              className={`object-contain transition-all duration-500 ease-in-out ${
-                scrolled ? 'h-10' : 'h-12 md:h-14'
+              width={180}
+              height={60}
+              className={`object-contain transition-all duration-500 ease-in-out dog-shake-hover ${
+                scrolled ? 'h-12' : 'h-16 md:h-20'
               } w-auto`}
             />
           </div>
