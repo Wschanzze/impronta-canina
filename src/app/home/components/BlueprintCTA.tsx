@@ -152,18 +152,17 @@ const BlueprintCTA: React.FC = () => {
               className="space-y-6"
             >
               <div
-                className="inline-block tag-badge px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide"
-                style={{ background: 'var(--tangerine)', color: '#ffffff' }}
+                className="inline-block tag-badge px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide bg-white/20 text-white backdrop-blur-sm border border-white/30"
               >
                 🐾 Educación Canina Profesional
               </div>
               <h2
-                className="font-serif font-bold text-3xl md:text-5xl leading-tight"
-                style={{ letterSpacing: '-0.02em', color: '#1A1A1A' }}
+                className="font-serif font-bold text-3xl md:text-5xl leading-tight text-white drop-shadow-sm"
+                style={{ letterSpacing: '-0.02em' }}
               >
                 La relación que tu perro y vos merecen.
               </h2>
-              <p className="text-base leading-relaxed" style={{ color: 'rgba(26,26,26,0.75)' }}>
+              <p className="text-base leading-relaxed text-white/90 font-medium">
                 En Impronta Canina creemos que cada aprendizaje deja una marca. Trabajamos con
                 método, amor y ciencia del comportamiento para que esa marca sea positiva, duradera
                 y transformadora.
@@ -174,20 +173,20 @@ const BlueprintCTA: React.FC = () => {
                 {[
                   {
                     text: 'Adiestramiento individual y familiar',
-                    color: '#1A1A1A',
+                    color: '#FFFFFF',
                   },
                   {
                     text: 'Asesoramiento conductual personalizado',
-                    color: '#C8281E',
+                    color: '#FFFFFF',
                   },
-                  { text: 'Cursos grupales de obediencia', color: '#1A1A1A' },
+                  { text: 'Cursos grupales de obediencia', color: '#FFFFFF' },
                   {
                     text: 'Paseos profesionales con seguimiento',
-                    color: '#1B7A3E',
+                    color: '#FFFFFF',
                   },
                   {
                     text: 'Traslados seguros a veterinarios y más',
-                    color: '#C8281E',
+                    color: '#FFFFFF',
                   },
                 ].map((f, i) => (
                   <motion.li
@@ -196,12 +195,10 @@ const BlueprintCTA: React.FC = () => {
                     transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
                     viewport={{ once: true }}
                     key={f.text}
-                    className="flex items-center gap-3 text-sm font-medium"
-                    style={{ color: '#1A1A1A' }}
+                    className="flex items-center gap-3 text-sm font-medium text-white"
                   >
                     <div
-                      className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                      style={{ background: `${f.color}33` }}
+                      className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 bg-white/20"
                     >
                       <Icon name="CheckIcon" size={12} style={{ color: f.color }} />
                     </div>
@@ -212,7 +209,7 @@ const BlueprintCTA: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
                 <button
-                  className="btn-tangerine text-white font-bold text-base px-8 py-4 rounded-2xl w-full sm:w-auto text-center shadow-tangerine-glow transition-transform hover:scale-105 active:scale-95"
+                  className="btn-tangerine text-white font-bold text-base px-8 py-4 rounded-2xl w-full sm:w-auto text-center shadow-tangerine-glow transition-transform hover:scale-105 active:scale-95 border border-white/20"
                   onClick={() => {
                     const el = document.getElementById('contacto-form');
                     el?.scrollIntoView({ behavior: 'smooth' });
@@ -220,7 +217,7 @@ const BlueprintCTA: React.FC = () => {
                 >
                   Quiero una consulta gratuita
                 </button>
-                <p className="text-xs font-medium" style={{ color: 'rgba(26,26,26,0.55)' }}>
+                <p className="text-xs font-medium text-white/80">
                   Sin compromiso. Te respondemos en 24 hs.
                 </p>
               </div>
@@ -235,12 +232,21 @@ const BlueprintCTA: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: '-50px' }}
-          className="rounded-3xl p-8 md:p-12 text-center"
+          className="rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
           style={{
             background: 'var(--honey-light)',
             border: '2px solid rgba(232,184,0,0.45)',
           }}
         >
+          <div 
+            className="absolute inset-0 pointer-events-none opacity-[0.07]"
+            style={{
+              backgroundImage: 'url("https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=1000")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
+          <div className="relative z-10">
           {submitted ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -302,6 +308,7 @@ const BlueprintCTA: React.FC = () => {
               </p>
             </>
           )}
+          </div>
         </motion.div>
       </div>
     </section>

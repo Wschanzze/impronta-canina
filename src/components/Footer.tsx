@@ -4,187 +4,154 @@ import Icon from '@/components/ui/AppIcon';
 
 const Footer: React.FC = () => {
   return (
-    <>
     <footer
-      className="pt-20 pb-10 px-4 md:px-8 relative overflow-hidden text-white"
+      className="py-12 px-4 md:px-8 relative overflow-hidden text-white border-t border-white/5"
       style={{ backgroundColor: 'var(--verde)' }}
     >
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-verde/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-honey-gold/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+      {/* Background soft glowing lights */}
+      <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          {/* Columna 1: Logo e Info (Ocupa más espacio en desktop) */}
-          <div className="lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
-            {/* Contenedor blanco para el logo transparente */}
-            <div className="bg-white p-4 rounded-2xl shadow-xl mb-6 inline-block">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-10">
+          {/* Column 1: Small Logo, Short Bio, Social Links */}
+          <div className="lg:col-span-5 flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="bg-white/95 p-2 px-3.5 rounded-xl shadow-md mb-4 inline-block border border-white/20">
               <Image
                 src="/assets/images/f331e164-448f-4333-9346-824f8a6f981f-1779450193447.png"
                 alt="Impronta Canina logo"
-                width={160}
-                height={160}
+                width={100}
+                height={35}
                 className="object-contain"
               />
             </div>
-            <p className="text-slate-300 text-sm leading-relaxed mb-6 max-w-sm">
-              Más que adiestramiento, construimos relaciones sanas y duraderas entre las familias y
-              sus perros a través del respeto y el refuerzo positivo.
+            <p className="text-white/80 text-xs md:text-sm leading-relaxed mb-6 max-w-sm font-medium">
+              Más que adiestramiento, construimos relaciones sanas y duraderas entre las familias y sus perros a través del respeto y el refuerzo positivo.
             </p>
 
-            {/* Redes Sociales */}
-            <div className="flex items-center gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-honey-gold hover:text-charcoal transition-all duration-300"
-              >
-                {/* SVG genérico de Instagram para no depender de iconos externos específicos */}
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+            {/* Social Icons */}
+            <div className="flex items-center gap-3">
+              {[
+                {
+                  href: '#',
+                  svg: (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                  ),
+                },
+                {
+                  href: '#',
+                  svg: (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  ),
+                },
+                {
+                  href: '#',
+                  svg: (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  ),
+                },
+              ].map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  className="w-8.5 h-8.5 rounded-lg bg-white/10 flex items-center justify-center text-white/90 hover:bg-white hover:text-verde hover:scale-105 transition-all duration-300"
                 >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-tangerine hover:text-white transition-all duration-300"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-verde hover:text-white transition-all duration-300"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-              </a>
+                  {social.svg}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Columna 2: Enlaces Rápidos */}
-          <div className="lg:col-span-3 lg:col-start-6 flex flex-col items-center md:items-start text-center md:text-left">
-            <h4 className="text-honey-gold font-bold text-lg mb-6">Explorar</h4>
-            <ul className="space-y-4">
-              <li>
-                <a href="#servicios" className="text-slate-300 hover:text-white transition-colors">
-                  Nuestros Servicios
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#adiestramiento"
-                  className="text-slate-300 hover:text-white transition-colors"
-                >
-                  Adiestramiento Positivo
-                </a>
-              </li>
-              <li>
-                <a href="#cursos" className="text-slate-300 hover:text-white transition-colors">
-                  Cursos Grupales
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#testimonios"
-                  className="text-slate-300 hover:text-white transition-colors"
-                >
-                  Historias de Éxito
-                </a>
-              </li>
+          {/* Column 2: Quick Links */}
+          <div className="lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+            <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-4 pb-1.5 border-b border-white/20 w-full md:w-auto">
+              Explorar
+            </h4>
+            <ul className="space-y-2 text-xs md:text-sm font-medium">
+              {[
+                { label: 'Nuestros Servicios', href: '#servicios' },
+                { label: 'Cursos Grupales', href: '#cursos-detalle' },
+                { label: 'Transporte Canino', href: '#transporte-detalle' },
+                { label: 'Historias de Éxito', href: '#testimonios' },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-white/80 hover:text-white transition-colors duration-200">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Columna 3: Contacto */}
+          {/* Column 3: Contact Info */}
           <div className="lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
-            <h4 className="text-honey-gold font-bold text-lg mb-6">Contacto Directo</h4>
-            <ul className="space-y-4 text-slate-300 text-sm">
-              <li className="flex items-center gap-3 justify-center md:justify-start">
-                <Icon name="MapPinIcon" size={18} className="text-tangerine shrink-0" />
+            <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-4 pb-1.5 border-b border-white/20 w-full md:w-auto">
+              Contacto
+            </h4>
+            <ul className="space-y-3 text-white/85 text-xs md:text-sm font-medium">
+              <li className="flex items-center gap-2.5 justify-center md:justify-start">
+                <Icon name="MapPinIcon" size={16} className="text-white/70 shrink-0" />
                 <span>Buenos Aires, Argentina (Atención a domicilio)</span>
               </li>
-              <li className="flex items-center gap-3 justify-center md:justify-start">
-                <Icon name="PhoneIcon" size={18} className="text-tangerine shrink-0" />
+              <li className="flex items-center gap-2.5 justify-center md:justify-start">
+                <Icon name="PhoneIcon" size={16} className="text-white/70 shrink-0" />
                 <span>+54 9 11 1234-5678</span>
               </li>
-              <li className="flex items-center gap-3 justify-center md:justify-start">
-                <Icon name="EnvelopeIcon" size={18} className="text-tangerine shrink-0" />
+              <li className="flex items-center gap-2.5 justify-center md:justify-start">
+                <Icon name="EnvelopeIcon" size={16} className="text-white/70 shrink-0" />
                 <span>hola@improntacanina.com</span>
               </li>
-              <li className="flex items-center gap-3 justify-center md:justify-start mt-2">
-                <Icon name="ClockIcon" size={18} className="text-tangerine shrink-0" />
+              <li className="flex items-center gap-2.5 justify-center md:justify-start">
+                <Icon name="ClockIcon" size={16} className="text-white/70 shrink-0" />
                 <span>Lun - Sab: 09:00 - 18:00</span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Divider & Copyright */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium border-t border-white/10 text-slate-400">
+        {/* Bottom Bar: Divider, Copyright and Credits integrated */}
+        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-medium text-white/60">
           <p>© 2026 Impronta Canina. Todos los derechos reservados.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-honey-gold transition-colors">
+          
+          <div className="flex items-center gap-1.5">
+            <span>Creado por</span>
+            <a
+              href="https://www.notanother.company/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-white transition-colors font-bold text-white"
+            >
+              <span>Not another consultora</span>
+              <Image
+                src="/assets/images/Gemini_Generated_Image_b89zf1b89zf1b89z__1_-removebg-preview.png"
+                alt="Not another consultora logo"
+                width={18}
+                height={18}
+                className="object-contain inline-block ml-0.5"
+              />
+            </a>
+          </div>
+
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-white transition-colors">
               Política de Privacidad
             </a>
-            <a href="#" className="hover:text-honey-gold transition-colors">
+            <a href="#" className="hover:text-white transition-colors">
               Términos de Servicio
             </a>
           </div>
         </div>
       </div>
     </footer>
-    {/* Credits Banner */}
-    <div className="w-full bg-white py-3 border-t border-slate-200 relative z-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col sm:flex-row justify-center items-center gap-2 text-center">
-        <span className="text-slate-500 text-xs md:text-sm font-medium">Esta página fue creada por</span>
-        <a
-          href="https://www.notanother.company/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity group"
-        >
-          <span className="text-charcoal font-bold text-xs md:text-sm group-hover:text-verde transition-colors">Not another consultora</span>
-          <Image
-            src="/assets/images/Gemini_Generated_Image_b89zf1b89zf1b89z__1_-removebg-preview.png"
-            alt="Not another consultora logo"
-            width={28}
-            height={28}
-            className="object-contain"
-          />
-        </a>
-      </div>
-    </div>
-    </>
   );
 };
 

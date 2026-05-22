@@ -6,12 +6,15 @@ import dynamic from 'next/dynamic';
 
 const BrandPillars = dynamic(() => import('@/app/home/components/BrandPillars'));
 const ServicesSection = dynamic(() => import('@/app/home/components/ServicesSection'));
+const CoursesDetailSection = dynamic(() => import('@/app/home/components/CoursesDetailSection'));
+const TransportDetailSection = dynamic(() => import('@/app/home/components/TransportDetailSection'));
 const ClientsGallery = dynamic(() => import('@/app/home/components/ClientsGallery'));
 const CardGrid = dynamic(() => import('@/app/home/components/CardGrid'));
 const TestimonialsSection = dynamic(() => import('@/app/home/components/TestimonialsSection'));
 const BlueprintCTA = dynamic(() => import('@/app/home/components/BlueprintCTA'));
 const DidYouKnowRibbon = dynamic(() => import('@/app/home/components/DidYouKnowRibbon'));
 const StickyCTABar = dynamic(() => import('@/app/home/components/StickyCTABar'));
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
@@ -38,6 +41,9 @@ export default function HomePage() {
         {/* 3. Services Visual Tabs */}
         <ServicesSection />
 
+        {/* 3.1. Detailed Training Courses Section */}
+        <CoursesDetailSection />
+
         {/* Did You Know Ribbon #2 - Obediencia */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 bg-white">
           <DidYouKnowRibbon
@@ -52,6 +58,9 @@ export default function HomePage() {
 
         {/* 5. Modular Card Grid */}
         <CardGrid />
+
+        {/* 5.1. Detailed Pet Transport Section (Tandil, Bs As) */}
+        <TransportDetailSection />
 
         {/* Did You Know Ribbon #3 - Refuerzo Positivo */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 bg-white">
