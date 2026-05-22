@@ -13,9 +13,7 @@ const CardGrid = dynamic(() => import('@/app/home/components/CardGrid'));
 const TestimonialsSection = dynamic(() => import('@/app/home/components/TestimonialsSection'));
 const BlueprintCTA = dynamic(() => import('@/app/home/components/BlueprintCTA'));
 const DidYouKnowRibbon = dynamic(() => import('@/app/home/components/DidYouKnowRibbon'));
-const StickyCTABar = dynamic(() => import('@/app/home/components/StickyCTABar'));
 
-export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -78,9 +76,6 @@ export default function HomePage() {
       </main>
 
       <Footer />
-
-      {/* Sticky bottom CTA */}
-      <StickyCTABar triggerAfterCard={3} />
     </div>
   );
 }

@@ -8,9 +8,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Goldie — Golden Retriever Health & Genetics Guide',
+  title: 'Impronta - Un aprendizaje que deja huella',
   description:
-    'Decode the DNA behind every golden coat, hip score, and hereditary condition. Actionable canine genetics for golden retriever owners, breeders, and rescue volunteers.',
+    'Adiestramiento y educación canina respetuosa en Tandil, Buenos Aires. Cursos de educación en positivo, talleres grupales y transporte de mascotas personalizado.',
   icons: {
     icon: [{ url: '/assets/images/app_logo.png', type: 'image/x-icon' }],
   },
