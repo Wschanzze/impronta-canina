@@ -17,10 +17,10 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Adiestramiento', href: '#adiestramiento' },
-    { name: 'Cursos', href: '#cursos' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Servicios', href: '/#servicios' },
+    { name: 'Adiestramiento', href: '/#servicios' },
+    { name: 'Cursos', href: '/cursos' },
+    { name: 'Contacto', href: '/#contacto' },
   ];
 
   return (
@@ -78,7 +78,11 @@ const Header: React.FC = () => {
               className="btn-tangerine text-white text-sm font-bold px-6 py-2.5 rounded-full shadow-tangerine-glow transition-transform hover:scale-105 active:scale-95"
               onClick={() => {
                 const el = document.getElementById('contacto');
-                el?.scrollIntoView({ behavior: 'smooth' });
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#contacto';
+                }
               }}
             >
               Consulta Gratuita
@@ -136,7 +140,11 @@ const Header: React.FC = () => {
                   onClick={() => {
                     setMobileMenuOpen(false);
                     const el = document.getElementById('contacto');
-                    el?.scrollIntoView({ behavior: 'smooth' });
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/#contacto';
+                    }
                   }}
                 >
                   Consulta Gratuita

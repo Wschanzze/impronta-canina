@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 
 const BrandPillars = dynamic(() => import('@/app/home/components/BrandPillars'));
 const ServicesSection = dynamic(() => import('@/app/home/components/ServicesSection'));
-const CoursesDetailSection = dynamic(() => import('@/app/home/components/CoursesDetailSection'));
+
 const TransportDetailSection = dynamic(() => import('@/app/home/components/TransportDetailSection'));
 const ClientsGallery = dynamic(() => import('@/app/home/components/ClientsGallery'));
 const CardGrid = dynamic(() => import('@/app/home/components/CardGrid'));
@@ -41,8 +41,7 @@ export default function HomePage() {
         {/* 3. Services Visual Tabs */}
         <ServicesSection />
 
-        {/* 3.1. Detailed Training Courses Section */}
-        <CoursesDetailSection />
+
 
         {/* Did You Know Ribbon #2 - Obediencia */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 bg-white">

@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '@/components/ui/AppIcon';
 
@@ -52,6 +52,208 @@ const courses: CourseItem[] = [
   },
 ];
 
+const CourseCard: React.FC<{ course: CourseItem; idx: number }> = ({ course, idx }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const courseSyllabus: Record<string, string[]> = {
+    'Cachorros Estrellas': [
+      'Unidad 1: Período crítico de socialización y estímulos cotidianos.',
+      'Unidad 2: Gestión de la mordida, control de esfínteres e higiene.',
+      'Unidad 3: Introducción a señales de calma y obediencia básica.',
+      'Unidad 4: Ansiedad por separación y fomento de la autonomía.'
+    ],
+    'Obediencia Urbana': [
+      'Unidad 1: Caminar sin tirar de la correa (paseo estructurado).',
+      'Unidad 2: La llamada de emergencia en entornos reales con distracciones.',
+      'Unidad 3: Autocontrol, paciencia y permanencia en cafés y plazas.',
+      'Unidad 4: Foco y atención directa en el tutor en cualquier situación.'
+    ],
+    'Estimulación y Olfato': [
+      'Unidad 1: Fundamentos del sistema olfativo del perro y beneficios cognitivos.',
+      'Unidad 2: Juegos de rastreo, búsqueda y discriminación de olores.',
+      'Unidad 3: Resolución de problemas de lógica y juguetes interactivos.',
+      'Unidad 4: Enriquecimiento ambiental para reducir estrés y reactividad.'
+    ],
+    'Socialización Guiada': [
+      'Unidad 1: Lenguaje corporal y señales de comunicación interperros.',
+      'Unidad 2: Acercamientos correctos y gestión de las distancias.',
+      'Unidad 3: Manejo de correa en interacciones grupales controladas.',
+      'Unidad 4: Resolución pacífica de conflictos y fomento del juego sano.'
+    ],
+  };
+
+  const syllabus = courseSyllabus[course.title] || [];
+  
+  const getDogBg = (title: string) => {
+    switch (title) {
+      case 'Cachorros Estrellas':
+        return 'https://images.unsplash.com/photo-1612846392422-24282052e07a?auto=format&fit=crop&q=80&w=800';
+      case 'Obediencia Urbana':
+        return 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&q=80&w=800';
+      case 'Estimulación y Olfato':
+        return 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800';
+      case 'Socialización Guiada':
+        return 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800';
+      default:
+        return 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800';
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: idx * 0.1 }}
+      className="tile-wrapper min-h-[470px] cursor-pointer"
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
+      <div className={`tile-inner ${isFlipped ? 'flipped' : ''}`} style={{ height: '100%' }}>
+        {/* Front Face */}
+        <div className="tile-front bg-white rounded-3xl p-8 shadow-warm-md hover:shadow-warm-lg transition-all duration-300 border border-slate-100 flex flex-col justify-between group relative overflow-hidden h-full">
+          {/* Colored top border accent */}
+          <div 
+            className="absolute top-0 left-0 right-0 h-1.5 opacity-80"
+            style={{ backgroundColor: course.color }}
+          />
+
+          <div>
+            <div className="flex justify-between items-start mb-6">
+              <div 
+                className="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-md transition-transform group-hover:scale-110"
+                style={{ backgroundColor: course.color }}
+              >
+                <Icon name={course.icon} size={24} />
+              </div>
+              <div className="text-right">
+                <span className="inline-block text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 mb-1">
+                  🎯 {course.age}
+                </span>
+                <p className="text-xs text-slate-400 font-medium">{course.duration}</p>
+              </div>
+            </div>
+
+            <h3 className="font-serif font-bold text-xl md:text-2xl text-charcoal mb-3 group-hover:text-verde transition-colors">
+              {course.title}
+            </h3>
+            <p className="text-slate-mid text-sm font-medium leading-relaxed mb-6">
+              {course.description}
+            </p>
+
+            {/* Bullet points */}
+            <ul className="space-y-2.5 border-t border-slate-100 pt-6">
+              {course.features.map((feat) => (
+                <li key={feat} className="flex items-start gap-2.5 text-xs text-slate-600 font-medium">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: `${course.color}15` }}>
+                    <Icon name="CheckIcon" size={10} style={{ color: course.color }} />
+                  </div>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-8 pt-4 border-t border-slate-50 flex items-center justify-between">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                const el = document.getElementById('contacto-form') || document.getElementById('contacto');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#contacto';
+                }
+              }}
+              className="text-xs font-bold transition-all flex items-center gap-1 group/btn"
+              style={{ color: course.color }}
+            >
+              Reservar vacante
+              <Icon name="ArrowRightIcon" size={14} className="transition-transform group-hover/btn:translate-x-1" />
+            </button>
+            <span className="text-[10px] bg-slate-50 text-slate-500 hover:bg-slate-100 py-1 px-2.5 rounded-full font-bold transition-colors border border-slate-100 flex items-center gap-1">
+              <span>📖 Ver Programa</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Back Face */}
+        <div className="tile-back absolute inset-0 bg-white rounded-3xl p-8 shadow-warm-md border border-slate-100 flex flex-col justify-between overflow-hidden h-full">
+          {/* Translucent dog image background */}
+          <div className="absolute inset-0 z-0 opacity-10 select-none pointer-events-none">
+            <img 
+              src={getDogBg(course.title)} 
+              alt="Background Dog" 
+              className="w-full h-full object-cover filter grayscale"
+            />
+          </div>
+          
+          {/* Top border color accent */}
+          <div 
+            className="absolute top-0 left-0 right-0 h-1.5 opacity-80 z-10"
+            style={{ backgroundColor: course.color }}
+          />
+
+          <div className="relative z-10 w-full text-left">
+            <div className="flex justify-between items-start mb-4">
+              <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
+                Temario & Unidades
+              </span>
+              <div 
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-white/90"
+                style={{ backgroundColor: course.color }}
+              >
+                <Icon name={course.icon} size={16} />
+              </div>
+            </div>
+
+            <h3 className="font-serif font-bold text-lg md:text-xl text-charcoal mb-4">
+              Programa de {course.title}
+            </h3>
+
+            {/* Syllabus items */}
+            <div className="space-y-3.5 border-t border-slate-100 pt-4">
+              {syllabus.map((unit, i) => {
+                const parts = unit.split(': ');
+                const unitTitle = parts[0];
+                const unitDesc = parts[1];
+                return (
+                  <div key={i} className="text-xs">
+                    <p className="font-bold text-charcoal" style={{ color: course.color }}>{unitTitle}</p>
+                    <p className="text-slate-mid font-medium mt-0.5 leading-snug">{unitDesc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-8 pt-4 border-t border-slate-50 flex items-center justify-between relative z-10 w-full">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                const el = document.getElementById('contacto-form') || document.getElementById('contacto');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#contacto';
+                }
+              }}
+              className="text-xs font-bold transition-all flex items-center gap-1 group/btn"
+              style={{ color: course.color }}
+            >
+              Reservar vacante
+              <Icon name="ArrowRightIcon" size={14} className="transition-transform group-hover/btn:translate-x-1" />
+            </button>
+
+            <span className="text-[10px] bg-slate-50 text-slate-500 hover:bg-slate-100 py-1 px-2.5 rounded-full font-bold transition-colors border border-slate-100">
+              ↩️ Volver
+            </span>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const CoursesDetailSection: React.FC = () => {
   return (
     <section id="cursos-detalle" className="py-24 px-4 md:px-8 bg-warm-cream relative overflow-hidden">
@@ -78,7 +280,7 @@ const CoursesDetailSection: React.FC = () => {
               Programas de <span style={{ color: 'var(--verde)' }}>Adiestramiento Grupal</span>
             </h2>
             <p className="text-slate-mid font-medium mt-4 text-sm md:text-base leading-relaxed">
-              Aprender en grupo potencia la socialización, expone al perro a distracciones del mundo real de forma controlada y te brinda una comunidad de apoyo.
+              Aprender en grupo potencia la socialización, expone al perro a distracciones del mundo real de forma controlada y te brinda una comunidad de apoyo. Haz clic en las tarjetas para ver el programa de cada unidad.
             </p>
           </motion.div>
         </div>
@@ -86,71 +288,7 @@ const CoursesDetailSection: React.FC = () => {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {courses.map((course, idx) => (
-            <motion.div
-              key={course.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="bg-white rounded-3xl p-8 shadow-warm-md hover:shadow-warm-lg transition-all duration-300 border border-slate-100 flex flex-col justify-between group relative overflow-hidden"
-            >
-              {/* Colored top border accent */}
-              <div 
-                className="absolute top-0 left-0 right-0 h-1.5 opacity-80"
-                style={{ backgroundColor: course.color }}
-              />
-
-              <div>
-                <div className="flex justify-between items-start mb-6">
-                  <div 
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-md transition-transform group-hover:scale-110"
-                    style={{ backgroundColor: course.color }}
-                  >
-                    <Icon name={course.icon} size={24} />
-                  </div>
-                  <div className="text-right">
-                    <span className="inline-block text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 mb-1">
-                      🎯 {course.age}
-                    </span>
-                    <p className="text-xs text-slate-400 font-medium">{course.duration}</p>
-                  </div>
-                </div>
-
-                <h3 className="font-serif font-bold text-xl md:text-2xl text-charcoal mb-3 group-hover:text-verde transition-colors">
-                  {course.title}
-                </h3>
-                <p className="text-slate-mid text-sm font-medium leading-relaxed mb-6">
-                  {course.description}
-                </p>
-
-                {/* Bullet points */}
-                <ul className="space-y-2.5 border-t border-slate-100 pt-6">
-                  {course.features.map((feat) => (
-                    <li key={feat} className="flex items-start gap-2.5 text-xs text-slate-600 font-medium">
-                      <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: `${course.color}15` }}>
-                        <Icon name="CheckIcon" size={10} style={{ color: course.color }} />
-                      </div>
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-slate-50 flex items-center justify-between">
-                <button
-                  onClick={() => {
-                    const el = document.getElementById('contacto-form');
-                    el?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="text-xs font-bold transition-all flex items-center gap-1 group/btn"
-                  style={{ color: course.color }}
-                >
-                  Reservar vacante
-                  <Icon name="ArrowRightIcon" size={14} className="transition-transform group-hover/btn:translate-x-1" />
-                </button>
-                <span className="text-[10px] uppercase tracking-wider font-extrabold text-slate-400">Cupos Limitados</span>
-              </div>
-            </motion.div>
+            <CourseCard key={course.title} course={course} idx={idx} />
           ))}
         </div>
 
@@ -172,8 +310,12 @@ const CoursesDetailSection: React.FC = () => {
           </div>
           <button
             onClick={() => {
-              const el = document.getElementById('contacto-form');
-              el?.scrollIntoView({ behavior: 'smooth' });
+              const el = document.getElementById('contacto-form') || document.getElementById('contacto');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.location.href = '/#contacto';
+              }
             }}
             className="btn-tangerine text-white font-bold text-xs px-6 py-3.5 rounded-xl whitespace-nowrap shadow-tangerine-glow transition-transform hover:scale-105 active:scale-95 shrink-0"
           >
