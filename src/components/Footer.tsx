@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer
       className="pt-20 pb-10 px-4 md:px-8 relative overflow-hidden text-white"
-      style={{ backgroundColor: 'var(--charcoal)' }}
+      style={{ backgroundColor: 'var(--verde)' }}
     >
       {/* Elementos decorativos de fondo */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-verde/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
