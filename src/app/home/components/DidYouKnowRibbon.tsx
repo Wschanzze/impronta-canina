@@ -67,6 +67,24 @@ const GeometricHex: React.FC<{ color: string }> = ({ color }) => (
 );
 
 const DidYouKnowRibbon: React.FC<RibbonProps> = ({ fact, temperature, index }) => {
+  const [isVisible, setIsVisible] = React.useState(true);
+  const ribbonRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin: '100px' }
+    );
+    
+    if (ribbonRef.current) {
+      observer.observe(ribbonRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
+
   let bg = '';
   let silhouetteColor = '';
   let hexColor = '';
@@ -100,9 +118,12 @@ const DidYouKnowRibbon: React.FC<RibbonProps> = ({ fact, temperature, index }) =
     badgeText = '#E8B800';
   }
 
+  const animationStateClass = isVisible ? '' : 'paused-animations';
+
   return (
     <div
-      className="w-full rounded-3xl overflow-hidden relative flex items-center justify-between px-8 md:px-16 py-10 gap-6"
+      ref={ribbonRef}
+      className={`w-full rounded-3xl overflow-hidden relative flex items-center justify-between px-8 md:px-16 py-10 gap-6 ${animationStateClass}`}
       style={{ background: bg, minHeight: '120px' }}
     >
       {/* Left geometric decorations */}

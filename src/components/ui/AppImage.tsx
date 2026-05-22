@@ -81,6 +81,8 @@ function AppImage({
             onLoad={handleLoad}
             onClick={onClick}
             style={imgStyle}
+            loading="lazy"
+            decoding="async"
             {...props}
           />
         </div>
@@ -96,6 +98,8 @@ function AppImage({
         onLoad={handleLoad}
         onClick={onClick}
         style={imgStyle}
+        loading="lazy"
+        decoding="async"
         {...props}
       />
     );

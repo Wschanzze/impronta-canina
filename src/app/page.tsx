@@ -8,8 +8,7 @@ const BrandPillars = dynamic(() => import('@/app/home/components/BrandPillars'))
 const ServicesSection = dynamic(() => import('@/app/home/components/ServicesSection'));
 
 const TransportDetailSection = dynamic(() => import('@/app/home/components/TransportDetailSection'));
-const ClientsGallery = dynamic(() => import('@/app/home/components/ClientsGallery'));
-const CardGrid = dynamic(() => import('@/app/home/components/CardGrid'));
+
 const TestimonialsSection = dynamic(() => import('@/app/home/components/TestimonialsSection'));
 const BlueprintCTA = dynamic(() => import('@/app/home/components/BlueprintCTA'));
 const DidYouKnowRibbon = dynamic(() => import('@/app/home/components/DidYouKnowRibbon'));
@@ -52,11 +51,7 @@ export default function HomePage() {
           />
         </div>
 
-        {/* 4. Clients Gallery */}
-        <ClientsGallery />
 
-        {/* 5. Modular Card Grid */}
-        <CardGrid />
 
         {/* 5.1. Detailed Pet Transport Section (Tandil, Bs As) */}
         <TransportDetailSection />
