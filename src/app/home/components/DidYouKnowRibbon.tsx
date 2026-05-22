@@ -1,9 +1,9 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 
 interface RibbonProps {
   fact: string;
-  temperature: "warm" | "cool" | "hot";
+  temperature: 'warm' | 'cool' | 'hot';
   index: number;
 }
 
@@ -29,42 +29,10 @@ const GoldenSilhouette: React.FC<{ color: string }> = ({ color }) => (
       opacity="0.7"
       transform="rotate(-15 82 22)"
     />
-    <rect
-      x="62"
-      y="54"
-      width="8"
-      height="14"
-      rx="4"
-      fill={color}
-      opacity="0.85"
-    />
-    <rect
-      x="74"
-      y="54"
-      width="8"
-      height="14"
-      rx="4"
-      fill={color}
-      opacity="0.85"
-    />
-    <rect
-      x="34"
-      y="54"
-      width="8"
-      height="14"
-      rx="4"
-      fill={color}
-      opacity="0.85"
-    />
-    <rect
-      x="44"
-      y="54"
-      width="8"
-      height="14"
-      rx="4"
-      fill={color}
-      opacity="0.85"
-    />
+    <rect x="62" y="54" width="8" height="14" rx="4" fill={color} opacity="0.85" />
+    <rect x="74" y="54" width="8" height="14" rx="4" fill={color} opacity="0.85" />
+    <rect x="34" y="54" width="8" height="14" rx="4" fill={color} opacity="0.85" />
+    <rect x="44" y="54" width="8" height="14" rx="4" fill={color} opacity="0.85" />
     <path
       d="M28 40 Q10 25 15 15 Q18 8 22 12 Q20 20 30 30"
       fill={color}
@@ -75,13 +43,7 @@ const GoldenSilhouette: React.FC<{ color: string }> = ({ color }) => (
 );
 
 const GeometricHex: React.FC<{ color: string }> = ({ color }) => (
-  <svg
-    viewBox="0 0 60 60"
-    width="60"
-    height="60"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg viewBox="0 0 60 60" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g className="hex-outer">
       <polygon
         points="30,3 55,17 55,43 30,57 5,43 5,17"
@@ -104,48 +66,44 @@ const GeometricHex: React.FC<{ color: string }> = ({ color }) => (
   </svg>
 );
 
-const DidYouKnowRibbon: React.FC<RibbonProps> = ({
-  fact,
-  temperature,
-  index,
-}) => {
-  let bg = "";
-  let silhouetteColor = "";
-  let hexColor = "";
-  let textColor = "";
-  let badgeBg = "";
-  let badgeText = "";
+const DidYouKnowRibbon: React.FC<RibbonProps> = ({ fact, temperature, index }) => {
+  let bg = '';
+  let silhouetteColor = '';
+  let hexColor = '';
+  let textColor = '';
+  let badgeBg = '';
+  let badgeText = '';
 
-  if (temperature === "warm") {
+  if (temperature === 'warm') {
     // Amarillo / Dorado
-    bg = "linear-gradient(135deg, #E8B800 0%, #C49A00 60%, #A88000 100%)";
-    silhouetteColor = "#1A1A1A";
-    hexColor = "rgba(26,26,26,0.35)";
-    textColor = "#1A1A1A";
-    badgeBg = "var(--tangerine)";
-    badgeText = "#ffffff";
-  } else if (temperature === "cool") {
+    bg = 'linear-gradient(135deg, #E8B800 0%, #C49A00 60%, #A88000 100%)';
+    silhouetteColor = '#1A1A1A';
+    hexColor = 'rgba(26,26,26,0.35)';
+    textColor = '#1A1A1A';
+    badgeBg = 'var(--tangerine)';
+    badgeText = '#ffffff';
+  } else if (temperature === 'cool') {
     // Verde
-    bg = "linear-gradient(135deg, #1B7A3E 0%, #145E2F 60%, #0F4A25 100%)";
-    silhouetteColor = "#E8B800";
-    hexColor = "rgba(232,184,0,0.45)";
-    textColor = "#FFFFFF";
-    badgeBg = "rgba(232,184,0,0.22)";
-    badgeText = "#E8B800";
-  } else if (temperature === "hot") {
+    bg = 'linear-gradient(135deg, #1B7A3E 0%, #145E2F 60%, #0F4A25 100%)';
+    silhouetteColor = '#E8B800';
+    hexColor = 'rgba(232,184,0,0.45)';
+    textColor = '#FFFFFF';
+    badgeBg = 'rgba(232,184,0,0.22)';
+    badgeText = '#E8B800';
+  } else if (temperature === 'hot') {
     // Rojo
-    bg = "linear-gradient(135deg, #C8281E 0%, #A01F16 60%, #80160F 100%)";
-    silhouetteColor = "#E8B800";
-    hexColor = "rgba(232,184,0,0.45)";
-    textColor = "#FFFFFF";
-    badgeBg = "rgba(232,184,0,0.22)";
-    badgeText = "#E8B800";
+    bg = 'linear-gradient(135deg, #C8281E 0%, #A01F16 60%, #80160F 100%)';
+    silhouetteColor = '#E8B800';
+    hexColor = 'rgba(232,184,0,0.45)';
+    textColor = '#FFFFFF';
+    badgeBg = 'rgba(232,184,0,0.22)';
+    badgeText = '#E8B800';
   }
 
   return (
     <div
       className="w-full rounded-3xl overflow-hidden relative flex items-center justify-between px-8 md:px-16 py-10 gap-6"
-      style={{ background: bg, minHeight: "120px" }}
+      style={{ background: bg, minHeight: '120px' }}
     >
       {/* Left geometric decorations */}
       <div className="hidden md:flex items-center gap-4 shrink-0">
@@ -166,7 +124,7 @@ const DidYouKnowRibbon: React.FC<RibbonProps> = ({
         </div>
         <p
           className="font-serif font-bold text-lg md:text-xl leading-snug max-w-2xl mx-auto"
-          style={{ letterSpacing: "-0.01em", color: textColor }}
+          style={{ letterSpacing: '-0.01em', color: textColor }}
         >
           {fact}
         </p>
@@ -175,7 +133,7 @@ const DidYouKnowRibbon: React.FC<RibbonProps> = ({
       {/* Right decorations */}
       <div
         className="hidden md:flex items-center gap-4 shrink-0"
-        style={{ transform: "scaleX(-1)" }}
+        style={{ transform: 'scaleX(-1)' }}
       >
         <GoldenSilhouette color={silhouetteColor} />
         <GeometricHex color={hexColor} />

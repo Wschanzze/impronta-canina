@@ -1,7 +1,7 @@
-"use client";
-import React, { useEffect, useRef } from "react";
-import AppImage from "@/components/ui/AppImage";
-import { motion } from "framer-motion";
+'use client';
+import React, { useEffect, useRef } from 'react';
+import AppImage from '@/components/ui/AppImage';
+import { motion } from 'framer-motion';
 
 interface Tile {
   id: number;
@@ -9,64 +9,64 @@ interface Tile {
   alt: string;
   colSpan: number;
   rowSpan: number;
-  flipContent: "metodo" | "huella" | "vinculo" | null;
-  type?: "image" | "video";
+  flipContent: 'metodo' | 'huella' | 'vinculo' | null;
+  type?: 'image' | 'video';
 }
 
 const tiles: Tile[] = [
   {
     id: 1,
-    src: "/assets/videos/6011991_Dog_Animal_1280x720.mp4",
-    alt: "Perro entrenando",
+    src: '/assets/videos/6011991_Dog_Animal_1280x720.mp4',
+    alt: 'Perro entrenando',
     colSpan: 2,
     rowSpan: 2,
-    flipContent: "metodo",
-    type: "video",
+    flipContent: 'metodo',
+    type: 'video',
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1612846392422-24282052e07a",
-    alt: "Cachorro aprendiendo su primer comando con entusiasmo",
+    src: 'https://images.unsplash.com/photo-1612846392422-24282052e07a',
+    alt: 'Cachorro aprendiendo su primer comando con entusiasmo',
     colSpan: 1,
     rowSpan: 1,
     flipContent: null,
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1665674065241-f7ffb6ee1cb4",
-    alt: "Perro corriendo libre y feliz en el campo durante paseo",
+    src: 'https://images.unsplash.com/photo-1665674065241-f7ffb6ee1cb4',
+    alt: 'Perro corriendo libre y feliz en el campo durante paseo',
     colSpan: 1,
     rowSpan: 2,
-    flipContent: "huella",
+    flipContent: 'huella',
   },
   {
     id: 4,
-    src: "https://img.rocket.new/generatedImages/rocket_gen_img_1578a0b03-1772135240762.png",
-    alt: "Perro adulto en posición de espera demostrando disciplina aprendida",
+    src: 'https://img.rocket.new/generatedImages/rocket_gen_img_1578a0b03-1772135240762.png',
+    alt: 'Perro adulto en posición de espera demostrando disciplina aprendida',
     colSpan: 1,
     rowSpan: 1,
     flipContent: null,
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1701587444296-9e8ce7f988c5",
-    alt: "Cachorro durmiendo tranquilo tras sesión de aprendizaje",
+    src: 'https://images.unsplash.com/photo-1701587444296-9e8ce7f988c5',
+    alt: 'Cachorro durmiendo tranquilo tras sesión de aprendizaje',
     colSpan: 1,
     rowSpan: 1,
     flipContent: null,
   },
   {
     id: 6,
-    src: "https://images.unsplash.com/photo-1526489550178-7bd5d9944f4f",
-    alt: "Perro mirando con ojos expresivos y confianza a su dueño",
+    src: 'https://images.unsplash.com/photo-1526489550178-7bd5d9944f4f',
+    alt: 'Perro mirando con ojos expresivos y confianza a su dueño',
     colSpan: 2,
     rowSpan: 1,
-    flipContent: "vinculo",
+    flipContent: 'vinculo',
   },
   {
     id: 7,
-    src: "https://img.rocket.new/generatedImages/rocket_gen_img_1d5031510-1772135239889.png",
-    alt: "Grupo de perros en clase de adiestramiento grupal",
+    src: 'https://img.rocket.new/generatedImages/rocket_gen_img_1d5031510-1772135239889.png',
+    alt: 'Grupo de perros en clase de adiestramiento grupal',
     colSpan: 1,
     rowSpan: 2,
     flipContent: null,
@@ -74,12 +74,7 @@ const tiles: Tile[] = [
 ];
 
 const MetodoIcon: React.FC = () => (
-  <svg
-    viewBox="0 0 80 80"
-    className="w-16 h-16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg viewBox="0 0 80 80" className="w-16 h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="40" cy="40" r="32" stroke="#E8B800" strokeWidth="2.5" fill="none" opacity="0.6" />
     <circle cx="40" cy="40" r="20" stroke="#C8281E" strokeWidth="2" fill="none" opacity="0.7" />
     <circle cx="40" cy="40" r="8" fill="#E8B800" opacity="0.9" />
@@ -91,12 +86,7 @@ const MetodoIcon: React.FC = () => (
 );
 
 const HuellaIcon: React.FC = () => (
-  <svg
-    viewBox="0 0 80 80"
-    className="w-16 h-16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg viewBox="0 0 80 80" className="w-16 h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="40" cy="52" rx="18" ry="16" fill="#E8B800" opacity="0.85" />
     <ellipse cx="16" cy="32" rx="10" ry="12" fill="#E8B800" opacity="0.85" />
     <ellipse cx="64" cy="32" rx="10" ry="12" fill="#E8B800" opacity="0.85" />
@@ -106,12 +96,7 @@ const HuellaIcon: React.FC = () => (
 );
 
 const VinculoIcon: React.FC = () => (
-  <svg
-    viewBox="0 0 100 90"
-    className="w-20 h-18"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg viewBox="0 0 100 90" className="w-20 h-18" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M50 80 C20 55 5 45 5 30 C5 15 18 8 30 8 C38 8 44 12 50 18 C56 12 62 8 70 8 C82 8 95 15 95 30 C95 45 80 55 50 80Z"
       fill="#C8281E"
@@ -128,8 +113,35 @@ const VinculoIcon: React.FC = () => (
   </svg>
 );
 
+const BalloonDogIcon: React.FC<{ className?: string; color?: string }> = ({
+  className,
+  color = 'currentColor',
+}) => (
+  <svg viewBox="0 0 120 70" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="55" cy="42" rx="28" ry="16" fill={color} opacity="0.95" />
+    <ellipse cx="84" cy="32" rx="14" ry="12" fill={color} opacity="0.95" />
+    <ellipse cx="96" cy="36" rx="8" ry="6" fill={color} opacity="0.9" />
+    <ellipse cx="103" cy="37" rx="3" ry="2.5" fill={color} opacity="0.8" />
+    <ellipse
+      cx="82"
+      cy="22"
+      rx="7"
+      ry="9"
+      fill={color}
+      opacity="0.8"
+      transform="rotate(-15 82 22)"
+    />
+    <rect x="62" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="74" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="34" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="44" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <path d="M28 40 Q10 25 15 15 Q18 8 22 12 Q20 20 30 30" fill={color} opacity="0.85" />
+  </svg>
+);
+
+const flipIndices = [0, 2, 5]; // tiles with flipContent
+
 const MosaicHero: React.FC = () => {
-  const flipIndices = [0, 2, 5]; // tiles with flipContent
   const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -139,7 +151,7 @@ const MosaicHero: React.FC = () => {
       const flipIn = setTimeout(
         () => {
           const el = tileRefs.current[idx];
-          if (el) el.classList.add("flipped");
+          if (el) el.classList.add('flipped');
         },
         1500 + i * 500
       );
@@ -147,7 +159,7 @@ const MosaicHero: React.FC = () => {
       const flipOut = setTimeout(
         () => {
           const el = tileRefs.current[idx];
-          if (el) el.classList.remove("flipped");
+          if (el) el.classList.remove('flipped');
         },
         3500 + i * 500
       );
@@ -159,21 +171,26 @@ const MosaicHero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden" style={{ background: "#1A1A1A" }}>
+    <section
+      className="relative w-full overflow-hidden animate-fade-in"
+      style={{ background: '#1A1A1A' }}
+    >
       {/* Mosaic Grid */}
       <div
         className="grid mosaic-gap"
         style={{
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gridTemplateRows: "repeat(3, 160px)",
-          padding: "3px",
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridTemplateRows: 'repeat(3, 160px)',
+          padding: '3px',
         }}
       >
         {/* Tile 1 — 2x2 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: "1 / 3", gridRow: "1 / 3" }}>
+        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '1 / 3', gridRow: '1 / 3' }}>
           <div
             className="tile-inner"
-            ref={(el) => { tileRefs.current[0] = el; }}
+            ref={(el) => {
+              tileRefs.current[0] = el;
+            }}
           >
             <div className="tile-front">
               <video
@@ -195,10 +212,12 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 2 — 1x1 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: "3", gridRow: "1" }}>
+        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '3', gridRow: '1' }}>
           <div
             className="tile-inner"
-            ref={(el) => { tileRefs.current[1] = el; }}
+            ref={(el) => {
+              tileRefs.current[1] = el;
+            }}
           >
             <div className="tile-front">
               <AppImage src={tiles[1].src} alt={tiles[1].alt} fill className="object-cover" />
@@ -210,10 +229,12 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 3 — 1x2 (huella) */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: "4", gridRow: "1 / 3" }}>
+        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '4', gridRow: '1 / 3' }}>
           <div
             className="tile-inner"
-            ref={(el) => { tileRefs.current[2] = el; }}
+            ref={(el) => {
+              tileRefs.current[2] = el;
+            }}
           >
             <div className="tile-front">
               <AppImage src={tiles[2].src} alt={tiles[2].alt} fill className="object-cover" />
@@ -228,10 +249,12 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 4 — 1x1 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: "3", gridRow: "2" }}>
+        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '3', gridRow: '2' }}>
           <div
             className="tile-inner"
-            ref={(el) => { tileRefs.current[3] = el; }}
+            ref={(el) => {
+              tileRefs.current[3] = el;
+            }}
           >
             <div className="tile-front">
               <AppImage src={tiles[3].src} alt={tiles[3].alt} fill className="object-cover" />
@@ -243,10 +266,12 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 5 — 1x1 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: "1", gridRow: "3" }}>
+        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '1', gridRow: '3' }}>
           <div
             className="tile-inner"
-            ref={(el) => { tileRefs.current[4] = el; }}
+            ref={(el) => {
+              tileRefs.current[4] = el;
+            }}
           >
             <div className="tile-front">
               <AppImage src={tiles[4].src} alt={tiles[4].alt} fill className="object-cover" />
@@ -258,10 +283,12 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 6 — 2x1 (vinculo) */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: "2 / 4", gridRow: "3" }}>
+        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '2 / 4', gridRow: '3' }}>
           <div
             className="tile-inner"
-            ref={(el) => { tileRefs.current[5] = el; }}
+            ref={(el) => {
+              tileRefs.current[5] = el;
+            }}
           >
             <div className="tile-front">
               <AppImage src={tiles[5].src} alt={tiles[5].alt} fill className="object-cover" />
@@ -276,10 +303,12 @@ const MosaicHero: React.FC = () => {
         </div>
 
         {/* Tile 7 — 1x1 */}
-        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: "4", gridRow: "3" }}>
+        <div className="mosaic-tile tile-wrapper" style={{ gridColumn: '4', gridRow: '3' }}>
           <div
             className="tile-inner"
-            ref={(el) => { tileRefs.current[6] = el; }}
+            ref={(el) => {
+              tileRefs.current[6] = el;
+            }}
           >
             <div className="tile-front">
               <AppImage src={tiles[6].src} alt={tiles[6].alt} fill className="object-cover" />
@@ -291,26 +320,35 @@ const MosaicHero: React.FC = () => {
         </div>
       </div>
 
-      {/* Overlay Text */}
+      {/* Overlay Text - Interactive and Glassmorphic */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-center px-6 py-8 rounded-3xl"
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+          className="text-center px-8 py-10 md:px-12 md:py-12 rounded-4xl pointer-events-auto group relative max-w-xl mx-auto shadow-2xl border transition-all duration-300 hover:shadow-[0_25px_60px_rgba(0,0,0,0.5)]"
           style={{
-            background: "rgba(232, 184, 0, 0.95)",
-            backdropFilter: "blur(16px)",
-            border: "3px solid rgba(200, 40, 30, 0.55)",
-            boxShadow: "0 8px 48px rgba(0,0,0,0.35)",
+            background: 'rgba(26, 26, 26, 0.82)',
+            backdropFilter: 'blur(16px)',
+            borderColor: 'rgba(232, 184, 0, 0.25)',
           }}
         >
+          {/* Balloon Dog Icon POP-UP on top border when hovering */}
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">
+            <div className="px-3 py-1.5 rounded-full bg-white shadow-lg border border-honey-gold flex items-center justify-center">
+              <BalloonDogIcon
+                className="w-8 h-5 text-honey-gold animate-bounce"
+                color="var(--honey-gold)"
+              />
+            </div>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4 font-bold text-xs uppercase tracking-wide"
-            style={{ background: "var(--tangerine)", color: "#ffffff" }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5 font-bold text-xs uppercase tracking-wider"
+            style={{ background: 'var(--tangerine)', color: '#ffffff' }}
           >
             🐾 Educación Canina Profesional
           </motion.div>
@@ -318,22 +356,40 @@ const MosaicHero: React.FC = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight mb-3"
-            style={{ letterSpacing: "-0.02em", color: "#1A1A1A" }}
+            className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-4"
+            style={{ letterSpacing: '-0.01em', color: '#FFFFFF' }}
           >
             Un aprendizaje
             <br />
-            <em style={{ color: "var(--tangerine)" }}>que deja huella.</em>
+            <em className="not-italic" style={{ color: 'var(--honey-gold)' }}>
+              que deja huella.
+            </em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.0 }}
-            className="text-base md:text-lg font-medium max-w-lg mx-auto"
-            style={{ color: "rgba(26,26,26,0.85)" }}
+            className="text-sm md:text-base font-medium max-w-lg mx-auto leading-relaxed mb-6"
+            style={{ color: 'rgba(255,255,255,0.85)' }}
           >
-            Adiestramiento, asesoramiento y cursos caninos diseñados para transformar la relación entre tú y tu perro.
+            Adiestramiento, asesoramiento y cursos caninos diseñados para transformar la relación
+            entre tú y tu perro.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+          >
+            <button
+              onClick={() => {
+                document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="btn-tangerine text-white text-sm font-bold px-8 py-3.5 rounded-full shadow-tangerine-glow transition-transform hover:scale-105 active:scale-95 cursor-pointer inline-flex items-center gap-2"
+            >
+              Consulta gratuita 🐾
+            </button>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -342,7 +398,7 @@ const MosaicHero: React.FC = () => {
         className="absolute bottom-0 left-0 right-0 h-1"
         style={{
           background:
-            "linear-gradient(90deg, var(--honey-gold), var(--tangerine), var(--verde), var(--honey-gold))",
+            'linear-gradient(90deg, var(--honey-gold), var(--tangerine), var(--verde), var(--honey-gold))',
         }}
       />
     </section>
@@ -350,4 +406,3 @@ const MosaicHero: React.FC = () => {
 };
 
 export default MosaicHero;
-

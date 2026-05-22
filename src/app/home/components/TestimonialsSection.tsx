@@ -1,8 +1,8 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import AppImage from "@/components/ui/AppImage";
-import Icon from "@/components/ui/AppIcon";
+'use client';
+import React from 'react';
+import { motion } from 'framer-motion';
+import AppImage from '@/components/ui/AppImage';
+import Icon from '@/components/ui/AppIcon';
 
 interface Testimonial {
   id: number;
@@ -17,66 +17,122 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    text: "Llegué desesperada porque mi cachorro de 4 meses destruía todo y no me hacía caso. En solo 3 sesiones con el equipo de Impronta, entendí qué estaba haciendo mal. Nos cambiaron la vida por completo.",
-    authorName: "Carolina S.",
-    authorRole: "Dueña primeriza",
-    authorUsername: "@caro_y_max",
-    authorImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+    text: 'Llegué desesperada porque mi cachorro de 4 meses destruía todo y no me hacía caso. En solo 3 sesiones con el equipo de Impronta, entendí qué estaba haciendo mal. Nos cambiaron la vida por completo.',
+    authorName: 'Carolina S.',
+    authorRole: 'Dueña primeriza',
+    authorUsername: '@caro_y_max',
+    authorImage: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
     initialRotation: -2,
   },
   {
     id: 2,
-    text: "He pasado por tres entrenadores distintos antes de llegar aquí. Lo que más destaco es que no usan castigos. Mi perra ahora me obedece por conexión y confianza, no por miedo. Totalmente recomendados.",
-    authorName: "Martín R.",
-    authorRole: "Propietario de Pastor Alemán",
-    authorUsername: "@martin_rescates",
-    authorImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+    text: 'He pasado por tres entrenadores distintos antes de llegar aquí. Lo que más destaco es que no usan castigos. Mi perra ahora me obedece por conexión y confianza, no por miedo. Totalmente recomendados.',
+    authorName: 'Martín R.',
+    authorRole: 'Propietario de Pastor Alemán',
+    authorUsername: '@martin_rescates',
+    authorImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e',
     initialRotation: 3,
   },
   {
     id: 3,
-    text: "El curso de socialización temprana debería ser obligatorio para todo aquel que tiene un cachorro. Ver cómo mi perro aprendió a comunicarse con otros sin ansiedad ni agresividad no tiene precio.",
-    authorName: "Laura y Tomás",
-    authorRole: "Familia Multiespecie",
-    authorUsername: "@familia_con_huellas",
-    authorImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+    text: 'El curso de socialización temprana debería ser obligatorio para todo aquel que tiene un cachorro. Ver cómo mi perro aprendió a comunicarse con otros sin ansiedad ni agresividad no tiene precio.',
+    authorName: 'Laura y Tomás',
+    authorRole: 'Familia Multiespecie',
+    authorUsername: '@familia_con_huellas',
+    authorImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
     initialRotation: -3,
   },
   {
     id: 4,
-    text: "Teníamos un caso severo de reactividad con otros perros en los paseos. Era una pesadilla salir a la calle. Gracias al protocolo de desensibilización, hoy podemos ir al parque y disfrutar juntos.",
-    authorName: "Esteban M.",
-    authorRole: "Adoptante",
-    authorUsername: "@esteban_adopta",
-    authorImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+    text: 'Teníamos un caso severo de reactividad con otros perros en los paseos. Era una pesadilla salir a la calle. Gracias al protocolo de desensibilización, hoy podemos ir al parque y disfrutar juntos.',
+    authorName: 'Esteban M.',
+    authorRole: 'Adoptante',
+    authorUsername: '@esteban_adopta',
+    authorImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e',
     initialRotation: 2,
   },
 ];
 
-const TestimonialCard: React.FC<{ testimonial: Testimonial; index: number }> = ({
-  testimonial,
-  index,
-}) => {
+const BalloonDogIcon: React.FC<{ className?: string; color?: string }> = ({
+  className,
+  color = 'currentColor',
+}) => (
+  <svg viewBox="0 0 120 70" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="55" cy="42" rx="28" ry="16" fill={color} opacity="0.95" />
+    <ellipse cx="84" cy="32" rx="14" ry="12" fill={color} opacity="0.95" />
+    <ellipse cx="96" cy="36" rx="8" ry="6" fill={color} opacity="0.9" />
+    <ellipse cx="103" cy="37" rx="3" ry="2.5" fill={color} opacity="0.8" />
+    <ellipse
+      cx="82"
+      cy="22"
+      rx="7"
+      ry="9"
+      fill={color}
+      opacity="0.8"
+      transform="rotate(-15 82 22)"
+    />
+    <rect x="62" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="74" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="34" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="44" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <path d="M28 40 Q10 25 15 15 Q18 8 22 12 Q20 20 30 30" fill={color} opacity="0.85" />
+  </svg>
+);
+
+const PawPrintIcon: React.FC<{ className?: string; color?: string }> = ({
+  className,
+  color = 'currentColor',
+}) => (
+  <svg viewBox="0 0 24 24" className={className} fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 14c-1.66 0-3 1.34-3 3 0 2 2 3.5 3 3.5s3-1.5 3-3.5c0-1.66-1.34-3-3-3z" />
+    <circle cx="7" cy="11" r="2" />
+    <circle cx="10.5" cy="8" r="2" />
+    <circle cx="13.5" cy="8" r="2" />
+    <circle cx="17" cy="11" r="2" />
+  </svg>
+);
+
+const TestimonialCard: React.FC<{
+  testimonial: Testimonial;
+  index: number;
+}> = ({ testimonial, index }) => {
+  const isBalloon = index % 2 === 0;
+  const accentColor = isBalloon ? 'var(--tangerine)' : 'var(--verde)';
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40, rotate: testimonial.initialRotation }}
       whileInView={{ opacity: 1, y: 0, rotate: testimonial.initialRotation }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.7, delay: index * 0.15, ease: 'easeOut' }}
       whileHover={{
         rotate: 0,
         scale: 1.02,
         y: -5,
         transition: { duration: 0.3 },
       }}
-      className="relative p-8 md:p-10 rounded-3xl cursor-default flex flex-col justify-between"
+      className="relative p-8 md:p-10 rounded-3xl cursor-default flex flex-col justify-between group"
       style={{
-        background: "#ffffff",
-        border: "1px solid rgba(232, 184, 0, 0.4)", // Borde dorado suave
-        boxShadow: "0 20px 40px -15px rgba(232, 184, 0, 0.25)", // Glow dorado
-        minHeight: "280px",
+        background: '#ffffff',
+        border: '1px solid rgba(232, 184, 0, 0.4)', // Borde dorado suave
+        boxShadow: '0 20px 40px -15px rgba(232, 184, 0, 0.25)', // Glow dorado
+        minHeight: '280px',
       }}
     >
+      {/* Balloon Dog / Paw Icon POP-UP on top border when hovering */}
+      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">
+        <div
+          className="px-2.5 py-1 rounded-full bg-white shadow-md border flex items-center justify-center"
+          style={{ borderColor: accentColor }}
+        >
+          {isBalloon ? (
+            <BalloonDogIcon className="w-7 h-4" color={accentColor} />
+          ) : (
+            <PawPrintIcon className="w-4 h-4" color={accentColor} />
+          )}
+        </div>
+      </div>
+
       <div>
         <div className="mb-4 text-honey-gold opacity-50">
           <svg
@@ -111,9 +167,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial; index: number }> = (
             <p className="text-xs text-slate-500">{testimonial.authorRole}</p>
           </div>
         </div>
-        <div className="text-xs font-medium text-slate-400">
-          {testimonial.authorUsername}
-        </div>
+        <div className="text-xs font-medium text-slate-400">{testimonial.authorUsername}</div>
       </div>
     </motion.div>
   );
@@ -126,10 +180,10 @@ const TestimonialsSection: React.FC = () => {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "var(--honey-light)", // Color de fondo muy suave
+          background: 'var(--honey-light)', // Color de fondo muy suave
           backgroundImage:
-            "linear-gradient(rgba(232, 184, 0, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 184, 0, 0.08) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+            'linear-gradient(rgba(232, 184, 0, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 184, 0, 0.08) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
           opacity: 0.7,
         }}
       />
@@ -146,13 +200,13 @@ const TestimonialsSection: React.FC = () => {
         >
           <div
             className="inline-block tag-badge px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide mb-6"
-            style={{ background: "var(--tangerine)", color: "#ffffff" }}
+            style={{ background: 'var(--tangerine)', color: '#ffffff' }}
           >
             LO QUE DICEN NUESTRAS FAMILIAS CANINAS
           </div>
           <h2
             className="font-serif font-bold text-4xl md:text-5xl leading-tight mb-4"
-            style={{ color: "var(--charcoal)" }}
+            style={{ color: 'var(--charcoal)' }}
           >
             Palabras reales de <br className="hidden md:block" />
             personas reales.

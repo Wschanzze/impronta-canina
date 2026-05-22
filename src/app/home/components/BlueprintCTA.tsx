@@ -1,7 +1,7 @@
-"use client";
-import React, { useState } from "react";
-import Icon from "@/components/ui/AppIcon";
-import { motion } from "framer-motion";
+'use client';
+import React, { useState } from 'react';
+import Icon from '@/components/ui/AppIcon';
+import { motion } from 'framer-motion';
 
 const ServicesMockup: React.FC = () => (
   <div className="relative w-full max-w-xs mx-auto">
@@ -9,16 +9,16 @@ const ServicesMockup: React.FC = () => (
     <div
       className="absolute top-2 left-4 w-full h-full rounded-2xl border-2 border-honey-gold/40"
       style={{
-        background: "linear-gradient(135deg, #E8B800 0%, #C49A00 100%)",
-        transform: "rotate(6deg)",
+        background: 'linear-gradient(135deg, #E8B800 0%, #C49A00 100%)',
+        transform: 'rotate(6deg)',
         opacity: 0.6,
       }}
     />
     <div
       className="absolute top-1 left-2 w-full h-full rounded-2xl border-2 border-honey-gold/40"
       style={{
-        background: "linear-gradient(135deg, #C8281E 0%, #A01F16 100%)",
-        transform: "rotate(3deg)",
+        background: 'linear-gradient(135deg, #C8281E 0%, #A01F16 100%)',
+        transform: 'rotate(3deg)',
         opacity: 0.5,
       }}
     />
@@ -27,18 +27,15 @@ const ServicesMockup: React.FC = () => (
     <div
       className="blueprint-mockup relative w-full rounded-2xl overflow-hidden border-2 border-verde/40 shadow-warm-lg"
       style={{
-        background: "linear-gradient(135deg, #1B7A3E 0%, #2E9E55 100%)",
-        aspectRatio: "3/4",
+        background: 'linear-gradient(135deg, #1B7A3E 0%, #2E9E55 100%)',
+        aspectRatio: '3/4',
       }}
     >
       <div className="p-8 h-full flex flex-col justify-between">
         {/* Header */}
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <div
-              className="w-6 h-6 rounded-full"
-              style={{ background: "var(--honey-gold)" }}
-            />
+            <div className="w-6 h-6 rounded-full" style={{ background: 'var(--honey-gold)' }} />
             <span className="text-honey-gold text-xs font-bold uppercase tracking-widest">
               Impronta Canina
             </span>
@@ -46,9 +43,7 @@ const ServicesMockup: React.FC = () => (
           <h3 className="font-serif font-bold text-white text-xl leading-tight mb-2">
             Un aprendizaje que deja huella
           </h3>
-          <p className="text-verde-light text-xs">
-            Educación canina profesional
-          </p>
+          <p className="text-verde-light text-xs">Educación canina profesional</p>
         </div>
 
         {/* Middle illustration */}
@@ -68,29 +63,33 @@ const ServicesMockup: React.FC = () => (
             <ellipse cx="10" cy="12" rx="3" ry="3.5" fill="#C8281E" opacity="0.5" />
             <ellipse cx="20" cy="12" rx="3" ry="3.5" fill="#C8281E" opacity="0.5" />
             {/* Green leaf accent */}
-            <ellipse cx="105" cy="15" rx="6" ry="9" fill="#A8E6BE" opacity="0.6" transform="rotate(-20 105 15)" />
+            <ellipse
+              cx="105"
+              cy="15"
+              rx="6"
+              ry="9"
+              fill="#A8E6BE"
+              opacity="0.6"
+              transform="rotate(-20 105 15)"
+            />
           </svg>
         </div>
 
         {/* Services preview */}
         <div className="space-y-1.5">
           {[
-            "Adiestramiento Individual",
-            "Asesoramiento Personalizado",
-            "Cursos Grupales",
-            "Paseos Profesionales",
-            "Traslados Seguros",
+            'Adiestramiento Individual',
+            'Asesoramiento Personalizado',
+            'Cursos Grupales',
+            'Paseos Profesionales',
+            'Traslados Seguros',
           ].map((s, i) => (
             <div key={s} className="flex items-center gap-2">
               <div
                 className="w-1.5 h-1.5 rounded-full"
                 style={{
                   background:
-                    i === 4
-                      ? "#A8E6BE"
-                      : i % 2 === 0
-                        ? "var(--honey-gold)"
-                        : "var(--tangerine)",
+                    i === 4 ? '#A8E6BE' : i % 2 === 0 ? 'var(--honey-gold)' : 'var(--tangerine)',
                 }}
               />
               <span className="text-verde-light text-xs font-medium">{s}</span>
@@ -100,9 +99,7 @@ const ServicesMockup: React.FC = () => (
 
         {/* CTA tag */}
         <div className="mt-4 flex items-center justify-between">
-          <span className="text-honey-gold font-serif font-bold text-lg">
-            Consulta gratis
-          </span>
+          <span className="text-honey-gold font-serif font-bold text-lg">Consulta gratis</span>
           <span className="text-verde-light/60 text-xs">Sin compromiso</span>
         </div>
       </div>
@@ -111,7 +108,7 @@ const ServicesMockup: React.FC = () => (
 );
 
 const BlueprintCTA: React.FC = () => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleConsulta = (e: React.FormEvent) => {
@@ -126,12 +123,12 @@ const BlueprintCTA: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, margin: '-100px' }}
           className="rounded-4xl overflow-hidden p-8 md:p-16 mb-12"
           style={{
-            background: "linear-gradient(135deg, #E8B800 0%, #C49A00 100%)",
-            border: "3px solid rgba(200,40,30,0.35)",
+            background: 'linear-gradient(135deg, #E8B800 0%, #C49A00 100%)',
+            border: '3px solid rgba(200,40,30,0.35)',
           }}
         >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -156,33 +153,42 @@ const BlueprintCTA: React.FC = () => {
             >
               <div
                 className="inline-block tag-badge px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide"
-                style={{ background: "var(--tangerine)", color: "#ffffff" }}
+                style={{ background: 'var(--tangerine)', color: '#ffffff' }}
               >
                 🐾 Educación Canina Profesional
               </div>
               <h2
                 className="font-serif font-bold text-3xl md:text-5xl leading-tight"
-                style={{ letterSpacing: "-0.02em", color: "#1A1A1A" }}
+                style={{ letterSpacing: '-0.02em', color: '#1A1A1A' }}
               >
                 La relación que tu perro y vos merecen.
               </h2>
-              <p
-                className="text-base leading-relaxed"
-                style={{ color: "rgba(26,26,26,0.75)" }}
-              >
-                En Impronta Canina creemos que cada aprendizaje deja una marca.
-                Trabajamos con método, amor y ciencia del comportamiento para
-                que esa marca sea positiva, duradera y transformadora.
+              <p className="text-base leading-relaxed" style={{ color: 'rgba(26,26,26,0.75)' }}>
+                En Impronta Canina creemos que cada aprendizaje deja una marca. Trabajamos con
+                método, amor y ciencia del comportamiento para que esa marca sea positiva, duradera
+                y transformadora.
               </p>
 
               {/* Services */}
               <ul className="space-y-3">
                 {[
-                  { text: "Adiestramiento individual y familiar", color: "#1A1A1A" },
-                  { text: "Asesoramiento conductual personalizado", color: "#C8281E" },
-                  { text: "Cursos grupales de obediencia", color: "#1A1A1A" },
-                  { text: "Paseos profesionales con seguimiento", color: "#1B7A3E" },
-                  { text: "Traslados seguros a veterinarios y más", color: "#C8281E" },
+                  {
+                    text: 'Adiestramiento individual y familiar',
+                    color: '#1A1A1A',
+                  },
+                  {
+                    text: 'Asesoramiento conductual personalizado',
+                    color: '#C8281E',
+                  },
+                  { text: 'Cursos grupales de obediencia', color: '#1A1A1A' },
+                  {
+                    text: 'Paseos profesionales con seguimiento',
+                    color: '#1B7A3E',
+                  },
+                  {
+                    text: 'Traslados seguros a veterinarios y más',
+                    color: '#C8281E',
+                  },
                 ].map((f, i) => (
                   <motion.li
                     initial={{ opacity: 0, x: 20 }}
@@ -191,7 +197,7 @@ const BlueprintCTA: React.FC = () => {
                     viewport={{ once: true }}
                     key={f.text}
                     className="flex items-center gap-3 text-sm font-medium"
-                    style={{ color: "#1A1A1A" }}
+                    style={{ color: '#1A1A1A' }}
                   >
                     <div
                       className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
@@ -208,16 +214,13 @@ const BlueprintCTA: React.FC = () => {
                 <button
                   className="btn-tangerine text-white font-bold text-base px-8 py-4 rounded-2xl w-full sm:w-auto text-center shadow-tangerine-glow transition-transform hover:scale-105 active:scale-95"
                   onClick={() => {
-                    const el = document.getElementById("contacto-form");
-                    el?.scrollIntoView({ behavior: "smooth" });
+                    const el = document.getElementById('contacto-form');
+                    el?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   Quiero una consulta gratuita
                 </button>
-                <p
-                  className="text-xs font-medium"
-                  style={{ color: "rgba(26,26,26,0.55)" }}
-                >
+                <p className="text-xs font-medium" style={{ color: 'rgba(26,26,26,0.55)' }}>
                   Sin compromiso. Te respondemos en 24 hs.
                 </p>
               </div>
@@ -231,11 +234,11 @@ const BlueprintCTA: React.FC = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: '-50px' }}
           className="rounded-3xl p-8 md:p-12 text-center"
           style={{
-            background: "var(--honey-light)",
-            border: "2px solid rgba(232,184,0,0.45)",
+            background: 'var(--honey-light)',
+            border: '2px solid rgba(232,184,0,0.45)',
           }}
         >
           {submitted ? (
@@ -256,18 +259,19 @@ const BlueprintCTA: React.FC = () => {
             <>
               <div
                 className="inline-block tag-badge px-4 py-1.5 rounded-full mb-4 font-bold text-xs uppercase tracking-wide"
-                style={{ background: "var(--tangerine)", color: "#ffffff" }}
+                style={{ background: 'var(--tangerine)', color: '#ffffff' }}
               >
                 Consulta Gratuita
               </div>
               <h3
                 className="font-serif font-bold text-2xl md:text-3xl text-charcoal mb-3"
-                style={{ letterSpacing: "-0.01em" }}
+                style={{ letterSpacing: '-0.01em' }}
               >
                 ¿No sabés por dónde empezar? Hablemos.
               </h3>
               <p className="text-slate-mid text-sm mb-8 max-w-lg mx-auto">
-                Contanos sobre tu perro y te asesoramos sin costo. Cada historia es única — y cada solución también.
+                Contanos sobre tu perro y te asesoramos sin costo. Cada historia es única — y cada
+                solución también.
               </p>
               <form
                 onSubmit={handleConsulta}
@@ -280,9 +284,9 @@ const BlueprintCTA: React.FC = () => {
                   placeholder="Tu nombre y el de tu perro"
                   className="email-input flex-1 px-5 py-3.5 rounded-xl text-sm font-medium border-2 transition-all focus:outline-none focus:ring-2 focus:ring-tangerine/50"
                   style={{
-                    background: "white",
-                    color: "var(--charcoal)",
-                    borderColor: "rgba(232,184,0,0.5)",
+                    background: 'white',
+                    color: 'var(--charcoal)',
+                    borderColor: 'rgba(232,184,0,0.5)',
                   }}
                   required
                 />

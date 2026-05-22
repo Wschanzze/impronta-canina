@@ -1,10 +1,10 @@
-"use client";
-import React, { useState } from "react";
-import AppImage from "@/components/ui/AppImage";
-import Icon from "@/components/ui/AppIcon";
+'use client';
+import React from 'react';
+import AppImage from '@/components/ui/AppImage';
+import Icon from '@/components/ui/AppIcon';
 
-export type CardTemperature = "warm" | "neutral" | "cool";
-export type MicroAnimation = "paw" | "stat" | "geo";
+export type CardTemperature = 'warm' | 'neutral' | 'cool';
+export type MicroAnimation = 'paw' | 'stat' | 'geo';
 
 export interface BlogCardData {
   id: number;
@@ -34,22 +34,22 @@ const temperatureStyles: Record<
   { accent: string; bg: string; tagBg: string; tagText: string }
 > = {
   warm: {
-    accent: "#C8281E", // logo red
-    bg: "#E8B800", // logo yellow
-    tagBg: "#FFF5CC", // honey-light
-    tagText: "#A01F16", // tangerine-dark
+    accent: '#C8281E', // logo red
+    bg: '#E8B800', // logo yellow
+    tagBg: '#FFF5CC', // honey-light
+    tagText: '#A01F16', // tangerine-dark
   },
   neutral: {
-    accent: "#4A7C59", // sage green
-    bg: "#5A9068",
-    tagBg: "#E8F2EC", // sage-light
-    tagText: "#3A6347",
+    accent: '#4A7C59', // sage green
+    bg: '#5A9068',
+    tagBg: '#E8F2EC', // sage-light
+    tagText: '#3A6347',
   },
   cool: {
-    accent: "#1B7A3E", // verde
-    bg: "#2E9E55", // verde-mid
-    tagBg: "#D4F5E2", // verde-pale
-    tagText: "#145E2F", // verde-dark
+    accent: '#1B7A3E', // verde
+    bg: '#2E9E55', // verde-mid
+    tagBg: '#D4F5E2', // verde-pale
+    tagText: '#145E2F', // verde-dark
   },
 };
 
@@ -75,23 +75,50 @@ const GeoPattern: React.FC<{ color: string }> = ({ color }) => (
       className="absolute -right-8 -bottom-8 w-32 h-32 geo-rotate opacity-10"
       fill="none"
     >
-      <polygon
-        points="100,10 190,55 190,145 100,190 10,145 10,55"
-        stroke={color}
-        strokeWidth="2"
-      />
-      <polygon
-        points="100,30 170,65 170,135 100,170 30,135 30,65"
-        stroke={color}
-        strokeWidth="2"
-      />
-      <polygon
-        points="100,50 150,75 150,125 100,150 50,125 50,75"
-        stroke={color}
-        strokeWidth="2"
-      />
+      <polygon points="100,10 190,55 190,145 100,190 10,145 10,55" stroke={color} strokeWidth="2" />
+      <polygon points="100,30 170,65 170,135 100,170 30,135 30,65" stroke={color} strokeWidth="2" />
+      <polygon points="100,50 150,75 150,125 100,150 50,125 50,75" stroke={color} strokeWidth="2" />
     </svg>
   </div>
+);
+
+const BalloonDogIcon: React.FC<{ className?: string; color?: string }> = ({
+  className,
+  color = 'currentColor',
+}) => (
+  <svg viewBox="0 0 120 70" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="55" cy="42" rx="28" ry="16" fill={color} opacity="0.95" />
+    <ellipse cx="84" cy="32" rx="14" ry="12" fill={color} opacity="0.95" />
+    <ellipse cx="96" cy="36" rx="8" ry="6" fill={color} opacity="0.9" />
+    <ellipse cx="103" cy="37" rx="3" ry="2.5" fill={color} opacity="0.8" />
+    <ellipse
+      cx="82"
+      cy="22"
+      rx="7"
+      ry="9"
+      fill={color}
+      opacity="0.8"
+      transform="rotate(-15 82 22)"
+    />
+    <rect x="62" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="74" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="34" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="44" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <path d="M28 40 Q10 25 15 15 Q18 8 22 12 Q20 20 30 30" fill={color} opacity="0.85" />
+  </svg>
+);
+
+const PawPrintIcon: React.FC<{ className?: string; color?: string }> = ({
+  className,
+  color = 'currentColor',
+}) => (
+  <svg viewBox="0 0 24 24" className={className} fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 14c-1.66 0-3 1.34-3 3 0 2 2 3.5 3 3.5s3-1.5 3-3.5c0-1.66-1.34-3-3-3z" />
+    <circle cx="7" cy="11" r="2" />
+    <circle cx="10.5" cy="8" r="2" />
+    <circle cx="13.5" cy="8" r="2" />
+    <circle cx="17" cy="11" r="2" />
+  </svg>
 );
 
 const BlogCard: React.FC<BlogCardProps> = ({ card }) => {
@@ -101,27 +128,41 @@ const BlogCard: React.FC<BlogCardProps> = ({ card }) => {
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    if (card.microAnimation === "stat" && !statDisplayed) {
+    if (card.microAnimation === 'stat' && !statDisplayed) {
       setStatDisplayed(true);
     }
   };
 
   return (
     <article
-      className="blog-card relative bg-white rounded-3xl overflow-hidden shadow-card cursor-pointer group"
+      className="blog-card relative bg-white rounded-3xl shadow-card cursor-pointer group"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={() => setIsHovered(false)}
       style={{
         boxShadow: isHovered
-          ? "0 12px 40px rgba(26, 26, 26, 0.14)"
-          : "0 4px 20px rgba(26, 26, 26, 0.08)",
+          ? '0 12px 40px rgba(26, 26, 26, 0.14)'
+          : '0 4px 20px rgba(26, 26, 26, 0.08)',
       }}
     >
+      {/* Balloon Dog / Paw Icon POP-UP on top border when hovering */}
+      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">
+        <div
+          className="px-2.5 py-1 rounded-full bg-white shadow-md border flex items-center justify-center"
+          style={{ borderColor: styles.accent }}
+        >
+          {card.temperature === 'warm' ? (
+            <BalloonDogIcon className="w-7 h-4" color={styles.accent} />
+          ) : (
+            <PawPrintIcon className="w-4 h-4" color={styles.accent} />
+          )}
+        </div>
+      </div>
+
       {/* Geo pattern background */}
-      {card.microAnimation === "geo" && <GeoPattern color={styles.accent} />}
+      {card.microAnimation === 'geo' && <GeoPattern color={styles.accent} />}
 
       {/* Paw stamp */}
-      {card.microAnimation === "paw" && <PawStamp color={styles.accent} />}
+      {card.microAnimation === 'paw' && <PawStamp color={styles.accent} />}
 
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
@@ -144,16 +185,14 @@ const BlogCard: React.FC<BlogCardProps> = ({ card }) => {
       <div className="p-5 relative z-10">
         <h3
           className="font-serif font-bold text-lg leading-tight mb-2 text-charcoal group-hover:text-graphite transition-colors"
-          style={{ letterSpacing: "-0.01em" }}
+          style={{ letterSpacing: '-0.01em' }}
         >
           {card.title}
         </h3>
-        <p className="text-sm text-slate-mid leading-relaxed mb-4 line-clamp-2">
-          {card.excerpt}
-        </p>
+        <p className="text-sm text-slate-mid leading-relaxed mb-4 line-clamp-2">{card.excerpt}</p>
 
         {/* Stat reveal (on hover) */}
-        {card.microAnimation === "stat" && card.statValue && (
+        {card.microAnimation === 'stat' && card.statValue && (
           <div className="stat-reveal flex items-center gap-2 mb-3">
             <div
               className="text-xs font-bold px-3 py-1 rounded-full"

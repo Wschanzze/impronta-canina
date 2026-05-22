@@ -1,9 +1,9 @@
-"use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import AppImage from "@/components/ui/AppImage";
-import Icon from "@/components/ui/AppIcon";
-import { LucideIconName } from "@/components/ui/AppIcon";
+'use client';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import AppImage from '@/components/ui/AppImage';
+import Icon from '@/components/ui/AppIcon';
+import { LucideIconName } from '@/components/ui/AppIcon';
 
 interface ServiceData {
   id: string;
@@ -17,51 +17,95 @@ interface ServiceData {
 
 const services: ServiceData[] = [
   {
-    id: "adiestramiento",
-    title: "Adiestramiento",
-    shortDesc: "Educación canina enfocada en positivo.",
-    description: "Transforma la relación con tu perro estableciendo límites claros mediante refuerzo positivo. Enseñamos obediencia básica y avanzada construyendo confianza mutua, sin castigos ni estrés.",
-    icon: "AcademicCapIcon",
-    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb",
-    color: "var(--honey-gold)",
+    id: 'adiestramiento',
+    title: 'Adiestramiento',
+    shortDesc: 'Educación canina enfocada en positivo.',
+    description:
+      'Transforma la relación con tu perro estableciendo límites claros mediante refuerzo positivo. Enseñamos obediencia básica y avanzada construyendo confianza mutua, sin castigos ni estrés.',
+    icon: 'AcademicCapIcon',
+    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb',
+    color: 'var(--honey-gold)',
   },
   {
-    id: "asesoramiento",
-    title: "Asesoramiento",
-    shortDesc: "Soluciones a problemas de conducta.",
-    description: "Evaluamos casos de ansiedad, miedos, reactividad o agresividad. Creamos protocolos personalizados a medida, abordando la raíz del problema para devolver la armonía a tu hogar.",
-    icon: "ChatBubbleOvalLeftEllipsisIcon",
-    image: "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6",
-    color: "var(--tangerine)",
+    id: 'asesoramiento',
+    title: 'Asesoramiento',
+    shortDesc: 'Soluciones a problemas de conducta.',
+    description:
+      'Evaluamos casos de ansiedad, miedos, reactividad o agresividad. Creamos protocolos personalizados a medida, abordando la raíz del problema para devolver la armonía a tu hogar.',
+    icon: 'ChatBubbleOvalLeftEllipsisIcon',
+    image: 'https://images.unsplash.com/photo-1530281700549-e82e7bf110d6',
+    color: 'var(--tangerine)',
   },
   {
-    id: "cursos",
-    title: "Cursos",
-    shortDesc: "Aprendizaje dinámico en comunidad.",
-    description: "Clases grupales donde tu perro no solo aprenderá comandos, sino que también socializará de forma controlada y segura con otros animales y personas, algo vital para su equilibrio emocional.",
-    icon: "UserGroupIcon",
-    image: "https://images.unsplash.com/photo-1560743641-3914f2c45636",
-    color: "var(--verde)",
+    id: 'cursos',
+    title: 'Cursos',
+    shortDesc: 'Aprendizaje dinámico en comunidad.',
+    description:
+      'Clases grupales donde tu perro no solo aprenderá comandos, sino que también socializará de forma controlada y segura con otros animales y personas, algo vital para su equilibrio emocional.',
+    icon: 'UserGroupIcon',
+    image: 'https://images.unsplash.com/photo-1560743641-3914f2c45636',
+    color: 'var(--verde)',
   },
   {
-    id: "paseos",
-    title: "Paseos",
-    shortDesc: "Paseos profesionales y estructurados.",
-    description: "Más que solo caminar: nuestros paseos están diseñados para estimular la mente de tu perro y quemar energía de manera eficiente, evitando problemas de ansiedad por encierro.",
-    icon: "MapIcon",
-    image: "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8",
-    color: "var(--tangerine)",
+    id: 'paseos',
+    title: 'Paseos',
+    shortDesc: 'Paseos profesionales y estructurados.',
+    description:
+      'Más que solo caminar: nuestros paseos están diseñados para estimular la mente de tu perro y quemar energía de manera eficiente, evitando problemas de ansiedad por encierro.',
+    icon: 'MapIcon',
+    image: 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8',
+    color: 'var(--tangerine)',
   },
   {
-    id: "traslados",
-    title: "Traslados",
-    shortDesc: "Transporte seguro puerta a puerta.",
-    description: "Vehículo adaptado con todas las medidas de seguridad para llevar a tu perro al veterinario, a la peluquería o a la guardería. Confianza total y actualizaciones durante el viaje.",
-    icon: "TruckIcon",
-    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b",
-    color: "var(--honey-gold)",
+    id: 'traslados',
+    title: 'Traslados',
+    shortDesc: 'Transporte seguro puerta a puerta.',
+    description:
+      'Vehículo adaptado con todas las medidas de seguridad para llevar a tu perro al veterinario, a la peluquería o a la guardería. Confianza total y actualizaciones durante el viaje.',
+    icon: 'TruckIcon',
+    image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b',
+    color: 'var(--honey-gold)',
   },
 ];
+
+const BalloonDogIcon: React.FC<{ className?: string; color?: string }> = ({
+  className,
+  color = 'currentColor',
+}) => (
+  <svg viewBox="0 0 120 70" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="55" cy="42" rx="28" ry="16" fill={color} opacity="0.95" />
+    <ellipse cx="84" cy="32" rx="14" ry="12" fill={color} opacity="0.95" />
+    <ellipse cx="96" cy="36" rx="8" ry="6" fill={color} opacity="0.9" />
+    <ellipse cx="103" cy="37" rx="3" ry="2.5" fill={color} opacity="0.8" />
+    <ellipse
+      cx="82"
+      cy="22"
+      rx="7"
+      ry="9"
+      fill={color}
+      opacity="0.8"
+      transform="rotate(-15 82 22)"
+    />
+    <rect x="62" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="74" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="34" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <rect x="44" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
+    <path d="M28 40 Q10 25 15 15 Q18 8 22 12 Q20 20 30 30" fill={color} opacity="0.85" />
+  </svg>
+);
+
+const PawPrintIcon: React.FC<{ className?: string; color?: string }> = ({
+  className,
+  color = 'currentColor',
+}) => (
+  <svg viewBox="0 0 24 24" className={className} fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 14c-1.66 0-3 1.34-3 3 0 2 2 3.5 3 3.5s3-1.5 3-3.5c0-1.66-1.34-3-3-3z" />
+    <circle cx="7" cy="11" r="2" />
+    <circle cx="10.5" cy="8" r="2" />
+    <circle cx="13.5" cy="8" r="2" />
+    <circle cx="17" cy="11" r="2" />
+  </svg>
+);
 
 const ServicesSection: React.FC = () => {
   const [activeService, setActiveService] = useState<ServiceData>(services[0]);
@@ -72,22 +116,22 @@ const ServicesSection: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <div
             className="inline-block tag-badge px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide mb-4"
-            style={{ background: "var(--tangerine)", color: "#ffffff" }}
+            style={{ background: 'var(--tangerine)', color: '#ffffff' }}
           >
             Nuestros Servicios
           </div>
           <h2
             className="font-serif font-bold text-3xl md:text-5xl leading-tight"
-            style={{ color: "var(--charcoal)" }}
+            style={{ color: 'var(--charcoal)' }}
           >
             Todo lo que tu perro necesita, <br className="hidden md:block" />
-            <span style={{ color: "var(--verde)" }}>en un solo lugar.</span>
+            <span style={{ color: 'var(--verde)' }}>en un solo lugar.</span>
           </h2>
         </motion.div>
 
@@ -101,18 +145,34 @@ const ServicesSection: React.FC = () => {
                   key={service.id}
                   onClick={() => setActiveService(service)}
                   onMouseEnter={() => setActiveService(service)}
-                  className={`w-full text-left p-5 rounded-2xl transition-all duration-300 flex items-center gap-4 border-2 group ${
+                  className={`w-full text-left p-5 rounded-2xl transition-all duration-300 flex items-center gap-4 border-2 group relative overflow-visible ${
                     isActive
-                      ? "bg-slate-50 border-transparent shadow-lg"
-                      : "bg-white border-slate-100 hover:border-slate-200"
+                      ? 'bg-slate-50 border-transparent shadow-lg'
+                      : 'bg-white border-slate-100 hover:border-slate-200'
                   }`}
                   style={{
-                    boxShadow: isActive ? "0 10px 30px -10px rgba(0,0,0,0.1)" : "none",
+                    boxShadow: isActive ? '0 10px 30px -10px rgba(0,0,0,0.1)' : 'none',
                   }}
                 >
+                  {/* Balloon Dog / Paw Icon POP-UP on top border when hovering */}
+                  <div className="absolute -top-3.5 right-6 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">
+                    <div
+                      className="px-2.5 py-1 rounded-full bg-white shadow-md border flex items-center justify-center"
+                      style={{ borderColor: service.color }}
+                    >
+                      {service.id === 'adiestramiento' || service.id === 'asesoramiento' ? (
+                        <BalloonDogIcon className="w-5.5 h-3.5" color={service.color} />
+                      ) : (
+                        <PawPrintIcon className="w-3.5 h-3.5" color={service.color} />
+                      )}
+                    </div>
+                  </div>
+
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300 ${
-                      isActive ? "text-white" : "text-slate-500 bg-slate-100 group-hover:bg-slate-200"
+                      isActive
+                        ? 'text-white'
+                        : 'text-slate-500 bg-slate-100 group-hover:bg-slate-200'
                     }`}
                     style={{ background: isActive ? service.color : undefined }}
                   >
@@ -121,14 +181,12 @@ const ServicesSection: React.FC = () => {
                   <div>
                     <h3
                       className={`font-bold text-lg transition-colors duration-300 ${
-                        isActive ? "text-charcoal" : "text-slate-600 group-hover:text-charcoal"
+                        isActive ? 'text-charcoal' : 'text-slate-600 group-hover:text-charcoal'
                       }`}
                     >
                       {service.title}
                     </h3>
-                    <p className="text-xs text-slate-500 mt-1 font-medium">
-                      {service.shortDesc}
-                    </p>
+                    <p className="text-xs text-slate-500 mt-1 font-medium">{service.shortDesc}</p>
                   </div>
                 </button>
               );
@@ -137,14 +195,17 @@ const ServicesSection: React.FC = () => {
 
           {/* Lado Derecho: Contenido Activo (Imagen + Info) */}
           <div className="w-full lg:w-2/3">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ aspectRatio: "16/10", minHeight: "400px" }}>
+            <div
+              className="relative rounded-3xl overflow-hidden shadow-2xl"
+              style={{ aspectRatio: '16/10', minHeight: '400px' }}
+            >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeService.id}
                   initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  transition={{ duration: 0.5, ease: 'easeInOut' }}
                   className="absolute inset-0 w-full h-full"
                 >
                   <AppImage
@@ -180,7 +241,9 @@ const ServicesSection: React.FC = () => {
                       <button
                         className="mt-8 px-6 py-3 rounded-xl font-bold text-sm text-charcoal bg-white hover:bg-slate-100 transition-colors"
                         onClick={() => {
-                          document.getElementById("contacto-form")?.scrollIntoView({ behavior: "smooth" });
+                          document
+                            .getElementById('contacto-form')
+                            ?.scrollIntoView({ behavior: 'smooth' });
                         }}
                       >
                         Consultar sobre este servicio

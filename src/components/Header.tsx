@@ -1,9 +1,9 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+'use client';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -12,15 +12,15 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Servicios", href: "#servicios" },
-    { name: "Adiestramiento", href: "#adiestramiento" },
-    { name: "Cursos", href: "#cursos" },
-    { name: "Contacto", href: "#contacto" },
+    { name: 'Servicios', href: '#servicios' },
+    { name: 'Adiestramiento', href: '#adiestramiento' },
+    { name: 'Cursos', href: '#cursos' },
+    { name: 'Contacto', href: '#contacto' },
   ];
 
   return (
@@ -29,28 +29,33 @@ const Header: React.FC = () => {
       <div className="bg-charcoal text-white text-xs md:text-sm font-medium py-2 px-4 text-center z-[101] relative flex justify-center items-center gap-2">
         <span className="text-honey-gold">🗓️</span>
         Evaluación inicial gratuita: ¡Reserva hoy y cambia la vida de tu perro!
-        <a href="#contacto" className="underline hover:text-honey-gold transition-colors ml-2 font-bold">Reservar ahora</a>
+        <a
+          href="#contacto"
+          className="underline hover:text-honey-gold transition-colors ml-2 font-bold"
+        >
+          Reservar ahora
+        </a>
       </div>
 
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`fixed left-0 right-0 z-[100] transition-all duration-500 ${
           scrolled
-            ? "top-0 bg-white/85 backdrop-blur-xl shadow-warm-md border-b border-honey-gold/20 py-2"
-            : "top-[36px] md:top-[36px] bg-white/95 border-b border-verde/10 py-4"
+            ? 'top-0 bg-white/85 backdrop-blur-xl shadow-warm-md border-b border-honey-gold/20 py-2'
+            : 'top-[36px] md:top-[36px] bg-white/95 border-b border-verde/10 py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
-          <div className="cursor-pointer flex items-center" onClick={() => router.push("/")}>
+          <div className="cursor-pointer flex items-center" onClick={() => router.push('/')}>
             <Image
               src="/assets/images/b7d66566-7b41-43ea-9cc1-dd65415791db-1779449981971.png"
               alt="Impronta Canina logo"
               width={140}
               height={45}
               className={`object-contain transition-all duration-500 ease-in-out ${
-                scrolled ? "h-10" : "h-12 md:h-14"
+                scrolled ? 'h-10' : 'h-12 md:h-14'
               } w-auto`}
             />
           </div>
@@ -72,8 +77,8 @@ const Header: React.FC = () => {
             <button
               className="btn-tangerine text-white text-sm font-bold px-6 py-2.5 rounded-full shadow-tangerine-glow transition-transform hover:scale-105 active:scale-95"
               onClick={() => {
-                const el = document.getElementById("contacto");
-                el?.scrollIntoView({ behavior: "smooth" });
+                const el = document.getElementById('contacto');
+                el?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               Consulta Gratuita
@@ -83,7 +88,7 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center z-[101]">
             <button
-              className={`p-2 transition-colors ${mobileMenuOpen ? "text-white hover:text-honey-gold" : "text-verde-dark hover:text-tangerine"}`}
+              className={`p-2 transition-colors ${mobileMenuOpen ? 'text-white hover:text-honey-gold' : 'text-verde-dark hover:text-tangerine'}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
@@ -100,10 +105,10 @@ const Header: React.FC = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: "-100%" }}
+            initial={{ opacity: 0, y: '-100%' }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "-100%" }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            exit={{ opacity: 0, y: '-100%' }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
             className="fixed inset-0 z-[95] bg-charcoal text-white flex flex-col justify-center items-center"
           >
             <div className="flex flex-col space-y-8 w-full px-8 text-center">
@@ -130,8 +135,8 @@ const Header: React.FC = () => {
                   className="w-full max-w-xs mx-auto btn-tangerine text-white text-lg font-bold px-8 py-4 rounded-xl shadow-tangerine-glow"
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    const el = document.getElementById("contacto");
-                    el?.scrollIntoView({ behavior: "smooth" });
+                    const el = document.getElementById('contacto');
+                    el?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   Consulta Gratuita
