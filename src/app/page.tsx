@@ -14,6 +14,8 @@ const TestimonialsSection = dynamic(() => import('@/app/home/components/Testimon
 const BlueprintCTA = dynamic(() => import('@/app/home/components/BlueprintCTA'));
 const DidYouKnowRibbon = dynamic(() => import('@/app/home/components/DidYouKnowRibbon'));
 
+export default function HomePage() {
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
