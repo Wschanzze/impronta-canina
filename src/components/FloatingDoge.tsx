@@ -35,7 +35,7 @@ export default function FloatingDoge() {
 
   return (
     <div 
-      className="fixed bottom-6 right-6 w-32 h-32 md:w-40 md:h-40 z-[110] cursor-pointer hover:scale-105 transition-transform duration-300 drop-shadow-2xl rounded-full overflow-hidden"
+      className="fixed bottom-[-60px] right-[-60px] w-[280px] h-[280px] z-[110] cursor-pointer hover:scale-105 transition-transform duration-300 rounded-full overflow-hidden"
       title="¡Hablemos!"
     >
       <iframe 
