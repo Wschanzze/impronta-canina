@@ -45,11 +45,7 @@ const Header: React.FC = () => {
         </a>
       </div>
 
-      <nav
-        className={`w-full transition-all duration-500 ${
-          scrolled ? 'py-3' : 'py-5 md:py-6'
-        }`}
-      >
+      <nav className="w-full transition-all duration-500 py-3 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
           {/* Logo */}
           <div className="cursor-pointer flex items-center relative z-20" onClick={() => router.push('/')}>
@@ -58,9 +54,7 @@ const Header: React.FC = () => {
               alt="Impronta Canina logo"
               width={180}
               height={60}
-              className={`object-contain transition-all duration-500 ease-in-out dog-shake-hover ${
-                scrolled ? 'h-10 md:h-12' : 'h-14 md:h-16'
-              } w-auto`}
+              className="object-contain transition-all duration-500 ease-in-out dog-shake-hover h-10 md:h-12 w-auto"
             />
           </div>
 

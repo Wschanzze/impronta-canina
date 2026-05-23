@@ -192,50 +192,58 @@ const CoursesDetailSection: React.FC = () => {
       </section>
 
       {/* ─── MODALITIES SECTION ─── */}
-      <section className="py-20 px-4 md:px-8 bg-warm-cream">
-        <div className="max-w-5xl mx-auto">
-          <p
-            className="text-center text-xs font-extrabold uppercase tracking-widest mb-10"
-            style={{ color: 'var(--tangerine)' }}
-          >
-            Modalidades de Cursada
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {/* Grupal */}
-            <div className="rounded-3xl border border-slate-200 p-8 md:p-10 flex flex-col gap-4 bg-white shadow-warm-md hover:shadow-warm-lg transition-all duration-300">
-              <h3 className="font-serif font-bold text-3xl md:text-4xl text-charcoal">Grupales</h3>
-              <p className="text-slate-mid text-sm font-medium leading-relaxed">
-                Presenciales en Tandil, Buenos Aires. Consultanos disponibilidad y zonas.
-              </p>
+      <section className="py-20 px-4 md:px-8 bg-slate-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12">
+            
+            {/* Cursos individuales */}
+            <div className="bg-white rounded-3xl p-10 flex flex-col items-center text-center shadow-xl shadow-slate-200/50 border border-slate-100 transition-transform duration-300 hover:-translate-y-1">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-8 shadow-inner border border-slate-100 bg-slate-50 relative">
+                <img
+                  src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=400"
+                  alt="Dog licking nose"
+                  className="w-full h-full object-cover scale-110 translate-y-2"
+                />
+              </div>
+              <h3 className="font-sans font-bold text-2xl md:text-3xl text-charcoal mb-10 tracking-tight">
+                Cursos individuales
+              </h3>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('contacto-form') || document.getElementById('contacto');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  else window.location.href = '/#contacto';
+                }}
+                className="px-8 py-2.5 rounded-full border border-tangerine text-tangerine font-medium hover:bg-tangerine hover:text-white transition-colors duration-300"
+              >
+                Leer más
+              </button>
             </div>
 
-            {/* Individual */}
-            <div className="rounded-3xl border border-slate-200 p-8 md:p-10 flex flex-col gap-4 bg-white shadow-warm-md hover:shadow-warm-lg transition-all duration-300">
-              <h3 className="font-serif font-bold text-3xl md:text-4xl text-charcoal">Individuales</h3>
-              <p className="text-slate-mid text-sm font-medium leading-relaxed">
-                Online o presenciales. Consultanos por zonas y disponibilidad.
-              </p>
+            {/* Cursos grupales */}
+            <div className="bg-white rounded-3xl p-10 flex flex-col items-center text-center shadow-xl shadow-slate-200/50 border border-slate-100 transition-transform duration-300 hover:-translate-y-1">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-8 shadow-inner border border-slate-100 bg-slate-50 relative">
+                <img
+                  src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=400"
+                  alt="Black french bulldog"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="font-sans font-bold text-2xl md:text-3xl text-charcoal mb-10 tracking-tight">
+                Cursos grupales
+              </h3>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('contacto-form') || document.getElementById('contacto');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  else window.location.href = '/#contacto';
+                }}
+                className="px-8 py-2.5 rounded-full border border-tangerine text-tangerine font-medium hover:bg-tangerine hover:text-white transition-colors duration-300"
+              >
+                Leer más
+              </button>
             </div>
-          </div>
-
-          {/* CTA Button */}
-          <div className="text-center">
-            <button
-              onClick={() => {
-                const el =
-                  document.getElementById('contacto-form') || document.getElementById('contacto');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  window.location.href = '/#contacto';
-                }
-              }}
-              className="inline-flex items-center gap-2 font-bold text-sm px-8 py-4 rounded-full transition-transform hover:scale-105 active:scale-95 shadow-tangerine-glow text-white"
-              style={{ background: 'var(--tangerine)' }}
-            >
-              ¿No sabés cuál elegir? Consultanos →
-            </button>
+            
           </div>
         </div>
       </section>
