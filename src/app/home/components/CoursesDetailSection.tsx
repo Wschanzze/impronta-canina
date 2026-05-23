@@ -1,329 +1,251 @@
 'use client';
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import Icon from '@/components/ui/AppIcon';
+import React from 'react';
 
 interface CourseItem {
   title: string;
-  age: string;
-  duration: string;
+  level: string;
+  levelColor: string;
+  modality: 'Grupal' | 'Individual' | 'Ambas';
   description: string;
-  icon: string;
-  color: string;
-  features: string[];
+  image: string;
+  cta: string;
 }
 
 const courses: CourseItem[] = [
   {
     title: 'Cachorros Estrellas',
-    age: '2 a 5 meses',
-    duration: '4 clases semanales',
-    description: 'El período más importante en la vida de tu perro. Sentamos las bases para un perro adulto equilibrado, sociable y sin miedos.',
-    icon: 'SparklesIcon',
-    color: 'var(--verde)',
-    features: ['Socialización estructurada', 'Hábitos higiénicos y mordida', 'Iniciación a comandos básicos', 'Prevención de ansiedad por separación'],
+    level: 'INICIAL',
+    levelColor: 'var(--verde)',
+    modality: 'Grupal',
+    description:
+      'El período más importante en la vida de tu perro. Sentamos las bases para un perro adulto equilibrado, sociable y sin miedos.',
+    image:
+      'https://images.unsplash.com/photo-1612846392422-24282052e07a?auto=format&fit=crop&q=80&w=800',
+    cta: 'Conocé más →',
   },
   {
     title: 'Obediencia Urbana',
-    age: 'Más de 6 meses',
-    duration: '5 clases semanales',
-    description: 'Herramientas prácticas para convivir en armonía en el mundo real: calles, plazas y cafés sin tirones de correa ni frustración.',
-    icon: 'AcademicCapIcon',
-    color: 'var(--tangerine)',
-    features: ['Paseo estructurado (sin tirar)', 'Llamada de emergencia confiable', 'Autocontrol ante distracciones', 'Foco y atención al tutor'],
+    level: 'INTERMEDIO',
+    levelColor: 'var(--tangerine)',
+    modality: 'Ambas',
+    description:
+      'Herramientas prácticas para convivir en armonía en el mundo real: calles, plazas y cafés sin tirones de correa ni frustración.',
+    image:
+      'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&q=80&w=800',
+    cta: 'Conocé más →',
   },
   {
     title: 'Estimulación y Olfato',
-    age: 'Cualquier edad',
-    duration: 'Taller intensivo (2 sábados)',
-    description: 'Canalizá la energía de tu perro a través de su sentido más desarrollado. Ideal para reducir la hiperactividad y el estrés en el hogar.',
-    icon: 'HeartIcon',
-    color: 'var(--honey-gold)',
-    features: ['Juegos de búsqueda y rastreo', 'Resolución de problemas cognitivos', 'Ejercicios de calma en casa', 'Propiocepción y confianza'],
+    level: 'AVANZADO',
+    levelColor: 'var(--honey-gold)',
+    modality: 'Individual',
+    description:
+      'Canalizá la energía de tu perro a través de su sentido más desarrollado. Ideal para reducir la hiperactividad y el estrés.',
+    image:
+      'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800',
+    cta: 'Conocé más →',
   },
   {
     title: 'Socialización Guiada',
-    age: 'Cualquier edad (con evaluación)',
-    duration: 'Sesiones semanales',
-    description: 'Encuentros grupales en entornos controlados para que tu perro aprenda a comunicarse correctamente con otros de su especie.',
-    icon: 'UserGroupIcon',
-    color: 'var(--verde)',
-    features: ['Lectura de lenguaje canino', 'Interacciones supervisadas', 'Gestión de la reactividad leve', 'Juego libre seguro y pautado'],
+    level: 'INICIAL',
+    levelColor: 'var(--verde)',
+    modality: 'Grupal',
+    description:
+      'Encuentros grupales en entornos controlados para que tu perro aprenda a comunicarse correctamente con otros de su especie.',
+    image:
+      'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800',
+    cta: 'Conocé más →',
+  },
+  {
+    title: 'Deporte Canino',
+    level: 'AVANZADO',
+    levelColor: 'var(--tangerine)',
+    modality: 'Individual',
+    description:
+      'Disc Dog y Freestyle: juego, movimiento y complicidad. Mejorá las habilidades de tu perro y disfrutá juntos cada sesión.',
+    image:
+      'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=800',
+    cta: 'Conocé más →',
+  },
+  {
+    title: 'Manejo de Reactividad',
+    level: 'INTERMEDIO',
+    levelColor: 'var(--tangerine)',
+    modality: 'Individual',
+    description:
+      'Protocolo personalizado de desensibilización para perros con reactividad hacia otros perros o personas.',
+    image:
+      'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&q=80&w=800',
+    cta: 'Conocé más →',
   },
 ];
 
-const CourseCard: React.FC<{ course: CourseItem; idx: number }> = ({ course, idx }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+const modalityConfig = {
+  Grupal: { label: '👥 Grupal', bg: 'rgba(255,255,255,0.18)', border: 'rgba(255,255,255,0.4)' },
+  Individual: {
+    label: '🧑 Individual',
+    bg: 'rgba(255,255,255,0.18)',
+    border: 'rgba(255,255,255,0.4)',
+  },
+  Ambas: {
+    label: '👥 Grupal · 🧑 Individual',
+    bg: 'rgba(255,255,255,0.18)',
+    border: 'rgba(255,255,255,0.4)',
+  },
+};
 
-  const courseSyllabus: Record<string, string[]> = {
-    'Cachorros Estrellas': [
-      'Unidad 1: Período crítico de socialización y estímulos cotidianos.',
-      'Unidad 2: Gestión de la mordida, control de esfínteres e higiene.',
-      'Unidad 3: Introducción a señales de calma y obediencia básica.',
-      'Unidad 4: Ansiedad por separación y fomento de la autonomía.'
-    ],
-    'Obediencia Urbana': [
-      'Unidad 1: Caminar sin tirar de la correa (paseo estructurado).',
-      'Unidad 2: La llamada de emergencia en entornos reales con distracciones.',
-      'Unidad 3: Autocontrol, paciencia y permanencia en cafés y plazas.',
-      'Unidad 4: Foco y atención directa en el tutor en cualquier situación.'
-    ],
-    'Estimulación y Olfato': [
-      'Unidad 1: Fundamentos del sistema olfativo del perro y beneficios cognitivos.',
-      'Unidad 2: Juegos de rastreo, búsqueda y discriminación de olores.',
-      'Unidad 3: Resolución de problemas de lógica y juguetes interactivos.',
-      'Unidad 4: Enriquecimiento ambiental para reducir estrés y reactividad.'
-    ],
-    'Socialización Guiada': [
-      'Unidad 1: Lenguaje corporal y señales de comunicación interperros.',
-      'Unidad 2: Acercamientos correctos y gestión de las distancias.',
-      'Unidad 3: Manejo de correa en interacciones grupales controladas.',
-      'Unidad 4: Resolución pacífica de conflictos y fomento del juego sano.'
-    ],
-  };
-
-  const syllabus = courseSyllabus[course.title] || [];
-  
-  const getDogBg = (title: string) => {
-    switch (title) {
-      case 'Cachorros Estrellas':
-        return 'https://images.unsplash.com/photo-1612846392422-24282052e07a?auto=format&fit=crop&q=80&w=800';
-      case 'Obediencia Urbana':
-        return 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&q=80&w=800';
-      case 'Estimulación y Olfato':
-        return 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800';
-      case 'Socialización Guiada':
-        return 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800';
-      default:
-        return 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800';
-    }
-  };
-
+const CourseCard: React.FC<{ course: CourseItem }> = ({ course }) => {
+  const mod = modalityConfig[course.modality];
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: idx * 0.1 }}
-      className="tile-wrapper min-h-[470px] cursor-pointer"
-      onClick={() => setIsFlipped(!isFlipped)}
-    >
-      <div className={`tile-inner ${isFlipped ? 'flipped' : ''}`} style={{ height: '100%' }}>
-        {/* Front Face */}
-        <div className="tile-front bg-white rounded-3xl p-8 shadow-warm-md hover:shadow-warm-lg transition-all duration-300 border border-slate-100 flex flex-col justify-between group relative overflow-hidden h-full">
-          {/* Colored top border accent */}
-          <div 
-            className="absolute top-0 left-0 right-0 h-1.5 opacity-80"
-            style={{ backgroundColor: course.color }}
-          />
+    <div className="course-card group relative rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-shadow duration-500">
+      {/* Photo — greyscale by default, color on hover */}
+      <div className="relative w-full aspect-[4/5] overflow-hidden">
+        <img
+          src={course.image}
+          alt={course.title}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
+        />
+        {/* Dark overlay that fades out on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/60 group-hover:via-black/10 transition-all duration-500" />
 
-          <div>
-            <div className="flex justify-between items-start mb-6">
-              <div 
-                className="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-md transition-transform group-hover:scale-110"
-                style={{ backgroundColor: course.color }}
-              >
-                <Icon name={course.icon} size={24} />
-              </div>
-              <div className="text-right">
-                <span className="inline-block text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 mb-1">
-                  🎯 {course.age}
-                </span>
-                <p className="text-xs text-slate-400 font-medium">{course.duration}</p>
-              </div>
-            </div>
-
-            <h3 className="font-serif font-bold text-xl md:text-2xl text-charcoal mb-3 group-hover:text-verde transition-colors">
-              {course.title}
-            </h3>
-            <p className="text-slate-mid text-sm font-medium leading-relaxed mb-6">
-              {course.description}
-            </p>
-
-            {/* Bullet points */}
-            <ul className="space-y-2.5 border-t border-slate-100 pt-6">
-              {course.features.map((feat) => (
-                <li key={feat} className="flex items-start gap-2.5 text-xs text-slate-600 font-medium">
-                  <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: `${course.color}15` }}>
-                    <Icon name="CheckIcon" size={10} style={{ color: course.color }} />
-                  </div>
-                  <span>{feat}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-8 pt-4 border-t border-slate-50 flex items-center justify-between">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                const el = document.getElementById('contacto-form') || document.getElementById('contacto');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  window.location.href = '/#contacto';
-                }
-              }}
-              className="text-xs font-bold transition-all flex items-center gap-1 group/btn"
-              style={{ color: course.color }}
-            >
-              Reservar vacante
-              <Icon name="ArrowRightIcon" size={14} className="transition-transform group-hover/btn:translate-x-1" />
-            </button>
-            <span className="text-[10px] bg-slate-50 text-slate-500 hover:bg-slate-100 py-1 px-2.5 rounded-full font-bold transition-colors border border-slate-100 flex items-center gap-1">
-              <span>📖 Ver Programa</span>
-            </span>
-          </div>
+        {/* Level badge — top right */}
+        <div
+          className="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider text-white shadow"
+          style={{ backgroundColor: course.levelColor }}
+        >
+          {course.level}
         </div>
 
-        {/* Back Face */}
-        <div className="tile-back absolute inset-0 bg-white rounded-3xl p-8 shadow-warm-md border border-slate-100 flex flex-col justify-between overflow-hidden h-full">
-          {/* Translucent dog image background */}
-          <div className="absolute inset-0 z-0 opacity-10 select-none pointer-events-none">
-            <img 
-              src={getDogBg(course.title)} 
-              alt="Background Dog" 
-              className="w-full h-full object-cover filter grayscale"
-            />
-          </div>
-          
-          {/* Top border color accent */}
-          <div 
-            className="absolute top-0 left-0 right-0 h-1.5 opacity-80 z-10"
-            style={{ backgroundColor: course.color }}
-          />
-
-          <div className="relative z-10 w-full text-left">
-            <div className="flex justify-between items-start mb-4">
-              <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
-                Temario & Unidades
-              </span>
-              <div 
-                className="w-8 h-8 rounded-lg flex items-center justify-center text-white/90"
-                style={{ backgroundColor: course.color }}
-              >
-                <Icon name={course.icon} size={16} />
-              </div>
-            </div>
-
-            <h3 className="font-serif font-bold text-lg md:text-xl text-charcoal mb-4">
-              Programa de {course.title}
-            </h3>
-
-            {/* Syllabus items */}
-            <div className="space-y-3.5 border-t border-slate-100 pt-4">
-              {syllabus.map((unit, i) => {
-                const parts = unit.split(': ');
-                const unitTitle = parts[0];
-                const unitDesc = parts[1];
-                return (
-                  <div key={i} className="text-xs">
-                    <p className="font-bold text-charcoal" style={{ color: course.color }}>{unitTitle}</p>
-                    <p className="text-slate-mid font-medium mt-0.5 leading-snug">{unitDesc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="mt-8 pt-4 border-t border-slate-50 flex items-center justify-between relative z-10 w-full">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                const el = document.getElementById('contacto-form') || document.getElementById('contacto');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  window.location.href = '/#contacto';
-                }
-              }}
-              className="text-xs font-bold transition-all flex items-center gap-1 group/btn"
-              style={{ color: course.color }}
-            >
-              Reservar vacante
-              <Icon name="ArrowRightIcon" size={14} className="transition-transform group-hover/btn:translate-x-1" />
-            </button>
-
-            <span className="text-[10px] bg-slate-50 text-slate-500 hover:bg-slate-100 py-1 px-2.5 rounded-full font-bold transition-colors border border-slate-100">
-              ↩️ Volver
-            </span>
-          </div>
+        {/* Modality badge — top left */}
+        <div
+          className="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold text-white backdrop-blur-sm"
+          style={{ background: mod.bg, border: `1px solid ${mod.border}` }}
+        >
+          {mod.label}
         </div>
       </div>
-    </motion.div>
+
+      {/* Bottom content */}
+      <div
+        className="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2 translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
+      >
+        <h3 className="font-serif font-bold text-xl text-white leading-tight drop-shadow">
+          {course.title}
+        </h3>
+        <p className="text-sm text-white/80 leading-relaxed max-h-0 overflow-hidden opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+          {course.description}
+        </p>
+        <button
+          onClick={() => {
+            const el =
+              document.getElementById('contacto-form') || document.getElementById('contacto');
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              window.location.href = '/#contacto';
+            }
+          }}
+          className="mt-2 self-start text-sm font-bold opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-500 delay-75"
+          style={{ color: course.levelColor }}
+        >
+          {course.cta}
+        </button>
+      </div>
+    </div>
   );
 };
 
 const CoursesDetailSection: React.FC = () => {
   return (
-    <section id="cursos-detalle" className="py-24 px-4 md:px-8 bg-warm-cream relative overflow-hidden">
-      {/* Decorative background shape */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-verde/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-tangerine/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+    <>
+      {/* ─── COURSES GRID ─── */}
+      <section id="cursos-detalle" className="py-24 px-4 md:px-8 bg-charcoal">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <span
-              className="inline-block tag-badge px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide mb-4"
-              style={{ background: 'var(--verde-pale)', color: 'var(--verde-dark)' }}
+              className="inline-block px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide mb-4 text-white"
+              style={{ background: 'var(--honey-gold)' }}
             >
-              Cursos y Talleres
+              Para tu perro
             </span>
-            <h2 className="font-serif font-bold text-3xl md:text-5xl text-charcoal leading-tight">
-              Programas de <span style={{ color: 'var(--verde)' }}>Adiestramiento Grupal</span>
+            <h2 className="font-serif font-bold text-4xl md:text-6xl text-white leading-tight mb-4">
+              Nuestras{' '}
+              <em className="not-italic" style={{ color: 'var(--honey-gold)' }}>
+                clases
+              </em>
             </h2>
-            <p className="text-slate-mid font-medium mt-4 text-sm md:text-base leading-relaxed">
-              Aprender en grupo potencia la socialización, expone al perro a distracciones del mundo real de forma controlada y te brinda una comunidad de apoyo. Haz clic en las tarjetas para ver el programa de cada unidad.
+            <p className="text-white/60 font-medium text-base leading-relaxed">
+              Educación canina basada en el vínculo, la ciencia y el refuerzo positivo.
             </p>
-          </motion.div>
-        </div>
+          </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {courses.map((course, idx) => (
-            <CourseCard key={course.title} course={course} idx={idx} />
-          ))}
+          {/* Grid 3 cols */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courses.map((course) => (
+              <CourseCard key={course.title} course={course} />
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* Banner de Info Extra */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-3xl p-6 md:p-8 border-2 border-dashed border-verde/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm"
-        >
-          <div className="flex items-center gap-4 text-left">
-            <div className="w-12 h-12 rounded-full bg-verde/10 flex items-center justify-center shrink-0 text-verde">
-              <Icon name="ShieldCheckIcon" size={24} />
+      {/* ─── MODALITIES SECTION ─── */}
+      <section className="py-20 px-4 md:px-8 bg-[#0e0e10]">
+        <div className="max-w-5xl mx-auto">
+          <p
+            className="text-center text-xs font-extrabold uppercase tracking-widest mb-10"
+            style={{ color: 'var(--honey-gold)' }}
+          >
+            Modalidades
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+            {/* Grupal */}
+            <div className="rounded-2xl border border-white/10 p-8 md:p-10 flex flex-col gap-4 bg-white/5 backdrop-blur-sm hover:bg-white/8 transition-colors duration-300">
+              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg">
+                👥
+              </div>
+              <h3 className="font-bold text-4xl md:text-5xl text-white">Grupales</h3>
+              <p className="text-white/50 text-sm font-medium leading-relaxed">
+                Presenciales en Tandil, Buenos Aires. Consultanos disponibilidad y zonas.
+              </p>
             </div>
-            <div>
-              <h4 className="font-bold text-charcoal text-base">¿Dudas de cuál es el curso ideal?</h4>
-              <p className="text-slate-mid text-xs font-medium">Realizamos una breve entrevista gratuita para entender el nivel de tu perro y recomendarte el grupo correcto.</p>
+
+            {/* Individual */}
+            <div className="rounded-2xl border border-white/10 p-8 md:p-10 flex flex-col gap-4 bg-white/5 backdrop-blur-sm hover:bg-white/8 transition-colors duration-300">
+              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg">
+                🧑
+              </div>
+              <h3 className="font-bold text-4xl md:text-5xl text-white">Individuales</h3>
+              <p className="text-white/50 text-sm font-medium leading-relaxed">
+                Online o presenciales. Consultanos por zonas y disponibilidad.
+              </p>
             </div>
           </div>
-          <button
-            onClick={() => {
-              const el = document.getElementById('contacto-form') || document.getElementById('contacto');
-              if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                window.location.href = '/#contacto';
-              }
-            }}
-            className="btn-tangerine text-white font-bold text-xs px-6 py-3.5 rounded-xl whitespace-nowrap shadow-tangerine-glow transition-transform hover:scale-105 active:scale-95 shrink-0"
-          >
-            Consultar ahora
-          </button>
-        </motion.div>
-      </div>
-    </section>
+
+          {/* CTA Button */}
+          <div className="text-center">
+            <button
+              onClick={() => {
+                const el =
+                  document.getElementById('contacto-form') || document.getElementById('contacto');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#contacto';
+                }
+              }}
+              className="inline-flex items-center gap-2 font-bold text-sm px-8 py-4 rounded-full transition-transform hover:scale-105 active:scale-95 shadow-lg"
+              style={{ background: 'var(--honey-gold)', color: '#1a1a1a' }}
+            >
+              ¿No sabés cuál elegir? Consultanos →
+            </button>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
