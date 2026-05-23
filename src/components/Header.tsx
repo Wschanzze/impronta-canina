@@ -26,7 +26,7 @@ const Header: React.FC = () => {
     <>
       {/* Barra superior de anuncios */}
       <div className="bg-charcoal text-white text-xs md:text-sm font-medium py-2 px-4 text-center z-[101] relative flex justify-center items-center gap-2">
-        Evaluación inicial gratuita: ¡Reserva hoy y cambia la vida de tu perro!
+        Evaluación inicial: ¡Reserva hoy y cambia la vida de tu perro!
         <a
           href="#contacto"
           className="underline hover:text-honey-gold transition-colors ml-2 font-bold"
