@@ -18,10 +18,8 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { name: 'Servicios', href: '/#servicios' },
-    { name: 'Adiestramiento', href: '/#servicios' },
     { name: 'Cursos', href: '/cursos' },
     { name: 'Nosotros', href: '/nosotros' },
-    { name: 'Contacto', href: '/#contacto' },
   ];
 
   return (
@@ -85,7 +83,7 @@ const Header: React.FC = () => {
                 }
               }}
             >
-              Consulta Gratuita
+              Consulta
             </button>
           </div>
 
@@ -147,7 +145,7 @@ const Header: React.FC = () => {
                     }
                   }}
                 >
-                  Consulta Gratuita
+                  Consulta
                 </button>
               </motion.div>
             </div>

@@ -154,7 +154,7 @@ const BlueprintCTA: React.FC = () => {
               <div
                 className="inline-block tag-badge px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide bg-white/20 text-white backdrop-blur-sm border border-white/30"
               >
-                🐾 Educación Canina Profesional
+                Educación Canina Profesional
               </div>
               <h2
                 className="font-serif font-bold text-3xl md:text-5xl leading-tight text-white drop-shadow-sm"
@@ -215,7 +215,7 @@ const BlueprintCTA: React.FC = () => {
                     el?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  Quiero una consulta gratuita
+                  Quiero una consulta
                 </button>
                 <p className="text-xs font-medium text-white/80">
                   Sin compromiso. Te respondemos en 24 hs.
@@ -267,7 +267,7 @@ const BlueprintCTA: React.FC = () => {
                 className="inline-block tag-badge px-4 py-1.5 rounded-full mb-4 font-bold text-xs uppercase tracking-wide"
                 style={{ background: 'var(--tangerine)', color: '#ffffff' }}
               >
-                Consulta Gratuita
+                Consulta
               </div>
               <h3
                 className="font-serif font-bold text-2xl md:text-3xl text-charcoal mb-3"

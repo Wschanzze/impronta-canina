@@ -329,15 +329,6 @@ const MosaicHero: React.FC = () => {
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5 font-bold text-xs uppercase tracking-wider"
-            style={{ background: 'var(--tangerine)', color: '#ffffff' }}
-          >
-            🐾 Educación Canina Profesional
-          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -373,7 +364,7 @@ const MosaicHero: React.FC = () => {
               }}
               className="btn-tangerine text-white text-sm font-bold px-8 py-3.5 rounded-full shadow-tangerine-glow transition-transform hover:scale-105 active:scale-95 cursor-pointer inline-flex items-center gap-2"
             >
-              Consulta gratuita 🐾
+              Consulta
             </button>
           </motion.div>
         </motion.div>
