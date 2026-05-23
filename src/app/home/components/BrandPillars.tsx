@@ -2,219 +2,119 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const BalloonDogIcon: React.FC<{ className?: string; color?: string }> = ({
-  className,
-  color = 'currentColor',
-}) => (
-  <svg viewBox="0 0 120 70" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="55" cy="42" rx="28" ry="16" fill={color} opacity="0.95" />
-    <ellipse cx="84" cy="32" rx="14" ry="12" fill={color} opacity="0.95" />
-    <ellipse cx="96" cy="36" rx="8" ry="6" fill={color} opacity="0.9" />
-    <ellipse cx="103" cy="37" rx="3" ry="2.5" fill={color} opacity="0.8" />
-    <ellipse
-      cx="82"
-      cy="22"
-      rx="7"
-      ry="9"
-      fill={color}
-      opacity="0.8"
-      transform="rotate(-15 82 22)"
-    />
-    <rect x="62" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
-    <rect x="74" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
-    <rect x="34" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
-    <rect x="44" y="54" width="8" height="14" rx="4" fill={color} opacity="0.9" />
-    <path d="M28 40 Q10 25 15 15 Q18 8 22 12 Q20 20 30 30" fill={color} opacity="0.85" />
-  </svg>
-);
-
-const PawPrintIcon: React.FC<{ className?: string; color?: string }> = ({
-  className,
-  color = 'currentColor',
-}) => (
-  <svg viewBox="0 0 24 24" className={className} fill={color} xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 14c-1.66 0-3 1.34-3 3 0 2 2 3.5 3 3.5s3-1.5 3-3.5c0-1.66-1.34-3-3-3z" />
-    <circle cx="7" cy="11" r="2" />
-    <circle cx="10.5" cy="8" r="2" />
-    <circle cx="13.5" cy="8" r="2" />
-    <circle cx="17" cy="11" r="2" />
-  </svg>
-);
-
-interface Pillar {
-  id: number;
-  title: string;
-  description: string;
-  tag: string;
-  tagColor: string;
-  iconType: 'balloon' | 'paw';
-}
-
-const pillars: Pillar[] = [
+const pillars = [
   {
     id: 1,
+    number: '01',
     title: 'Método en Positivo',
     description:
-      'Adiestramiento fundamentado en la ciencia del comportamiento animal. Enseñamos reforzando conductas deseadas, logrando obediencia sin violencia, intimidación ni estrés.',
-    tag: 'CIENCIA Y RESPETO',
-    tagColor: 'var(--verde)',
-    iconType: 'balloon',
+      'Educación fundamentada en la ciencia del comportamiento. Enseñamos a través de la cooperación y el respeto, logrando una obediencia natural sin recurrir al miedo ni al estrés.',
+    color: 'var(--verde)',
   },
   {
     id: 2,
-    title: 'Planes Personalizados',
+    number: '02',
+    title: 'Planes a Medida',
     description:
-      'Ningún perro es igual a otro. Evaluamos detalladamente el entorno familiar, temperamento e historial del peludo para crear protocolos adaptados a tu vida diaria.',
-    tag: 'A MEDIDA',
-    tagColor: 'var(--tangerine)',
-    iconType: 'paw',
+      'Entendemos que cada familia es un mundo. Evaluamos el entorno, las rutinas y el temperamento de tu perro para diseñar un protocolo que se adapte perfectamente a tu estilo de vida.',
+    color: 'var(--tangerine)',
   },
   {
     id: 3,
-    title: 'Resultados que Perduran',
+    number: '03',
+    title: 'Vínculo Real',
     description:
-      'Te capacitamos para que aprendas a entender y guiar a tu perro. No hacemos cambios temporales; construimos una comunicación duradera y de confianza mutua.',
-    tag: 'VÍNCULO REAL',
-    tagColor: 'var(--honey-gold)',
-    iconType: 'balloon',
+      'No buscamos soluciones temporales. Te brindamos las herramientas necesarias para comprender a tu perro, construyendo una comunicación profunda y resultados que perduran en el tiempo.',
+    color: 'var(--honey-gold)',
   },
 ];
 
 const BrandPillars: React.FC = () => {
   return (
-    <section className="py-20 px-4 md:px-8 bg-warm-cream relative overflow-hidden">
-      {/* Decorative top border gradient */}
-      <div
-        className="absolute top-0 left-0 right-0 h-1.5"
-        style={{
-          background:
-            'linear-gradient(90deg, var(--verde) 0%, var(--honey-gold) 50%, var(--tangerine) 100%)',
-        }}
-      />
+    <section className="py-24 px-4 md:px-8 bg-slate-50 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-8 items-start">
+          
+          {/* Left: Sticky Context & Video */}
+          <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="text-tangerine font-bold tracking-widest uppercase text-xs mb-4 block">
+                Nuestro Enfoque
+              </span>
+              <h2 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-charcoal leading-tight mb-6">
+                ¿Por qué elegir <br />
+                <span className="text-verde">Impronta Canina?</span>
+              </h2>
+              <p className="text-slate-500 font-medium text-base md:text-lg leading-relaxed max-w-md">
+                Dejamos atrás los métodos tradicionales para abrazar una educación canina moderna, empática y efectiva. Tu perro no necesita dominancia, necesita un guía.
+              </p>
+            </motion.div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span
-            className="inline-block tag-badge px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide mb-4"
-            style={{
-              background: 'var(--verde-pale)',
-              color: 'var(--verde-dark)',
-            }}
-          >
-            Nuestro Enfoque
-          </span>
-          <h2 className="font-serif font-bold text-3xl md:text-5xl text-charcoal leading-tight">
-            ¿Por qué elegir <span style={{ color: 'var(--verde)' }}>Impronta Canina</span>?
-          </h2>
-          <p className="text-slate-mid font-medium mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Creemos que la educación de tu perro debe basarse en la confianza y la comunicación, no
-            en el miedo. Así es como logramos una convivencia feliz y equilibrada.
-          </p>
-        </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/3] border-[6px] border-white"
+            >
+              <video
+                src="/assets/videos/6011991_Dog_Animal_1280x720.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
 
-        {/* 2-Column Layout */}
-        <div className="flex flex-col lg:flex-row gap-12 items-stretch">
-          {/* Left Column: Pillars Stack */}
-          <div className="lg:w-1/2 flex flex-col gap-6">
+          {/* Right: Scrolling Pillars */}
+          <div className="lg:col-span-6 lg:col-start-7 flex flex-col gap-8 md:gap-12 lg:pt-24">
             {pillars.map((pillar, index) => (
               <motion.div
                 key={pillar.id}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="relative group bg-white rounded-3xl p-6 md:p-8 shadow-warm-md hover:shadow-warm-lg transition-all duration-300 border border-slate-100/80 flex flex-col justify-between"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="relative bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-500 group"
               >
-                {/* Balloon Dog / Paw Icon POP-UP on top border when hovering */}
-                <div className="absolute -top-5 right-8 opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">
-                  <div
-                    className="px-3 py-1.5 rounded-full bg-white shadow-md border flex items-center justify-center"
-                    style={{ borderColor: pillar.tagColor }}
-                  >
-                    {pillar.iconType === 'balloon' ? (
-                      <BalloonDogIcon className="w-8 h-5" color={pillar.tagColor} />
-                    ) : (
-                      <PawPrintIcon className="w-5 h-5" color={pillar.tagColor} />
-                    )}
-                  </div>
+                {/* Large Background Number */}
+                <div 
+                  className="absolute top-4 right-8 font-serif font-bold text-[8rem] leading-none opacity-5 group-hover:opacity-10 group-hover:-translate-y-2 transition-all duration-500 pointer-events-none select-none"
+                  style={{ color: pillar.color }}
+                >
+                  {pillar.number}
                 </div>
 
-                <div>
-                  {/* Visual indicator (Pill shape) */}
-                  <div className="flex justify-between items-center mb-4">
-                    <span
-                      className="tag-badge text-[10px] px-3 py-1 rounded-full font-bold"
-                      style={{
-                        background: `${pillar.tagColor}15`,
-                        color: pillar.tagColor,
-                      }}
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <span 
+                      className="text-sm font-bold tracking-wider"
+                      style={{ color: pillar.color }}
                     >
-                      {pillar.tag}
+                      {pillar.number}
                     </span>
-
-                    {/* Decorative faint background paw */}
-                    <div className="opacity-10 group-hover:opacity-20 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                      {pillar.iconType === 'balloon' ? (
-                        <BalloonDogIcon className="w-10 h-7" color="var(--charcoal)" />
-                      ) : (
-                        <PawPrintIcon className="w-8 h-8" color="var(--charcoal)" />
-                      )}
-                    </div>
+                    <div className="h-[1px] w-12" style={{ backgroundColor: pillar.color }} />
                   </div>
-
-                  <h3 className="font-serif font-bold text-xl md:text-2xl text-charcoal mb-3">{pillar.title}</h3>
-                  <p className="text-slate-mid text-sm font-medium leading-relaxed">
+                  
+                  <h3 className="font-serif font-bold text-2xl md:text-3xl text-charcoal mb-4">
+                    {pillar.title}
+                  </h3>
+                  
+                  <p className="text-slate-500 font-medium leading-relaxed md:text-lg">
                     {pillar.description}
                   </p>
                 </div>
-
-                {/* Bottom accent line on hover */}
-                <div
-                  className="absolute bottom-0 left-8 right-8 h-1 rounded-t-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"
-                  style={{ backgroundColor: pillar.tagColor }}
-                />
               </motion.div>
             ))}
           </div>
 
-          {/* Right Column: Video */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:w-1/2 relative rounded-3xl overflow-hidden shadow-2xl min-h-[400px] lg:min-h-full border border-slate-200/50"
-          >
-            <video
-              src="/assets/videos/6011991_Dog_Animal_1280x720.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Elegant overlay to enhance premium feel */}
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent pointer-events-none" />
-            
-            {/* Decorative tag on video */}
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/20 inline-flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-verde flex items-center justify-center shrink-0">
-                  <PawPrintIcon className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="font-bold text-sm text-charcoal leading-tight">Resultados Reales</p>
-                  <p className="text-xs text-slate-500">Perros equilibrados y felices</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
