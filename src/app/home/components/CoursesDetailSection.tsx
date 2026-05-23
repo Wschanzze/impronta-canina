@@ -81,23 +81,23 @@ const courses: CourseItem[] = [
 ];
 
 const modalityConfig = {
-  Grupal: { label: '👥 Grupal', bg: 'rgba(255,255,255,0.18)', border: 'rgba(255,255,255,0.4)' },
+  Grupal: { label: 'Grupal', bg: 'rgba(255,255,255,0.25)', border: 'rgba(255,255,255,0.5)' },
   Individual: {
-    label: '🧑 Individual',
-    bg: 'rgba(255,255,255,0.18)',
-    border: 'rgba(255,255,255,0.4)',
+    label: 'Individual',
+    bg: 'rgba(255,255,255,0.25)',
+    border: 'rgba(255,255,255,0.5)',
   },
   Ambas: {
-    label: '👥 Grupal · 🧑 Individual',
-    bg: 'rgba(255,255,255,0.18)',
-    border: 'rgba(255,255,255,0.4)',
+    label: 'Grupal · Individual',
+    bg: 'rgba(255,255,255,0.25)',
+    border: 'rgba(255,255,255,0.5)',
   },
 };
 
 const CourseCard: React.FC<{ course: CourseItem }> = ({ course }) => {
   const mod = modalityConfig[course.modality];
   return (
-    <div className="course-card group relative rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-shadow duration-500">
+    <div className="course-card group relative rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-shadow duration-500 border border-slate-100">
       {/* Photo — greyscale by default, color on hover */}
       <div className="relative w-full aspect-[4/5] overflow-hidden">
         <img
@@ -161,29 +161,29 @@ const CoursesDetailSection: React.FC = () => {
   return (
     <>
       {/* ─── COURSES GRID ─── */}
-      <section id="cursos-detalle" className="py-24 px-4 md:px-8 bg-charcoal">
+      <section id="cursos-detalle" className="py-24 px-4 md:px-8 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span
               className="inline-block px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide mb-4 text-white"
-              style={{ background: 'var(--honey-gold)' }}
+              style={{ background: 'var(--tangerine)' }}
             >
               Para tu perro
             </span>
-            <h2 className="font-serif font-bold text-4xl md:text-6xl text-white leading-tight mb-4">
+            <h2 className="font-serif font-bold text-4xl md:text-6xl text-charcoal leading-tight mb-4">
               Nuestras{' '}
-              <em className="not-italic" style={{ color: 'var(--honey-gold)' }}>
+              <em className="not-italic" style={{ color: 'var(--verde)' }}>
                 clases
               </em>
             </h2>
-            <p className="text-white/60 font-medium text-base leading-relaxed">
+            <p className="text-slate-mid font-medium text-base md:text-lg leading-relaxed">
               Educación canina basada en el vínculo, la ciencia y el refuerzo positivo.
             </p>
           </div>
 
           {/* Grid 3 cols */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {courses.map((course) => (
               <CourseCard key={course.title} course={course} />
             ))}
@@ -192,34 +192,28 @@ const CoursesDetailSection: React.FC = () => {
       </section>
 
       {/* ─── MODALITIES SECTION ─── */}
-      <section className="py-20 px-4 md:px-8 bg-[#0e0e10]">
+      <section className="py-20 px-4 md:px-8 bg-warm-cream">
         <div className="max-w-5xl mx-auto">
           <p
             className="text-center text-xs font-extrabold uppercase tracking-widest mb-10"
-            style={{ color: 'var(--honey-gold)' }}
+            style={{ color: 'var(--tangerine)' }}
           >
-            Modalidades
+            Modalidades de Cursada
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {/* Grupal */}
-            <div className="rounded-2xl border border-white/10 p-8 md:p-10 flex flex-col gap-4 bg-white/5 backdrop-blur-sm hover:bg-white/8 transition-colors duration-300">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg">
-                👥
-              </div>
-              <h3 className="font-bold text-4xl md:text-5xl text-white">Grupales</h3>
-              <p className="text-white/50 text-sm font-medium leading-relaxed">
+            <div className="rounded-3xl border border-slate-200 p-8 md:p-10 flex flex-col gap-4 bg-white shadow-warm-md hover:shadow-warm-lg transition-all duration-300">
+              <h3 className="font-serif font-bold text-3xl md:text-4xl text-charcoal">Grupales</h3>
+              <p className="text-slate-mid text-sm font-medium leading-relaxed">
                 Presenciales en Tandil, Buenos Aires. Consultanos disponibilidad y zonas.
               </p>
             </div>
 
             {/* Individual */}
-            <div className="rounded-2xl border border-white/10 p-8 md:p-10 flex flex-col gap-4 bg-white/5 backdrop-blur-sm hover:bg-white/8 transition-colors duration-300">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-lg">
-                🧑
-              </div>
-              <h3 className="font-bold text-4xl md:text-5xl text-white">Individuales</h3>
-              <p className="text-white/50 text-sm font-medium leading-relaxed">
+            <div className="rounded-3xl border border-slate-200 p-8 md:p-10 flex flex-col gap-4 bg-white shadow-warm-md hover:shadow-warm-lg transition-all duration-300">
+              <h3 className="font-serif font-bold text-3xl md:text-4xl text-charcoal">Individuales</h3>
+              <p className="text-slate-mid text-sm font-medium leading-relaxed">
                 Online o presenciales. Consultanos por zonas y disponibilidad.
               </p>
             </div>
@@ -237,8 +231,8 @@ const CoursesDetailSection: React.FC = () => {
                   window.location.href = '/#contacto';
                 }
               }}
-              className="inline-flex items-center gap-2 font-bold text-sm px-8 py-4 rounded-full transition-transform hover:scale-105 active:scale-95 shadow-lg"
-              style={{ background: 'var(--honey-gold)', color: '#1a1a1a' }}
+              className="inline-flex items-center gap-2 font-bold text-sm px-8 py-4 rounded-full transition-transform hover:scale-105 active:scale-95 shadow-tangerine-glow text-white"
+              style={{ background: 'var(--tangerine)' }}
             >
               ¿No sabés cuál elegir? Consultanos →
             </button>
