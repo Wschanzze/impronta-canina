@@ -9,7 +9,6 @@ const ServicesSection = dynamic(() => import('@/app/home/components/ServicesSect
 
 const TransportDetailSection = dynamic(() => import('@/app/home/components/TransportDetailSection'));
 
-const TestimonialsSection = dynamic(() => import('@/app/home/components/TestimonialsSection'));
 const BlueprintCTA = dynamic(() => import('@/app/home/components/BlueprintCTA'));
 const DidYouKnowRibbon = dynamic(() => import('@/app/home/components/DidYouKnowRibbon'));
 
@@ -64,9 +63,6 @@ export default function HomePage() {
             index={2}
           />
         </div>
-
-        {/* 6. Testimonials */}
-        <TestimonialsSection />
 
         {/* 7. CTA + Contacto */}
         <BlueprintCTA />
