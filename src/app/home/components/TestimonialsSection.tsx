@@ -10,6 +10,8 @@ interface Testimonial {
   authorRole: string;
   authorUsername: string;
   authorImage: string;
+  accentColor: string;
+  bgColor: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -20,6 +22,8 @@ const testimonials: Testimonial[] = [
     authorRole: 'Dueña primeriza',
     authorUsername: '@caro_y_max',
     authorImage: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
+    accentColor: 'var(--verde)',
+    bgColor: 'rgba(74, 93, 35, 0.04)',
   },
   {
     id: 2,
@@ -28,6 +32,8 @@ const testimonials: Testimonial[] = [
     authorRole: 'Propietario de Pastor Alemán',
     authorUsername: '@martin_rescates',
     authorImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e',
+    accentColor: 'var(--tangerine)',
+    bgColor: 'rgba(217, 119, 67, 0.04)',
   },
   {
     id: 3,
@@ -36,6 +42,8 @@ const testimonials: Testimonial[] = [
     authorRole: 'Familia Multiespecie',
     authorUsername: '@familia_con_huellas',
     authorImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+    accentColor: '#E6A15C',
+    bgColor: 'rgba(230, 161, 92, 0.05)',
   },
   {
     id: 4,
@@ -44,25 +52,22 @@ const testimonials: Testimonial[] = [
     authorRole: 'Adoptante',
     authorUsername: '@esteban_adopta',
     authorImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e',
+    accentColor: 'var(--verde)',
+    bgColor: 'rgba(74, 93, 35, 0.04)',
   },
 ];
 
-const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
+const TestimonialListItem: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
   return (
-    <div className="bg-white p-8 md:p-10 rounded-2xl flex flex-col justify-between h-full border border-slate-100 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
-      <div>
-        <div className="flex gap-1 mb-6 text-honey-gold">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <Icon key={star} name="StarIcon" size={16} fill="currentColor" />
-          ))}
-        </div>
-        <p className="text-base md:text-lg leading-relaxed text-slate-700 mb-8 italic font-medium">
-          "{testimonial.text}"
-        </p>
-      </div>
-
-      <div className="flex items-center gap-4 mt-auto pt-6 border-t border-slate-50">
-        <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border border-slate-100">
+    <div 
+      className="flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-10 border-l-4 rounded-r-2xl rounded-l-sm transition-colors duration-200 hover:bg-opacity-80"
+      style={{ 
+        borderColor: testimonial.accentColor,
+        backgroundColor: testimonial.bgColor
+      }}
+    >
+      <div className="flex-shrink-0 flex items-center gap-4 md:flex-col md:items-start md:w-56">
+        <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
           <AppImage
             src={testimonial.authorImage}
             alt={testimonial.authorName}
@@ -71,11 +76,24 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
           />
         </div>
         <div>
-          <h4 className="text-sm font-bold text-charcoal leading-tight">
+          <h4 className="text-base md:text-lg font-bold text-charcoal leading-tight">
             {testimonial.authorName}
           </h4>
-          <p className="text-xs text-slate-500 mt-1">{testimonial.authorRole}</p>
+          <p className="text-sm font-bold mt-1" style={{ color: testimonial.accentColor }}>
+            {testimonial.authorRole}
+          </p>
         </div>
+      </div>
+
+      <div className="flex-1 flex flex-col justify-center">
+        <div className="flex gap-1 mb-4" style={{ color: testimonial.accentColor }}>
+          {[1, 2, 3, 4, 5].map((star) => (
+            <Icon key={star} name="StarIcon" size={18} fill="currentColor" />
+          ))}
+        </div>
+        <p className="text-lg md:text-xl leading-relaxed text-slate-700 italic font-medium">
+          "{testimonial.text}"
+        </p>
       </div>
     </div>
   );
@@ -84,7 +102,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
 const TestimonialsSection: React.FC = () => {
   return (
     <section className="relative py-24 px-4 md:px-8 bg-[#fdfbf7]">
-      <div className="relative max-w-6xl mx-auto">
+      <div className="relative max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <div
             className="inline-block tag-badge px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wide mb-6"
@@ -107,9 +125,9 @@ const TestimonialsSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 px-2 md:px-6">
+        <div className="flex flex-col gap-4 px-2 md:px-6">
           {testimonials.map((t) => (
-            <TestimonialCard key={t.id} testimonial={t} />
+            <TestimonialListItem key={t.id} testimonial={t} />
           ))}
         </div>
       </div>

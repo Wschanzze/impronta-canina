@@ -1,121 +1,391 @@
 'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 
-const pillars = [
+interface Pillar {
+  id: number;
+  number: string;
+  tag: string;
+  title: string;
+  description: string;
+  bullets: string[];
+  ctaText: string;
+  ctaLink: string;
+  subtext: string;
+  accentColor: string;
+  testimonial: {
+    quote: string;
+    author: string;
+    sub: string;
+    avatar: string;
+  };
+  media: {
+    type: 'video' | 'image';
+    src: string;
+    caption: string;
+  };
+}
+
+const pillars: Pillar[] = [
   {
     id: 1,
     number: '01',
-    title: 'Método en Positivo',
+    tag: 'MÉTODO EN POSITIVO',
+    title: 'Educamos sin castigos. Tu perro aprende cooperando.',
     description:
-      'Educación fundamentada en la ciencia del comportamiento. Enseñamos a través de la cooperación y el respeto, logrando una obediencia natural sin recurrir al miedo ni al estrés.',
-    color: 'var(--verde)',
+      'Educación fundamentada en la ciencia del comportamiento canino y el refuerzo positivo. Desterramos la dominancia y el miedo para lograr una obediencia fluida, respetando los tiempos y emociones de tu perro.',
+    bullets: [
+      'Sin tirones de correa ni collares de castigo.',
+      'Fomento de la toma de decisiones del perro.',
+      'Reducción activa del estrés y la ansiedad.',
+      'Aprendizaje lúdico y motivador para ambos.',
+    ],
+    ctaText: 'Quiero entrenar con mi perro',
+    ctaLink: '#contacto',
+    subtext: 'Etología y adiestramiento científico moderno.',
+    accentColor: 'var(--verde)',
+    testimonial: {
+      quote:
+        'Me daba culpa pensar en adiestrar a mi perro porque creía que sería rígido. El método positivo de Impronta fue una revelación, él disfruta cada sesión y yo también.',
+      author: 'Sofía G.',
+      sub: 'Tandil · Bruno, 8 meses',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150',
+    },
+    media: {
+      type: 'video',
+      src: '/assets/videos/6011991_Dog_Animal_1280x720.mp4',
+      caption: '► Bruno aprendiendo obediencia básica — Semana 3',
+    },
   },
   {
     id: 2,
     number: '02',
-    title: 'Planes a Medida',
+    tag: 'PLANES A MEDIDA',
+    title: 'Un plan de adiestramiento diseñado para tu realidad.',
     description:
-      'Entendemos que cada familia es un mundo. Evaluamos el entorno, las rutinas y el temperamento de tu perro para diseñar un protocolo que se adapte perfectamente a tu estilo de vida.',
-    color: 'var(--tangerine)',
+      'Cada perro y cada hogar son únicos. Analizamos la rutina familiar, el entorno y el temperamento individual de tu compañero para diseñar soluciones a medida que realmente se adapten a tu día a día.',
+    bullets: [
+      'Adaptado a tus horarios y rutinas reales.',
+      'Soluciones específicas para cachorros o perros adultos.',
+      'Enfoque en los problemas específicos de tu hogar.',
+      'Seguimiento personalizado entre sesiones.',
+    ],
+    ctaText: 'Diseñar mi plan a medida',
+    ctaLink: '#contacto',
+    subtext: 'Programas 100% personalizados.',
+    accentColor: 'var(--tangerine)',
+    testimonial: {
+      quote:
+        'El plan personalizado fue clave. Se adaptó perfecto a mis horarios rotativos y me dio pautas claras de qué hacer en mi propio departamento.',
+      author: 'Javier M.',
+      sub: 'Tandil · Lola, 1 año',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150',
+    },
+    media: {
+      type: 'video',
+      src: '/assets/videos/6012070_Dog_Animal_1280x720.mp4',
+      caption: '► Lola aprendiendo a gestionar la calma en el hogar',
+    },
   },
   {
     id: 3,
     number: '03',
-    title: 'Vínculo Real',
+    tag: 'VÍNCULO REAL',
+    title: 'Resultados duraderos basados en el vínculo y la confianza.',
     description:
-      'No buscamos soluciones temporales. Te brindamos las herramientas necesarias para comprender a tu perro, construyendo una comunicación profunda y resultados que perduran en el tiempo.',
-    color: 'var(--honey-gold)',
+      'No buscamos "parches" temporales ni callar síntomas. Te enseñamos a comprender el lenguaje de tu perro para resolver problemas de raíz, construyendo una relación sólida que se mantiene toda la vida.',
+    bullets: [
+      'Comunicación clara y sin malentendidos.',
+      'Llamado confiable y paseos relajados sin tensión.',
+      'Resolución de problemas de reactividad o miedos.',
+      'Confianza plena en situaciones cotidianas.',
+    ],
+    ctaText: 'Fortalecer nuestro vínculo',
+    ctaLink: '#contacto',
+    subtext: 'Vínculo y comunicación duradera.',
+    accentColor: 'var(--honey-gold)',
+    testimonial: {
+      quote:
+        'El cambio en el paseo es increíble. Pasamos de tirones constantes a caminar con la correa floja y confiar plenamente en él en el parque.',
+      author: 'Valeria R.',
+      sub: 'Tandil · Theo, 2 años',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150',
+    },
+    media: {
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=800',
+      caption: '► Theo paseando con correa floja y contacto visual',
+    },
   },
 ];
 
+const communityTestimonials = [
+  {
+    quote: 'Llegué desesperada porque mi cachorro de 4 meses destruía todo. En solo 3 sesiones entendimos qué estábamos haciendo mal. Nos cambiaron la vida por completo.',
+    author: 'Carolina S.',
+    sub: 'Dueña de Max (Golden Retriever) · Tandil',
+    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150',
+  },
+  {
+    quote: 'He pasado por tres entrenadores distintos. Lo que más destaco es que no usan castigos. Mi perra ahora me obedece por conexión y confianza, no por miedo.',
+    author: 'Martín R.',
+    sub: 'Dueño de Sasha (Pastor Alemán) · Tandil',
+    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=150',
+  },
+  {
+    quote: 'El curso de socialización temprana debería ser obligatorio. Ver cómo mi perro aprendió a comunicarse sin ansiedad ni agresividad no tiene precio.',
+    author: 'Laura y Tomás',
+    sub: 'Dueños de Rocky (Mestizo) · Tandil',
+    avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=150',
+  },
+];
+
+const StarRating: React.FC = () => (
+  <div className="flex gap-1 text-[#b88800] mb-4">
+    {[...Array(5)].map((_, i) => (
+      <svg
+        key={i}
+        className="w-4 h-4 fill-current"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    ))}
+  </div>
+);
+
+const VideoOrImagePlayer: React.FC<{ media: Pillar['media'] }> = ({ media }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play().catch((err) => console.log(err));
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  return (
+    <div className="relative aspect-[16/10] rounded-3xl overflow-hidden shadow-md group border border-[#eae6db] bg-slate-100">
+      {media.type === 'video' ? (
+        <>
+          <video
+            ref={videoRef}
+            src={media.src}
+            loop
+            muted
+            playsInline
+            onClick={togglePlay}
+            className="w-full h-full object-cover cursor-pointer"
+          />
+          {/* Centered Play Button Overlay */}
+          {!isPlaying && (
+            <div
+              onClick={togglePlay}
+              className="absolute inset-0 flex items-center justify-center bg-black/25 cursor-pointer transition-colors hover:bg-black/35"
+            >
+              <div className="w-14 h-14 rounded-full bg-white/90 shadow-lg flex items-center justify-center transition-transform group-hover:scale-110">
+                <svg
+                  className="w-6 h-6 text-charcoal ml-1 fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+        <img
+          src={media.src}
+          alt={media.caption}
+          className="w-full h-full object-cover"
+        />
+      )}
+      {/* Bottom Left Caption */}
+      <div className="absolute bottom-4 left-4 bg-black/50 text-white text-xs font-bold px-3.5 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+        {media.caption}
+      </div>
+    </div>
+  );
+};
+
+const PillarSection: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, index }) => {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: '-100px' });
+  const isEven = index % 2 === 0;
+
+  return (
+    <div
+      ref={containerRef}
+      className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center py-16 lg:py-24 border-b border-[#eae6db]/80 ${
+        !isEven ? 'lg:flex-row-reverse' : ''
+      }`}
+    >
+      {/* Text Column */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="w-full lg:w-1/2 flex flex-col items-start"
+      >
+        <span
+          className="font-bold text-xs uppercase tracking-widest mb-4 px-3 py-1 rounded-full bg-white border border-[#eae6db]/60 shadow-sm"
+          style={{ color: pillar.accentColor }}
+        >
+          {pillar.number} — {pillar.tag}
+        </span>
+        <h3 className="font-serif font-semibold text-3xl md:text-5xl text-charcoal leading-tight mb-6">
+          {pillar.title}
+        </h3>
+        <p className="text-slate-600 font-medium text-base md:text-lg leading-relaxed mb-8">
+          {pillar.description}
+        </p>
+
+        {/* Bullets */}
+        <ul className="space-y-3.5 mb-8 w-full">
+          {pillar.bullets.map((bullet, idx) => (
+            <li key={idx} className="flex items-start gap-3 text-slate-700 text-sm md:text-base font-medium">
+              <span
+                className="flex-shrink-0 w-2 h-2 rounded-full mt-2"
+                style={{ backgroundColor: pillar.accentColor }}
+              />
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA Button */}
+        <a
+          href={pillar.ctaLink}
+          className="inline-flex items-center gap-2 font-bold text-sm px-7 py-4 rounded-full text-white transition-all shadow-md active:scale-95"
+          style={{ background: 'var(--charcoal)', hover: 'opacity-90' }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.9')}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+        >
+          {pillar.ctaText} →
+        </a>
+        <span className="text-[11px] font-bold text-slate-400 mt-3 block ml-2">
+          {pillar.subtext}
+        </span>
+      </motion.div>
+
+      {/* Media Column (Testimonial Card + Video/Image Player) */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+        className="w-full lg:w-1/2 flex flex-col gap-6"
+      >
+        {/* Testimonial Card */}
+        <div className="bg-[#fefcf8] p-6 md:p-8 rounded-3xl border border-[#eae6db] shadow-sm">
+          <StarRating />
+          <p className="text-slate-700 text-sm md:text-base leading-relaxed italic mb-6 font-medium">
+            "{pillar.testimonial.quote}"
+          </p>
+          <div className="flex items-center gap-3.5 pt-4 border-t border-[#eae6db]/60">
+            <img
+              src={pillar.testimonial.avatar}
+              alt={pillar.testimonial.author}
+              className="w-10 h-10 rounded-full object-cover border border-[#eae6db]"
+            />
+            <div>
+              <h4 className="font-bold text-charcoal text-sm leading-none">
+                {pillar.testimonial.author}
+              </h4>
+              <p className="text-slate-400 text-xs font-bold mt-1">
+                {pillar.testimonial.sub}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Player */}
+        <VideoOrImagePlayer media={pillar.media} />
+      </motion.div>
+    </div>
+  );
+};
+
 const BrandPillars: React.FC = () => {
   return (
-    <section className="py-24 px-4 md:px-8 bg-slate-50 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-8 items-start">
-          
-          {/* Left: Sticky Context & Video */}
-          <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-tangerine font-bold tracking-widest uppercase text-xs mb-4 block">
-                Nuestro Enfoque
-              </span>
-              <h2 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-charcoal leading-tight mb-6">
-                ¿Por qué elegir <br />
-                <span className="text-verde">Impronta Canina?</span>
-              </h2>
-              <p className="text-slate-500 font-medium text-base md:text-lg leading-relaxed max-w-md">
-                Dejamos atrás los métodos tradicionales para abrazar una educación canina moderna, empática y efectiva. Tu perro no necesita dominancia, necesita un guía.
-              </p>
-            </motion.div>
+    <section className="py-24 px-4 md:px-8 bg-[#f5f2eb]/40 relative overflow-hidden noise-overlay">
+      <div className="max-w-6xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <span className="text-tangerine font-bold tracking-widest uppercase text-xs mb-4 block">
+            Nuestro Enfoque
+          </span>
+          <h2 className="font-serif font-bold text-4xl md:text-6xl text-charcoal leading-tight mb-6">
+            ¿Por qué elegir <br />
+            <span className="text-verde">Impronta Canina?</span>
+          </h2>
+          <p className="text-slate-500 font-medium text-base md:text-lg leading-relaxed">
+            Dejamos atrás los métodos tradicionales para abrazar una educación canina moderna,
+            empática y efectiva. Tu perro no necesita dominancia, necesita un guía.
+          </p>
+        </div>
 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/3] border-[6px] border-white"
-            >
-              <video
-                src="/assets/videos/6011991_Dog_Animal_1280x720.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </motion.div>
+        {/* 3 Pillars List */}
+        <div className="flex flex-col gap-8">
+          {pillars.map((pillar, index) => (
+            <PillarSection key={pillar.id} pillar={pillar} index={index} />
+          ))}
+        </div>
+
+        {/* Community Testimonials Subsection */}
+        <div className="pt-24 mt-8">
+          <div className="text-center mb-14">
+            <span className="text-verde font-bold tracking-widest uppercase text-xs mb-3 block">
+              DE NUESTRA COMUNIDAD
+            </span>
+            <h3 className="font-serif font-bold text-3xl md:text-4xl text-charcoal">
+              Familias que transformaron su convivencia
+            </h3>
           </div>
 
-          {/* Right: Scrolling Pillars */}
-          <div className="lg:col-span-6 lg:col-start-7 flex flex-col gap-8 md:gap-12 lg:pt-24">
-            {pillars.map((pillar, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {communityTestimonials.map((t, idx) => (
               <motion.div
-                key={pillar.id}
+                key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-slate-100 hover:shadow-xl transition-shadow duration-500 group"
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                className="bg-[#fefcf8] p-6 md:p-8 rounded-3xl border border-[#eae6db] shadow-sm flex flex-col justify-between h-full"
               >
-                {/* Large Background Number */}
-                <div 
-                  className="absolute top-4 right-8 font-serif font-bold text-[8rem] leading-none opacity-5 group-hover:opacity-10 group-hover:-translate-y-2 transition-all duration-500 pointer-events-none select-none"
-                  style={{ color: pillar.color }}
-                >
-                  {pillar.number}
-                </div>
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <span 
-                      className="text-sm font-bold tracking-wider"
-                      style={{ color: pillar.color }}
-                    >
-                      {pillar.number}
-                    </span>
-                    <div className="h-[1px] w-12" style={{ backgroundColor: pillar.color }} />
-                  </div>
-                  
-                  <h3 className="font-serif font-bold text-2xl md:text-3xl text-charcoal mb-4">
-                    {pillar.title}
-                  </h3>
-                  
-                  <p className="text-slate-500 font-medium leading-relaxed md:text-lg">
-                    {pillar.description}
+                <div>
+                  <StarRating />
+                  <p className="text-slate-700 text-sm md:text-base leading-relaxed italic mb-6 font-medium">
+                    "{t.quote}"
                   </p>
+                </div>
+                <div className="flex items-center gap-3.5 pt-4 border-t border-[#eae6db]/60">
+                  <img
+                    src={t.avatar}
+                    alt={t.author}
+                    className="w-10 h-10 rounded-full object-cover border border-[#eae6db]"
+                  />
+                  <div>
+                    <h4 className="font-bold text-charcoal text-sm leading-none">
+                      {t.author}
+                    </h4>
+                    <p className="text-slate-400 text-[11px] font-bold mt-1 leading-tight">
+                      {t.sub}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
-
         </div>
+
       </div>
     </section>
   );
