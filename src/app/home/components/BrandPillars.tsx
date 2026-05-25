@@ -13,11 +13,11 @@ interface Pillar {
   ctaLink: string;
   subtext: string;
   accentColor: string;
-  testimonial: {
-    quote: string;
-    author: string;
-    sub: string;
-    avatar: string;
+  trainerTip: {
+    tip: string;
+    trainerName: string;
+    trainerRole: string;
+    trainerPhoto: string;
   };
   media: {
     type: 'video' | 'image';
@@ -44,12 +44,11 @@ const pillars: Pillar[] = [
     ctaLink: '#contacto',
     subtext: 'Etología y adiestramiento científico moderno.',
     accentColor: 'var(--verde)',
-    testimonial: {
-      quote:
-        'Me daba culpa pensar en adiestrar a mi perro porque creía que sería rígido. El método positivo de Impronta fue una revelación, él disfruta cada sesión y yo también.',
-      author: 'Sofía G.',
-      sub: 'Tandil · Bruno, 8 meses',
-      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150',
+    trainerTip: {
+      tip: 'El adiestramiento positivo no consiste en solo darle comida al perro; se trata de construir un lenguaje común basado en la confianza mutua. Cuando el perro comprende qué esperamos de él sin miedo a ser castigado, aprende con entusiasmo y de manera definitiva.',
+      trainerName: 'Nicolás Pellizzari',
+      trainerRole: 'Adiestrador UBA y Psicopedagogo',
+      trainerPhoto: '/assets/images/nicolas-pellizzari.jfif',
     },
     media: {
       type: 'video',
@@ -74,12 +73,11 @@ const pillars: Pillar[] = [
     ctaLink: '#contacto',
     subtext: 'Programas 100% personalizados.',
     accentColor: 'var(--tangerine)',
-    testimonial: {
-      quote:
-        'El plan personalizado fue clave. Se adaptó perfecto a mis horarios rotativos y me dio pautas claras de qué hacer en mi propio departamento.',
-      author: 'Javier M.',
-      sub: 'Tandil · Lola, 1 año',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150',
+    trainerTip: {
+      tip: 'No intentes aplicar la receta de otro perro al tuyo. Cada animal tiene un temperamento, ritmo de aprendizaje y entorno familiar únicos. Adaptar el plan a tu rutina real garantiza resultados sostenibles sin sobrecargar tu día a día.',
+      trainerName: 'Carlos Polizza',
+      trainerRole: 'Adiestrador e Instructor EduCan K9',
+      trainerPhoto: '/assets/images/companero.jfif',
     },
     media: {
       type: 'video',
@@ -104,12 +102,11 @@ const pillars: Pillar[] = [
     ctaLink: '#contacto',
     subtext: 'Vínculo y comunicación duradera.',
     accentColor: 'var(--honey-gold)',
-    testimonial: {
-      quote:
-        'El cambio en el paseo es increíble. Pasamos de tirones constantes a caminar con la correa floja y confiar plenamente en él en el parque.',
-      author: 'Valeria R.',
-      sub: 'Tandil · Theo, 2 años',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150',
+    trainerTip: {
+      tip: 'Un paseo relajado con la correa floja no se logra reteniendo al perro con fuerza, sino enseñándole que caminar a tu lado es la opción más gratificante y segura. El vínculo real se construye con comunicación clara y respeto mutuo.',
+      trainerName: 'Nicolás Pellizzari',
+      trainerRole: 'Adiestrador UBA y Psicopedagogo',
+      trainerPhoto: '/assets/images/nicolas-pellizzari.jfif',
     },
     media: {
       type: 'image',
@@ -119,20 +116,6 @@ const pillars: Pillar[] = [
   },
 ];
 
-const StarRating: React.FC = () => (
-  <div className="flex gap-1 text-[#b88800] mb-4">
-    {[...Array(5)].map((_, i) => (
-      <svg
-        key={i}
-        className="w-4 h-4 fill-current"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-      </svg>
-    ))}
-  </div>
-);
 
 const VideoOrImagePlayer: React.FC<{ media: Pillar['media'] }> = ({ media }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -262,24 +245,36 @@ const PillarSection: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, in
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
         className="w-full lg:w-1/2 flex flex-col gap-6"
       >
-        {/* Testimonial Card */}
-        <div className="bg-[#fefcf8] p-6 md:p-8 rounded-3xl border border-[#eae6db] shadow-sm">
-          <StarRating />
+        {/* Trainer Tip Card */}
+        <div className="bg-[#fefcf8] p-6 md:p-8 rounded-3xl border border-[#eae6db] shadow-sm relative overflow-hidden">
+          {/* Subtle decorative background blob */}
+          <div className="absolute top-0 right-0 w-20 h-20 bg-tangerine/5 rounded-bl-full pointer-events-none" />
+          
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-tangerine/10 text-tangerine flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1c-.12.08-.23.18-.32.3-.43.54-.53 1.25-.53 1.93v.67h-4v-.67c0-.68-.1-1.39-.53-1.93-.09-.12-.2-.22-.32-.3A4.954 4.954 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.07-2.15 3.9z"/>
+              </svg>
+              Consejo Profesional
+            </span>
+          </div>
+
           <p className="text-slate-700 text-sm md:text-base leading-relaxed italic mb-6 font-medium">
-            "{pillar.testimonial.quote}"
+            "{pillar.trainerTip.tip}"
           </p>
+
           <div className="flex items-center gap-3.5 pt-4 border-t border-[#eae6db]/60">
             <img
-              src={pillar.testimonial.avatar}
-              alt={pillar.testimonial.author}
+              src={pillar.trainerTip.trainerPhoto}
+              alt={pillar.trainerTip.trainerName}
               className="w-10 h-10 rounded-full object-cover border border-[#eae6db]"
             />
             <div>
               <h4 className="font-bold text-charcoal text-sm leading-none">
-                {pillar.testimonial.author}
+                {pillar.trainerTip.trainerName}
               </h4>
-              <p className="text-slate-400 text-xs font-bold mt-1">
-                {pillar.testimonial.sub}
+              <p className="text-slate-400 text-[10px] font-bold mt-1.5">
+                {pillar.trainerTip.trainerRole}
               </p>
             </div>
           </div>

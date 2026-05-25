@@ -11,9 +11,13 @@ interface ServiceData {
   cardSubtitle: string;
   shortDesc: string;
   longDesc: string;
-  icon: LucideIconName;
+  icon: string;
   image: string;
   color: string;
+  features: string[];
+  duration: string;
+  modality: string;
+  badge?: string;
 }
 
 const services: ServiceData[] = [
@@ -26,6 +30,15 @@ const services: ServiceData[] = [
     icon: 'AcademicCapIcon',
     image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=600',
     color: 'var(--verde)',
+    features: [
+      'Diagnóstico inicial etológico de convivencia',
+      'Educación 100% libre de maltrato y castigos',
+      'Foco en obediencia urbana y paseos relajados',
+      'Pautas claras adaptadas a la rutina de tu hogar'
+    ],
+    duration: 'Sesiones de 60 min',
+    modality: 'Presencial a domicilio',
+    badge: 'El más solicitado'
   },
   {
     id: 'asesoramiento',
@@ -36,6 +49,15 @@ const services: ServiceData[] = [
     icon: 'ChatBubbleOvalLeftEllipsisIcon',
     image: 'https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&q=80&w=600',
     color: 'var(--tangerine)',
+    features: [
+      'Evaluación científica de problemas de comportamiento',
+      'Protocolos personalizados de desensibilización',
+      'Asesoramiento integral para toda la familia',
+      'Seguimiento telefónico y por WhatsApp incluido'
+    ],
+    duration: 'Sesión inicial de 90 min',
+    modality: 'A domicilio o Virtual',
+    badge: 'Sesión diagnóstica etológica'
   },
   {
     id: 'cursos',
@@ -46,6 +68,15 @@ const services: ServiceData[] = [
     icon: 'UserGroupIcon',
     image: 'https://images.unsplash.com/photo-1560743641-3914f2c45636?auto=format&fit=crop&q=80&w=600',
     color: 'var(--honey-gold)',
+    features: [
+      'Grupos reducidos (máximo 5 perros por instructor)',
+      'Prácticas guiadas en parques y espacios reales',
+      'Socialización estructurada y libre de riesgos',
+      'Material complementario en PDF y video'
+    ],
+    duration: 'Ciclos de 4 encuentros',
+    modality: 'Espacios públicos autorizados',
+    badge: 'Cupos limitados'
   },
   {
     id: 'paseos',
@@ -56,6 +87,15 @@ const services: ServiceData[] = [
     icon: 'MapIcon',
     image: 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&q=80&w=600',
     color: 'var(--verde)',
+    features: [
+      'Paseos individuales o parejas compatibles',
+      'Foco en estimulación mental, olfato y calma',
+      'Uso de arnés en H seguro (sin tirones dañinos)',
+      'Reporte fotográfico en tiempo real'
+    ],
+    duration: 'Sesiones de 45 a 60 min',
+    modality: 'Zonas seguras de Tandil',
+    badge: 'Salud y descompresión'
   },
   {
     id: 'traslados',
@@ -66,6 +106,15 @@ const services: ServiceData[] = [
     icon: 'TruckIcon',
     image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=600',
     color: 'var(--tangerine)',
+    features: [
+      'Vehículo climatizado y adaptado',
+      'Cajas transportadoras homologadas de alta seguridad',
+      'Chofer con formación en comportamiento canino',
+      'Acompañamiento a consultas veterinarias'
+    ],
+    duration: 'Trayectos locales y regionales',
+    modality: 'Puerta a puerta (Tandil y zona)',
+    badge: 'Seguridad garantizada'
   },
 ];
 
@@ -159,51 +208,138 @@ const ServicesSection: React.FC = () => {
         </div>
 
         {/* Dynamic Detail Panel */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedId}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35, ease: 'easeOut' }}
-              className="bg-[#fefcf8] rounded-[2.5rem] border border-[#eae6db] p-8 md:p-12 shadow-sm flex flex-col md:flex-row gap-8 items-center"
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="bg-white rounded-[2.5rem] border border-[#eae6db] p-6 md:p-10 lg:p-12 shadow-xl relative overflow-hidden"
             >
-              {/* Left Side: Icon box */}
-              <div
-                className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center shrink-0 shadow-sm"
-                style={{ backgroundColor: `${selectedService.color}12` }}
-              >
-                <Icon name={selectedService.icon} size={32} style={{ color: selectedService.color }} />
-              </div>
+              {/* Decorative dynamic color stripe at top */}
+              <div 
+                className="absolute top-0 left-0 right-0 h-2 transition-colors duration-500" 
+                style={{ backgroundColor: selectedService.color }}
+              />
 
-              {/* Right Side: Text details */}
-              <div className="flex-1 text-center md:text-left">
-                <span
-                  className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-white border border-[#eae6db]/60 shadow-sm inline-block mb-3"
-                  style={{ color: selectedService.color }}
-                >
-                  Información del Servicio
-                </span>
-                <h3 className="font-serif font-bold text-3xl text-charcoal mb-4">
-                  {selectedService.title}
-                </h3>
-                <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6 font-medium">
-                  {selectedService.longDesc}
-                </p>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+                
+                {/* Left Side: Photo + Badges */}
+                <div className="lg:col-span-5 flex flex-col justify-between gap-6">
+                  <div className="relative aspect-video lg:aspect-[4/3] rounded-3xl overflow-hidden shadow-md group min-h-[220px]">
+                    <AppImage
+                      src={selectedService.image}
+                      alt={selectedService.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 to-transparent" />
+                    
+                    {/* Floating Premium Icon Badge */}
+                    <div 
+                      className="absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center backdrop-blur-md bg-white/90 shadow-lg text-charcoal border border-white/20"
+                      style={{ color: selectedService.color }}
+                    >
+                      <Icon name={selectedService.icon} size={24} />
+                    </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 items-center">
-                  <a
-                    href="#contacto"
-                    className="inline-flex items-center gap-2 font-bold text-sm px-7 py-3.5 rounded-full text-white transition-all shadow-md active:scale-95 text-center"
-                    style={{ background: selectedService.color }}
-                  >
-                    Consultar por {selectedService.title} →
-                  </a>
-                  <span className="text-xs font-bold text-slate-400">
-                    * Planes adaptados a Tandil y zona de influencia.
-                  </span>
+                    {/* Top Floating Badge */}
+                    {selectedService.badge && (
+                      <span 
+                        className="absolute top-4 left-4 text-[10px] font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full text-white shadow-md backdrop-blur-sm"
+                        style={{ backgroundColor: selectedService.color }}
+                      >
+                        {selectedService.badge}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Quick stats grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-[#fdfbf7] border border-[#eae6db]/60 rounded-2xl p-4 flex items-center gap-3">
+                      <div className="p-2 rounded-xl bg-white text-slate-500 border border-[#eae6db]/50">
+                        <Icon name="MapPinIcon" size={18} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">Ubicación</p>
+                        <p className="text-xs font-bold text-charcoal leading-tight">{selectedService.modality}</p>
+                      </div>
+                    </div>
+                    <div className="bg-[#fdfbf7] border border-[#eae6db]/60 rounded-2xl p-4 flex items-center gap-3">
+                      <div className="p-2 rounded-xl bg-white text-slate-500 border border-[#eae6db]/50">
+                        <Icon name="ClockIcon" size={18} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">Duración</p>
+                        <p className="text-xs font-bold text-charcoal leading-tight">{selectedService.duration}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Right Side: Text details + bullet features */}
+                <div className="lg:col-span-7 flex flex-col justify-between text-left">
+                  <div>
+                    <span
+                      className="text-[11px] font-extrabold uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-100 shadow-sm inline-block mb-4"
+                      style={{ color: selectedService.color }}
+                    >
+                      Información Detallada
+                    </span>
+                    <h3 className="font-serif font-bold text-3xl md:text-4xl text-charcoal mb-4">
+                      {selectedService.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6 font-medium">
+                      {selectedService.longDesc}
+                    </p>
+
+                    {/* Features checklist */}
+                    <div className="mb-8">
+                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">¿Qué incluye este servicio?</h4>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {selectedService.features.map((feature, i) => (
+                          <li key={i} className="flex items-start gap-2.5">
+                            <span 
+                              className="mt-0.5 rounded-full p-0.5 flex items-center justify-center shrink-0"
+                              style={{ backgroundColor: `${selectedService.color}15`, color: selectedService.color }}
+                            >
+                              <svg className="w-3.5 h-3.5 stroke-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                              </svg>
+                            </span>
+                            <span className="text-xs md:text-sm font-semibold text-slate-700 leading-tight">
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Actions Row */}
+                  <div className="pt-6 border-t border-[#eae6db]/60 flex flex-col sm:flex-row items-center gap-4 justify-between">
+                    <a
+                      href="#contacto"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 font-bold text-sm px-8 py-4 rounded-xl text-white transition-all shadow-lg hover:shadow-xl hover:brightness-110 active:scale-95 text-center cursor-pointer"
+                      style={{ 
+                        background: selectedService.color,
+                        boxShadow: `0 8px 24px ${selectedService.color}25`
+                      }}
+                    >
+                      Solicitar {selectedService.title}
+                      <svg className="w-4 h-4 stroke-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                    <span className="text-xs font-bold text-slate-400 text-center sm:text-left">
+                      * Tarifas y planes adaptados a Tandil y zona de influencia.
+                    </span>
+                  </div>
+
+                </div>
+
               </div>
             </motion.div>
           </AnimatePresence>

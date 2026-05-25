@@ -206,19 +206,28 @@ const NosotrosPage: React.FC = () => {
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {[
                 {
                   title: 'Ciencia del comportamiento',
                   desc: 'Todo nuestro trabajo está respaldado por la etología moderna y el aprendizaje basado en evidencia.',
+                  image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800',
+                  accentColor: 'var(--verde)',
+                  icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 3a9 9 0 00-9 9c0 3.32 1.8 6.22 4.5 7.82V21a1 1 0 001 1h6a1 1 0 001-1v-1.18c2.7-1.6 4.5-4.5 4.5-7.82 0-4.97-4.03-9-9-9z"/></svg>
                 },
                 {
                   title: 'Sin castigos, nunca',
                   desc: 'Creemos que el miedo nunca es una herramienta válida. El refuerzo positivo es el único camino que usamos.',
+                  image: 'https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=800',
+                  accentColor: 'var(--tangerine)',
+                  icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                 },
                 {
                   title: 'El vínculo primero',
-                  desc: 'Antes de enseñar un comando, construimos una relación de confianza y comunicación real entre perro y familia.',
+                  desc: 'Antes de enseñar un comando, construimos una relación de confianza y comunicación real.',
+                  image: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=800',
+                  accentColor: 'var(--honey-gold)',
+                  icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                 },
               ].map((val, i) => (
                 <motion.div
@@ -227,10 +236,33 @@ const NosotrosPage: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.12 }}
-                  className="rounded-3xl p-8 text-left bg-white border border-slate-100 shadow-warm-md hover:shadow-warm-lg transition-shadow"
+                  className="group relative rounded-[2rem] overflow-hidden shadow-warm-md hover:shadow-2xl transition-all duration-500 min-h-[400px] flex items-end cursor-pointer"
                 >
-                  <h3 className="font-serif font-bold text-charcoal text-xl mb-3">{val.title}</h3>
-                  <p className="text-slate-mid text-sm leading-relaxed font-medium">{val.desc}</p>
+                  {/* Background Image */}
+                  <img 
+                    src={val.image} 
+                    alt={val.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+                  
+                  {/* Content */}
+                  <div className="relative z-10 p-8 md:p-10 text-left w-full transform transition-transform duration-500 group-hover:-translate-y-2">
+                    <div 
+                      className="w-12 h-12 rounded-full mb-6 flex items-center justify-center backdrop-blur-md bg-white/20 border border-white/20 text-white shadow-lg"
+                    >
+                      {val.icon}
+                    </div>
+                    <h3 className="font-serif font-bold text-white text-2xl mb-3 leading-tight drop-shadow-md">{val.title}</h3>
+                    <p className="text-white/80 text-sm md:text-base leading-relaxed font-medium drop-shadow-sm">{val.desc}</p>
+                    
+                    {/* Decorative accent bar */}
+                    <div 
+                      className="absolute bottom-0 left-0 h-1.5 w-0 group-hover:w-full transition-all duration-700 ease-out"
+                      style={{ backgroundColor: val.accentColor }}
+                    />
+                  </div>
                 </motion.div>
               ))}
             </div>
