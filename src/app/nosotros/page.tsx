@@ -34,7 +34,7 @@ const founders: Founder[] = [
   {
     id: 2,
     superLabel: 'QUIÉN ESTÁ DETRÁS',
-    name: 'Compañero',
+    name: 'Carlos Polizza',
     role: 'Adiestrador Profesional y Técnico',
     bio: 'Formado como Adiestrador Profesional en EduCan K9 y Técnico en Criminalística, aporta una perspectiva altamente técnica a Impronta Canina. Especializado en el desarrollo de perros de trabajo, su metodología se centra en la precisión y el rendimiento operativo. Como Instructor y Guía de perros de Búsqueda, entrena canes capaces de superar grandes desafíos.',
     credentials: ['Adiestrador EduCan K9', 'Técnico Criminalística', 'Guía Perros Búsqueda', 'Perros de Trabajo'],

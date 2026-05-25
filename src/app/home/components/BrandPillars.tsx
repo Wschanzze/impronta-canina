@@ -119,27 +119,6 @@ const pillars: Pillar[] = [
   },
 ];
 
-const communityTestimonials = [
-  {
-    quote: 'Llegué desesperada porque mi cachorro de 4 meses destruía todo. En solo 3 sesiones entendimos qué estábamos haciendo mal. Nos cambiaron la vida por completo.',
-    author: 'Carolina S.',
-    sub: 'Dueña de Max (Golden Retriever) · Tandil',
-    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150',
-  },
-  {
-    quote: 'He pasado por tres entrenadores distintos. Lo que más destaco es que no usan castigos. Mi perra ahora me obedece por conexión y confianza, no por miedo.',
-    author: 'Martín R.',
-    sub: 'Dueño de Sasha (Pastor Alemán) · Tandil',
-    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=150',
-  },
-  {
-    quote: 'El curso de socialización temprana debería ser obligatorio. Ver cómo mi perro aprendió a comunicarse sin ansiedad ni agresividad no tiene precio.',
-    author: 'Laura y Tomás',
-    sub: 'Dueños de Rocky (Mestizo) · Tandil',
-    avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=150',
-  },
-];
-
 const StarRating: React.FC = () => (
   <div className="flex gap-1 text-[#b88800] mb-4">
     {[...Array(5)].map((_, i) => (
@@ -339,52 +318,6 @@ const BrandPillars: React.FC = () => {
           ))}
         </div>
 
-        {/* Community Testimonials Subsection */}
-        <div className="pt-24 mt-8">
-          <div className="text-center mb-14">
-            <span className="text-verde font-bold tracking-widest uppercase text-xs mb-3 block">
-              DE NUESTRA COMUNIDAD
-            </span>
-            <h3 className="font-serif font-bold text-3xl md:text-4xl text-charcoal">
-              Familias que transformaron su convivencia
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {communityTestimonials.map((t, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="bg-[#fefcf8] p-6 md:p-8 rounded-3xl border border-[#eae6db] shadow-sm flex flex-col justify-between h-full"
-              >
-                <div>
-                  <StarRating />
-                  <p className="text-slate-700 text-sm md:text-base leading-relaxed italic mb-6 font-medium">
-                    "{t.quote}"
-                  </p>
-                </div>
-                <div className="flex items-center gap-3.5 pt-4 border-t border-[#eae6db]/60">
-                  <img
-                    src={t.avatar}
-                    alt={t.author}
-                    className="w-10 h-10 rounded-full object-cover border border-[#eae6db]"
-                  />
-                  <div>
-                    <h4 className="font-bold text-charcoal text-sm leading-none">
-                      {t.author}
-                    </h4>
-                    <p className="text-slate-400 text-[11px] font-bold mt-1 leading-tight">
-                      {t.sub}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
 
       </div>
     </section>
