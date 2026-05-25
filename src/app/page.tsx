@@ -7,10 +7,9 @@ import dynamic from 'next/dynamic';
 const BrandPillars = dynamic(() => import('@/app/home/components/BrandPillars'));
 const ServicesSection = dynamic(() => import('@/app/home/components/ServicesSection'));
 
-const TransportDetailSection = dynamic(() => import('@/app/home/components/TransportDetailSection'));
-
 const BlueprintCTA = dynamic(() => import('@/app/home/components/BlueprintCTA'));
 const DidYouKnowRibbon = dynamic(() => import('@/app/home/components/DidYouKnowRibbon'));
+const ClientsGallery = dynamic(() => import('@/app/home/components/ClientsGallery'));
 
 export default function HomePage() {
 
@@ -50,11 +49,6 @@ export default function HomePage() {
           />
         </div>
 
-
-
-        {/* 5.1. Detailed Pet Transport Section (Tandil, Bs As) */}
-        <TransportDetailSection />
-
         {/* Did You Know Ribbon #3 - Refuerzo Positivo */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 bg-white">
           <DidYouKnowRibbon
@@ -63,6 +57,9 @@ export default function HomePage() {
             index={2}
           />
         </div>
+
+        {/* Clients Gallery */}
+        <ClientsGallery />
 
         {/* 7. CTA + Contacto */}
         <BlueprintCTA />

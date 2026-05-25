@@ -171,9 +171,7 @@ const NosotrosPage: React.FC = () => {
                 </em>
               </h1>
               <p className="text-slate-mid text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
-                Impronta Canina nació del amor genuino por los perros y la convicción de que la
-                educación basada en el vínculo transforma vidas — tanto la del perro como la de su
-                familia.
+                Impronta Canina está conformada por un equipo de adiestradores profesionales altamente capacitados, unidos por el amor genuino a los perros y la convicción de que la educación basada en el vínculo transforma vidas. Nuestro objetivo es brindar soluciones integrales, desde el entorno domiciliario hasta el desarrollo de perros de trabajo, asegurando siempre el bienestar animal y una convivencia armónica.
               </p>
             </motion.div>
           </div>
