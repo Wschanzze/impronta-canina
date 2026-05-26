@@ -191,62 +191,6 @@ const CoursesDetailSection: React.FC = () => {
         </div>
       </section>
 
-      {/* ─── MODALITIES SECTION ─── */}
-      <section className="py-20 px-4 md:px-8 bg-slate-50">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12">
-            
-            {/* Cursos individuales */}
-            <div className="bg-white rounded-3xl p-10 flex flex-col items-center text-center shadow-xl shadow-slate-200/50 border border-slate-100 transition-transform duration-300 hover:-translate-y-1">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-8 shadow-inner border border-slate-100 bg-slate-50 relative">
-                <img
-                  src="/assets/images/perro-5.jpg"
-                  alt="Dog licking nose"
-                  className="w-full h-full object-cover scale-110 translate-y-2"
-                />
-              </div>
-              <h3 className="font-sans font-bold text-2xl md:text-3xl text-charcoal mb-10 tracking-tight">
-                Cursos individuales
-              </h3>
-              <button
-                onClick={() => {
-                  const el = document.getElementById('contacto-form') || document.getElementById('contacto');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  else window.location.href = '/#contacto';
-                }}
-                className="px-8 py-2.5 rounded-full border border-tangerine text-tangerine font-medium hover:bg-tangerine hover:text-white transition-colors duration-300"
-              >
-                Leer más
-              </button>
-            </div>
-
-            {/* Cursos grupales */}
-            <div className="bg-white rounded-3xl p-10 flex flex-col items-center text-center shadow-xl shadow-slate-200/50 border border-slate-100 transition-transform duration-300 hover:-translate-y-1">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-8 shadow-inner border border-slate-100 bg-slate-50 relative">
-                <img
-                  src="/assets/images/perro-6.jpg"
-                  alt="Black french bulldog"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="font-sans font-bold text-2xl md:text-3xl text-charcoal mb-10 tracking-tight">
-                Cursos grupales
-              </h3>
-              <button
-                onClick={() => {
-                  const el = document.getElementById('contacto-form') || document.getElementById('contacto');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  else window.location.href = '/#contacto';
-                }}
-                className="px-8 py-2.5 rounded-full border border-tangerine text-tangerine font-medium hover:bg-tangerine hover:text-white transition-colors duration-300"
-              >
-                Leer más
-              </button>
-            </div>
-            
-          </div>
-        </div>
-      </section>
     </>
   );
 };

@@ -78,12 +78,9 @@ const CursosPage: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] border border-slate-100"
             >
-              <video
-                src="/assets/videos/6012070_Dog_Animal_1280x720.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
+              <img
+                src="/assets/images/Carlos-Polizza-3.jfif"
+                alt="Carlos Polizza impartiendo cursos"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
