@@ -52,8 +52,8 @@ const pillars: Pillar[] = [
     },
     media: {
       type: 'image',
-      src: '/assets/images/nicolas-pellizzari-5.jfif',
-      caption: '► Entendiendo el comportamiento canino',
+      src: '/assets/images/nicolas-pellizzari-3.jfif',
+      caption: '► Sesión de adiestramiento con Nicolás',
     },
   },
   {
