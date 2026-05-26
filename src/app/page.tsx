@@ -49,14 +49,7 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Did You Know Ribbon #3 - Filosofía de Aprendizaje */}
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 bg-white">
-          <DidYouKnowRibbon
-            fact="Educar no es aplicar fórmulas rígidas. Es crear un canal de entendimiento mutuo mediante una comunicación clara y eficiente, forjando una conexión sólida y funcional basada en la confianza."
-            temperature="hot"
-            index={2}
-          />
-        </div>
+
 
         {/* Clients Gallery */}
         <ClientsGallery />

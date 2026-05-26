@@ -53,7 +53,7 @@ const pillars: Pillar[] = [
     },
     media: {
       type: 'image',
-      src: '/assets/images/nicolas-pellizzari-3.jfif',
+      src: '/assets/images/nicolas-pellizzari-4.jfif',
       caption: '► Sesión de adiestramiento con Nicolás',
       imageClassName: 'object-top',
     },

@@ -3,6 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import dynamic from 'next/dynamic';
+
+const DidYouKnowRibbon = dynamic(() => import('@/app/home/components/DidYouKnowRibbon'));
 
 interface Founder {
   id: number;
@@ -192,6 +195,15 @@ const NosotrosPage: React.FC = () => {
             ))}
           </div>
         </section>
+
+        {/* Did You Know Ribbon #4 - Estructura Emocional y Entendimiento */}
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 bg-white">
+          <DidYouKnowRibbon
+            fact="Un perro estable necesita predictibilidad y estructura emocional. El adiestramiento de calidad no impone conductas de forma mecánica, sino que enseña al tutor a comunicarse de manera coherente, logrando una convivencia libre de estrés basada en el entendimiento mutuo."
+            temperature="cool"
+            index={3}
+          />
+        </div>
 
         {/* ── VALORES ── */}
         <section className="py-24 px-4 md:px-8 bg-slate-50">
