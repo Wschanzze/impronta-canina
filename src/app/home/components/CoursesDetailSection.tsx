@@ -20,7 +20,7 @@ const courses: CourseItem[] = [
     description:
       'El período más importante en la vida de tu perro. Sentamos las bases para un perro adulto equilibrado, sociable y sin miedos.',
     image:
-      '/assets/images/nicolas-pellizzari 5.jfif',
+      '/assets/images/nicolas-pellizzari-5.jfif',
     cta: 'Conocé más →',
   },
   {
@@ -31,7 +31,7 @@ const courses: CourseItem[] = [
     description:
       'Herramientas prácticas para convivir en armonía en el mundo real: calles, plazas y cafés sin tirones de correa ni frustración.',
     image:
-      '/assets/images/Carlos Polizza 2.jfif',
+      '/assets/images/Carlos-Polizza-2.jfif',
     cta: 'Conocé más →',
   },
   {
@@ -64,7 +64,7 @@ const courses: CourseItem[] = [
     description:
       'Disc Dog y Freestyle: juego, movimiento y complicidad. Mejorá las habilidades de tu perro y disfrutá juntos cada sesión.',
     image:
-      '/assets/images/Carlos Polizza 3.jfif',
+      '/assets/images/Carlos-Polizza-3.jfif',
     cta: 'Conocé más →',
   },
   {
@@ -75,7 +75,7 @@ const courses: CourseItem[] = [
     description:
       'Protocolo personalizado de desensibilización para perros con reactividad hacia otros perros o personas.',
     image:
-      '/assets/images/nicolas-pellizzari 4.jfif',
+      '/assets/images/nicolas-pellizzari-4.jfif',
     cta: 'Conocé más →',
   },
 ];

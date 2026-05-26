@@ -16,7 +16,7 @@ interface Tile {
 const tiles: Tile[] = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1544568100-847a948585b9',
+    src: '/assets/images/perro-1.jpg',
     alt: 'Perro entrenando con comunicación clara',
     colSpan: 2,
     rowSpan: 2,
@@ -25,7 +25,7 @@ const tiles: Tile[] = [
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1612846392422-24282052e07a',
+    src: '/assets/images/perro-2.png',
     alt: 'Cachorro aprendiendo su primer comando con entusiasmo',
     colSpan: 1,
     rowSpan: 1,
@@ -33,7 +33,7 @@ const tiles: Tile[] = [
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1665674065241-f7ffb6ee1cb4',
+    src: '/assets/images/perro-3.jpg',
     alt: 'Perro corriendo libre y feliz en el campo durante paseo',
     colSpan: 1,
     rowSpan: 2,
@@ -41,7 +41,7 @@ const tiles: Tile[] = [
   },
   {
     id: 4,
-    src: '/assets/images/perro 1.jpg',
+    src: '/assets/images/perro-4.png',
     alt: 'Perro entrenando concentración e impronta canina',
     colSpan: 1,
     rowSpan: 1,
@@ -49,7 +49,7 @@ const tiles: Tile[] = [
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1701587444296-9e8ce7f988c5',
+    src: '/assets/images/perro-5.jpg',
     alt: 'Cachorro durmiendo tranquilo tras sesión de aprendizaje',
     colSpan: 1,
     rowSpan: 1,
@@ -57,7 +57,7 @@ const tiles: Tile[] = [
   },
   {
     id: 6,
-    src: 'https://images.unsplash.com/photo-1526489550178-7bd5d9944f4f',
+    src: '/assets/images/perro-6.jpg',
     alt: 'Perro mirando con ojos expresivos y confianza a su dueño',
     colSpan: 2,
     rowSpan: 1,
@@ -65,7 +65,7 @@ const tiles: Tile[] = [
   },
   {
     id: 7,
-    src: '/assets/images/perro 2.png',
+    src: '/assets/images/perro-7.jpg',
     alt: 'Adiestramiento grupal y socialización de perros en Tandil',
     colSpan: 1,
     rowSpan: 2,

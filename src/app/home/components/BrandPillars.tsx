@@ -52,8 +52,8 @@ const pillars: Pillar[] = [
     },
     media: {
       type: 'image',
-      src: '/assets/images/nicolas-pellizzari 2.jfif',
-      caption: '► Sesión de adiestramiento con Nicolás',
+      src: '/assets/images/nicolas-pellizzari-5.jfif',
+      caption: '► Entendiendo el comportamiento canino',
     },
   },
   {
@@ -77,12 +77,12 @@ const pillars: Pillar[] = [
       tip: 'No intentes aplicar la receta de otro perro al tuyo. Cada animal tiene un temperamento, ritmo de aprendizaje y entorno familiar únicos. Adaptar el plan a tu rutina real garantiza resultados sostenibles sin sobrecargar tu día a día.',
       trainerName: 'Carlos Polizza',
       trainerRole: 'Adiestrador y Técnico en Criminalística',
-      trainerPhoto: '/assets/images/Carlos Polizza.jfif',
+      trainerPhoto: '/assets/images/Carlos-Polizza.jfif',
     },
     media: {
       type: 'image',
-      src: '/assets/images/Carlos Polizza 1.jfif',
-      caption: '► Sesión personalizada con Carlos',
+      src: '/assets/images/Carlos-Polizza-1.jfif',
+      caption: '► Consultoría especializada con Carlos',
     },
   },
   {
@@ -110,7 +110,7 @@ const pillars: Pillar[] = [
     },
     media: {
       type: 'image',
-      src: '/assets/images/nicolas-pellizzari 1.jfif',
+      src: '/assets/images/nicolas-pellizzari-1.jfif',
       caption: '► Paseo relajado y contacto visual con Nicolás',
     },
   },
