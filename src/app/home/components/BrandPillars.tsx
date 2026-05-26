@@ -76,7 +76,7 @@ const pillars: Pillar[] = [
     trainerTip: {
       tip: 'No intentes aplicar la receta de otro perro al tuyo. Cada animal tiene un temperamento, ritmo de aprendizaje y entorno familiar únicos. Adaptar el plan a tu rutina real garantiza resultados sostenibles sin sobrecargar tu día a día.',
       trainerName: 'Carlos Polizza',
-      trainerRole: 'Adiestrador e Instructor EduCan K9',
+      trainerRole: 'Adiestrador y Técnico en Criminalística',
       trainerPhoto: '/assets/images/Carlos Polizza.jfif',
     },
     media: {
