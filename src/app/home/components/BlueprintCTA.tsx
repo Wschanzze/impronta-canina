@@ -29,7 +29,7 @@ const BlueprintCTA: React.FC = () => {
       {/* Translucent Background Image */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("/assets/images/form.png")' }}
+        style={{ backgroundImage: 'url("/assets/images/FOOTER_02-1-1024x576.avif")' }}
       />
       {/* Dark & blurred overlay for readability and premium feel */}
       <div className="absolute inset-0 z-0 bg-charcoal/85 backdrop-blur-[5px]" />
