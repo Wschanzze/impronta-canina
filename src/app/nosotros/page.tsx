@@ -141,6 +141,13 @@ const NosotrosPage: React.FC = () => {
       <main className="pt-24">
         {/* ── HERO ── */}
         <section className="relative py-24 md:py-32 px-4 overflow-hidden bg-gradient-to-br from-verde/10 via-warm-cream to-tangerine/5">
+          <div className="absolute inset-0 z-0 opacity-20 select-none pointer-events-none">
+            <img
+              src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=1600"
+              alt="Impronta Canina"
+              className="w-full h-full object-cover"
+            />
+          </div>
           {/* Decorative blurs */}
           <div
             className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full blur-[120px] opacity-30 pointer-events-none"
