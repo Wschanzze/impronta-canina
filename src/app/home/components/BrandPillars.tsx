@@ -23,6 +23,7 @@ interface Pillar {
     type: 'video' | 'image';
     src: string;
     caption: string;
+    imageClassName?: string;
   };
 }
 
@@ -54,6 +55,7 @@ const pillars: Pillar[] = [
       type: 'image',
       src: '/assets/images/nicolas-pellizzari-3.jfif',
       caption: '► Sesión de adiestramiento con Nicolás',
+      imageClassName: 'object-top',
     },
   },
   {
@@ -167,7 +169,7 @@ const VideoOrImagePlayer: React.FC<{ media: Pillar['media'] }> = ({ media }) => 
         <img
           src={media.src}
           alt={media.caption}
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover ${media.imageClassName || ''}`}
         />
       )}
       {/* Bottom Left Caption */}

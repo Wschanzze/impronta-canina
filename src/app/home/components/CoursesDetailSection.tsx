@@ -42,7 +42,7 @@ const courses: CourseItem[] = [
     description:
       'Canalizá la energía de tu perro a través de su sentido más desarrollado. Ideal para reducir la hiperactividad y el estrés.',
     image:
-      'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=800',
+      '/assets/images/perro-3.jpg',
     cta: 'Conocé más →',
   },
   {
@@ -53,7 +53,7 @@ const courses: CourseItem[] = [
     description:
       'Encuentros grupales en entornos controlados para que tu perro aprenda a comunicarse correctamente con otros de su especie.',
     image:
-      'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800',
+      '/assets/images/perro-4.png',
     cta: 'Conocé más →',
   },
   {
@@ -200,7 +200,7 @@ const CoursesDetailSection: React.FC = () => {
             <div className="bg-white rounded-3xl p-10 flex flex-col items-center text-center shadow-xl shadow-slate-200/50 border border-slate-100 transition-transform duration-300 hover:-translate-y-1">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-8 shadow-inner border border-slate-100 bg-slate-50 relative">
                 <img
-                  src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=400"
+                  src="/assets/images/perro-5.jpg"
                   alt="Dog licking nose"
                   className="w-full h-full object-cover scale-110 translate-y-2"
                 />
@@ -224,7 +224,7 @@ const CoursesDetailSection: React.FC = () => {
             <div className="bg-white rounded-3xl p-10 flex flex-col items-center text-center shadow-xl shadow-slate-200/50 border border-slate-100 transition-transform duration-300 hover:-translate-y-1">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-8 shadow-inner border border-slate-100 bg-slate-50 relative">
                 <img
-                  src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=400"
+                  src="/assets/images/perro-6.jpg"
                   alt="Black french bulldog"
                   className="w-full h-full object-cover"
                 />
