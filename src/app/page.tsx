@@ -19,7 +19,7 @@ export default function HomePage() {
 
       <main>
         {/* 1. Photo Grid Mosaic Hero */}
-        <div className="pt-16">
+        <div>
           <MosaicHero />
         </div>
 

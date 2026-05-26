@@ -138,7 +138,7 @@ const NosotrosPage: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      <main className="pt-24">
+      <main className="pt-0">
         {/* ── HERO ── */}
         <section className="relative py-24 md:py-32 px-4 overflow-hidden bg-gradient-to-br from-verde/10 via-warm-cream to-tangerine/5">
           <div className="absolute inset-0 z-0 opacity-20 select-none pointer-events-none">

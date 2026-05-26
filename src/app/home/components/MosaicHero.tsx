@@ -41,8 +41,8 @@ const tiles: Tile[] = [
   },
   {
     id: 4,
-    src: 'https://img.rocket.new/generatedImages/rocket_gen_img_1578a0b03-1772135240762.png',
-    alt: 'Perro adulto en posición de espera demostrando disciplina aprendida',
+    src: '/assets/images/perro 1.jpg',
+    alt: 'Perro entrenando concentración e impronta canina',
     colSpan: 1,
     rowSpan: 1,
     flipContent: null,
@@ -65,8 +65,8 @@ const tiles: Tile[] = [
   },
   {
     id: 7,
-    src: 'https://img.rocket.new/generatedImages/rocket_gen_img_1d5031510-1772135239889.png',
-    alt: 'Grupo de perros en clase de adiestramiento grupal',
+    src: '/assets/images/perro 2.png',
+    alt: 'Adiestramiento grupal y socialización de perros en Tandil',
     colSpan: 1,
     rowSpan: 2,
     flipContent: null,

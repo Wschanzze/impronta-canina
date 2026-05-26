@@ -11,7 +11,7 @@ const CursosPage: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header />
 
-      <main className="pt-24">
+      <main className="pt-0">
         {/* Hero Section */}
         <section className="relative py-20 md:py-28 bg-gradient-to-br from-verde/10 via-warm-cream to-tangerine/5 overflow-hidden">
           <div className="absolute inset-0 z-0 opacity-20 select-none pointer-events-none">

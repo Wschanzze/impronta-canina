@@ -51,9 +51,9 @@ const pillars: Pillar[] = [
       trainerPhoto: '/assets/images/nicolas-pellizzari.jfif',
     },
     media: {
-      type: 'video',
-      src: '/assets/videos/6011991_Dog_Animal_1280x720.mp4',
-      caption: '► Bruno aprendiendo obediencia básica — Semana 3',
+      type: 'image',
+      src: '/assets/images/nicolas-pellizzari 2.jfif',
+      caption: '► Sesión de adiestramiento con Nicolás',
     },
   },
   {
@@ -80,9 +80,9 @@ const pillars: Pillar[] = [
       trainerPhoto: '/assets/images/Carlos Polizza.jfif',
     },
     media: {
-      type: 'video',
-      src: '/assets/videos/6012070_Dog_Animal_1280x720.mp4',
-      caption: '► Lola aprendiendo a gestionar la calma en el hogar',
+      type: 'image',
+      src: '/assets/images/Carlos Polizza 1.jfif',
+      caption: '► Sesión personalizada con Carlos',
     },
   },
   {
