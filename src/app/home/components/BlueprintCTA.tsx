@@ -98,7 +98,7 @@ const BlueprintCTA: React.FC = () => {
                   <option value="Adiestramiento">Adiestramiento</option>
                   <option value="Asesoramiento (Conducta)">Asesoramiento (Conducta)</option>
                   <option value="Cursos Grupales">Cursos Grupales</option>
-                  <option value="Paseos">Paseos</option>
+                  <option value="Paseos funcionales">Paseos funcionales</option>
                   <option value="Traslados">Traslados</option>
                   <option value="Otro / Consulta General">Otro / Consulta General</option>
                 </select>

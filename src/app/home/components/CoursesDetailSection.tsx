@@ -1,7 +1,8 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface CourseItem {
+  id?: string;
   title: string;
   level: string;
   levelColor: string;
@@ -9,10 +10,12 @@ interface CourseItem {
   description: string;
   image: string;
   cta: string;
+  hidden?: boolean;
 }
 
-const courses: CourseItem[] = [
+const DEFAULT_COURSES: CourseItem[] = [
   {
+    id: '1',
     title: 'Cachorros Estrellas',
     level: 'INICIAL',
     levelColor: 'var(--verde)',
@@ -22,8 +25,10 @@ const courses: CourseItem[] = [
     image:
       '/assets/images/nicolas-pellizzari-5.jfif',
     cta: 'Conocé más →',
+    hidden: false,
   },
   {
+    id: '2',
     title: 'Obediencia Urbana',
     level: 'INTERMEDIO',
     levelColor: 'var(--tangerine)',
@@ -33,8 +38,10 @@ const courses: CourseItem[] = [
     image:
       '/assets/images/Carlos-Polizza-2.jfif',
     cta: 'Conocé más →',
+    hidden: false,
   },
   {
+    id: '3',
     title: 'Estimulación y Olfato',
     level: 'AVANZADO',
     levelColor: 'var(--honey-gold)',
@@ -44,8 +51,10 @@ const courses: CourseItem[] = [
     image:
       '/assets/images/perro-3.jpg',
     cta: 'Conocé más →',
+    hidden: false,
   },
   {
+    id: '4',
     title: 'Socialización Guiada',
     level: 'INICIAL',
     levelColor: 'var(--verde)',
@@ -55,8 +64,10 @@ const courses: CourseItem[] = [
     image:
       '/assets/images/perro-4.png',
     cta: 'Conocé más →',
+    hidden: false,
   },
   {
+    id: '5',
     title: 'Deporte Canino',
     level: 'AVANZADO',
     levelColor: 'var(--tangerine)',
@@ -66,8 +77,10 @@ const courses: CourseItem[] = [
     image:
       '/assets/images/Carlos-Polizza-3.jfif',
     cta: 'Conocé más →',
+    hidden: false,
   },
   {
+    id: '6',
     title: 'Manejo de Reactividad',
     level: 'INTERMEDIO',
     levelColor: 'var(--tangerine)',
@@ -77,6 +90,7 @@ const courses: CourseItem[] = [
     image:
       '/assets/images/nicolas-pellizzari-4.jfif',
     cta: 'Conocé más →',
+    hidden: false,
   },
 ];
 
@@ -158,6 +172,25 @@ const CourseCard: React.FC<{ course: CourseItem }> = ({ course }) => {
 };
 
 const CoursesDetailSection: React.FC = () => {
+  const [courses, setCourses] = useState<CourseItem[]>(DEFAULT_COURSES);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const res = await fetch('/api/courses');
+        if (res.ok) {
+          const data = await res.json();
+          setCourses(data);
+        }
+      } catch (error) {
+        console.error('Error fetching courses dynamically:', error);
+      }
+    };
+    fetchCourses();
+  }, []);
+
+  const visibleCourses = courses.filter((course) => !course.hidden);
+
   return (
     <>
       {/* ─── COURSES GRID ─── */}
@@ -184,13 +217,12 @@ const CoursesDetailSection: React.FC = () => {
 
           {/* Grid 3 cols */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {courses.map((course) => (
+            {visibleCourses.map((course) => (
               <CourseCard key={course.title} course={course} />
             ))}
           </div>
         </div>
       </section>
-
     </>
   );
 };

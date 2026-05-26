@@ -43,7 +43,7 @@ const StickyCTABar: React.FC<StickyCTABarProps> = ({ triggerAfterCard }) => {
               Impronta Canina — Un aprendizaje que deja huella
             </p>
             <p className="text-xs" style={{ color: 'rgba(26,26,26,0.65)' }}>
-              Adiestramiento · Asesoramiento · Cursos · Paseos · Traslados
+              Adiestramiento · Asesoramiento · Cursos · Paseos funcionales · Traslados
             </p>
           </div>
         </div>

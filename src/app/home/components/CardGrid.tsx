@@ -9,13 +9,13 @@ const cardData: BlogCardData[] = [
     title: 'Paseos caninos: mucho más que un simple paseo',
     excerpt:
       'Un paseo bien conducido estimula la mente, libera energía y refuerza el vínculo. Nuestros paseadores están formados en comportamiento canino para garantizar una experiencia segura.',
-    category: 'Paseos',
+    category: 'Paseos funcionales',
     readTime: '4 min',
     image: 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8',
     imageAlt: 'Paseador profesional caminando con varios perros felices por sendero del parque',
     temperature: 'neutral',
     microAnimation: 'paw',
-    tag: 'Paseos',
+    tag: 'Paseos funcionales',
   },
   {
     id: 8,
@@ -65,7 +65,7 @@ const CardGrid: React.FC = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: 'easeOut' as const },
     },
   };
 

@@ -37,7 +37,6 @@ const pillars: Pillar[] = [
       'Entendemos la educación como esa huella en el aprendizaje que forma una estructura emocional sólida y de confianza. Combinamos rigor técnico con el respeto por la naturaleza canina.',
     bullets: [
       'Estructura emocional sólida y de confianza.',
-      'Comunicación clara, eficiente y sin fórmulas rígidas.',
       'Rigor técnico actualizado aplicado al hogar.',
       'Respeto absoluto por la naturaleza y tiempos del perro.',
     ],
@@ -229,7 +228,7 @@ const PillarSection: React.FC<{ pillar: Pillar; index: number }> = ({ pillar, in
         <a
           href={pillar.ctaLink}
           className="inline-flex items-center gap-2 font-bold text-sm px-7 py-4 rounded-full text-white transition-all shadow-md active:scale-95"
-          style={{ background: 'var(--charcoal)', hover: 'opacity-90' }}
+          style={{ background: 'var(--charcoal)' }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.9')}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
         >

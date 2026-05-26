@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
-import { LucideIconName } from '@/components/ui/AppIcon';
 
 interface ServiceData {
   id: string;
@@ -80,22 +79,22 @@ const services: ServiceData[] = [
   },
   {
     id: 'paseos',
-    title: 'Paseos',
-    cardSubtitle: 'ESTIMULACIÓN Y PASEOS ACTIVOS',
-    shortDesc: 'Paseos profesionales estructurados para estimular su mente y físico.',
-    longDesc: 'Ofrecemos paseos estructurados que priorizan la calidad sobre la distancia. Diseñamos paseos individuales o grupales muy reducidos con un enfoque claro en la estimulación cognitiva, la propiocepción, el olfato y las conductas de calma, ayudando a canalizar la energía de tu perro de manera prolija.',
+    title: 'Paseos funcionales',
+    cardSubtitle: 'ESTIMULACIÓN Y CALMA',
+    shortDesc: 'Paseos estructurados enfocados en la estimulación cognitiva y conductas de calma.',
+    longDesc: 'Nuestros paseos funcionales no buscan simplemente "cansar" al perro físicamente corriendo kilómetros. Siguiendo la filosofía de la empresa, diseñamos paseos individuales o grupales muy reducidos orientados a la estimulación cognitiva, la propiocepción, el olfato y las conductas de calma, ayudando a canalizar su energía de manera prolija y a reforzar su equilibrio emocional en entornos reales.',
     icon: 'MapIcon',
     image: 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&q=80&w=600',
     color: 'var(--verde)',
     features: [
-      'Paseos individuales o parejas compatibles',
-      'Foco en estimulación mental, olfato y calma',
-      'Uso de arnés en H seguro (sin tirones dañinos)',
-      'Reporte fotográfico en tiempo real'
+      'Paseos individuales o de parejas compatibles',
+      'Foco en estimulación cognitiva y olfato',
+      'Gestión emocional y conductas de calma',
+      'Uso de arnés en H (bienestar físico y sin tirones)'
     ],
     duration: 'Sesiones de 45 a 60 min',
     modality: 'Zonas seguras de Tandil',
-    badge: 'Salud y descompresión'
+    badge: 'Paseo cognitivo y funcional'
   },
   {
     id: 'traslados',
