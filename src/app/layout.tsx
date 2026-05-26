@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     'Adiestramiento y educación canina en Tandil, Buenos Aires. Forjamos una conexión sólida, funcional y basada en la confianza mutua entre el perro y su guía.',
   icons: {
-    icon: [{ url: '/assets/images/app_logo.png', type: 'image/x-icon' }],
+    icon: '/favicon.ico',
   },
 };
 
