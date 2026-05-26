@@ -17,7 +17,7 @@ const tiles: Tile[] = [
   {
     id: 1,
     src: 'https://images.unsplash.com/photo-1544568100-847a948585b9',
-    alt: 'Perro entrenando en positivo',
+    alt: 'Perro entrenando con comunicación clara',
     colSpan: 2,
     rowSpan: 2,
     flipContent: 'metodo',
@@ -191,7 +191,7 @@ const MosaicHero: React.FC = () => {
             <div className="tile-back flex-col gap-3">
               <MetodoIcon />
               <p className="text-xs font-bold text-charcoal uppercase tracking-widest text-center px-4">
-                Método Positivo
+                Comunicación Clara
               </p>
             </div>
           </div>

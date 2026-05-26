@@ -10,7 +10,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'Impronta - Un aprendizaje que deja huella',
   description:
-    'Adiestramiento y educación canina respetuosa en Tandil, Buenos Aires. Cursos de educación en positivo, talleres grupales y transporte de mascotas personalizado.',
+    'Adiestramiento y educación canina en Tandil, Buenos Aires. Forjamos una conexión sólida, funcional y basada en la confianza mutua entre el perro y su guía.',
   icons: {
     icon: [{ url: '/assets/images/app_logo.png', type: 'image/x-icon' }],
   },

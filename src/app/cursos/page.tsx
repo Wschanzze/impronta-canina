@@ -38,9 +38,9 @@ const CursosPage: React.FC = () => {
                 Estudiá con <span style={{ color: 'var(--verde)' }}>Impronta Canina</span>
               </h1>
               <p className="text-slate-mid text-base md:text-xl font-medium leading-relaxed mb-8">
-                Un espacio dedicado al aprendizaje mutuo y al respeto animal. Capacitate con las
-                técnicas más modernas basadas en la ciencia del comportamiento y el refuerzo
-                positivo.
+                Un espacio dedicado al aprendizaje mutuo y al respeto animal. Capacitate con un
+                enfoque que combina rigor técnico y actualizado con el respeto por la naturaleza
+                canina, construyendo una comunicación clara y eficiente.
               </p>
             </motion.div>
           </div>
@@ -64,15 +64,10 @@ const CursosPage: React.FC = () => {
                 <span className="text-verde">comunicación y amor</span>
               </h2>
               <p className="text-slate-mid font-medium leading-relaxed text-sm md:text-base">
-                Impronta Canina nació con la firme convicción de que los métodos tradicionales de
-                adiestramiento basados en el castigo o la dominancia no solo dañan el vínculo con
-                nuestros perros, sino que atentan contra su bienestar físico y emocional.
+                Impronta Canina nació con la convicción de que la educación es esa huella en el aprendizaje que forma una estructura emocional sólida y de confianza entre el perro y su tutor o guía. Con más de diez años de trayectoria tanto en el mundo de los perros de búsqueda como en el ámbito domiciliario, entendemos que la comunicación clara y eficiente forma un vínculo inquebrantable.
               </p>
               <p className="text-slate-mid font-medium leading-relaxed text-sm md:text-base">
-                Por eso, diseñamos programas formativos tanto para familias que buscan mejorar la
-                convivencia cotidiana, como para educadores que deseen profundizar en la etología
-                aplicada de manera formal y rigurosa. Nuestro enfoque interdisciplinario combina
-                psicología del aprendizaje, medicina veterinaria y educación en positivo.
+                Por eso, diseñamos programas formativos tanto para familias que buscan mejorar la convivencia cotidiana, como para educadores que deseen profundizar en la etología aplicada de manera formal y rigurosa. Lejos de fórmulas rígidas, nuestro enfoque combina rigor técnico y actualizado con el respeto por la naturaleza canina para crear un canal de entendimiento mutuo.
               </p>
             </motion.div>
 

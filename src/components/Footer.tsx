@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
                 />
               </div>
               <p className="text-white/80 text-xs md:text-sm leading-relaxed mb-6 max-w-sm font-medium">
-                Más que adiestramiento, construimos relaciones sanas y duraderas entre las familias y sus perros a través del respeto y el refuerzo positivo.
+                Entendemos la educación canina como esa huella en el aprendizaje que forma una estructura emocional sólida y de confianza mutua.
               </p>
 
               {/* Social Icons */}

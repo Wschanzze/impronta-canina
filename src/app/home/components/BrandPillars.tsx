@@ -30,22 +30,22 @@ const pillars: Pillar[] = [
   {
     id: 1,
     number: '01',
-    tag: 'MÉTODO EN POSITIVO',
-    title: 'Educamos sin castigos. Tu perro aprende cooperando.',
+    tag: 'EDUCACIÓN VÍNCULAR',
+    title: 'Comunicación clara y eficiente. Un vínculo inquebrantable.',
     description:
-      'Educación fundamentada en la ciencia del comportamiento canino y el refuerzo positivo. Desterramos la dominancia y el miedo para lograr una obediencia fluida, respetando los tiempos y emociones de tu perro.',
+      'Entendemos la educación como esa huella en el aprendizaje que forma una estructura emocional sólida y de confianza. Combinamos rigor técnico con el respeto por la naturaleza canina.',
     bullets: [
-      'Sin tirones de correa ni collares de castigo.',
-      'Fomento de la toma de decisiones del perro.',
-      'Reducción activa del estrés y la ansiedad.',
-      'Aprendizaje lúdico y motivador para ambos.',
+      'Estructura emocional sólida y de confianza.',
+      'Comunicación clara, eficiente y sin fórmulas rígidas.',
+      'Rigor técnico actualizado aplicado al hogar.',
+      'Respeto absoluto por la naturaleza y tiempos del perro.',
     ],
     ctaText: 'Quiero entrenar con mi perro',
     ctaLink: '#contacto',
-    subtext: 'Etología y adiestramiento científico moderno.',
+    subtext: 'Educación canina funcional y basada en la confianza.',
     accentColor: 'var(--verde)',
     trainerTip: {
-      tip: 'El adiestramiento positivo no consiste en solo darle comida al perro; se trata de construir un lenguaje común basado en la confianza mutua. Cuando el perro comprende qué esperamos de él sin miedo a ser castigado, aprende con entusiasmo y de manera definitiva.',
+      tip: 'La educación canina no se trata de fórmulas rígidas, sino de construir un canal de entendimiento mutuo. Cuando logramos una comunicación clara y eficiente, formamos un vínculo inquebrantable y funcional.',
       trainerName: 'Nicolás Pellizzari',
       trainerRole: 'Adiestrador UBA y Psicopedagogo',
       trainerPhoto: '/assets/images/nicolas-pellizzari.jfif',
@@ -77,7 +77,7 @@ const pillars: Pillar[] = [
       tip: 'No intentes aplicar la receta de otro perro al tuyo. Cada animal tiene un temperamento, ritmo de aprendizaje y entorno familiar únicos. Adaptar el plan a tu rutina real garantiza resultados sostenibles sin sobrecargar tu día a día.',
       trainerName: 'Carlos Polizza',
       trainerRole: 'Adiestrador e Instructor EduCan K9',
-      trainerPhoto: '/assets/images/companero.jfif',
+      trainerPhoto: '/assets/images/Carlos Polizza.jfif',
     },
     media: {
       type: 'video',
@@ -110,8 +110,8 @@ const pillars: Pillar[] = [
     },
     media: {
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=800',
-      caption: '► Theo paseando con correa floja y contacto visual',
+      src: '/assets/images/nicolas-pellizzari 1.jfif',
+      caption: '► Paseo relajado y contacto visual con Nicolás',
     },
   },
 ];
@@ -301,8 +301,8 @@ const BrandPillars: React.FC = () => {
             <span className="text-verde">Impronta Canina?</span>
           </h2>
           <p className="text-slate-500 font-medium text-base md:text-lg leading-relaxed">
-            Dejamos atrás los métodos tradicionales para abrazar una educación canina moderna,
-            empática y efectiva. Tu perro no necesita dominancia, necesita un guía.
+            Dejamos atrás las fórmulas rígidas para crear un canal de entendimiento mutuo.
+            Tu perro no necesita dominancia, necesita una comunicación clara y un guía confiable.
           </p>
         </div>
 

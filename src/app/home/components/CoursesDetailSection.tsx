@@ -20,7 +20,7 @@ const courses: CourseItem[] = [
     description:
       'El período más importante en la vida de tu perro. Sentamos las bases para un perro adulto equilibrado, sociable y sin miedos.',
     image:
-      'https://images.unsplash.com/photo-1612846392422-24282052e07a?auto=format&fit=crop&q=80&w=800',
+      '/assets/images/nicolas-pellizzari 5.jfif',
     cta: 'Conocé más →',
   },
   {
@@ -31,7 +31,7 @@ const courses: CourseItem[] = [
     description:
       'Herramientas prácticas para convivir en armonía en el mundo real: calles, plazas y cafés sin tirones de correa ni frustración.',
     image:
-      'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&q=80&w=800',
+      '/assets/images/Carlos Polizza 2.jfif',
     cta: 'Conocé más →',
   },
   {
@@ -64,7 +64,7 @@ const courses: CourseItem[] = [
     description:
       'Disc Dog y Freestyle: juego, movimiento y complicidad. Mejorá las habilidades de tu perro y disfrutá juntos cada sesión.',
     image:
-      'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=800',
+      '/assets/images/Carlos Polizza 3.jfif',
     cta: 'Conocé más →',
   },
   {
@@ -75,7 +75,7 @@ const courses: CourseItem[] = [
     description:
       'Protocolo personalizado de desensibilización para perros con reactividad hacia otros perros o personas.',
     image:
-      'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&q=80&w=800',
+      '/assets/images/nicolas-pellizzari 4.jfif',
     cta: 'Conocé más →',
   },
 ];
@@ -178,7 +178,7 @@ const CoursesDetailSection: React.FC = () => {
               </em>
             </h2>
             <p className="text-slate-mid font-medium text-base md:text-lg leading-relaxed">
-              Educación canina basada en el vínculo, la ciencia y el refuerzo positivo.
+              Educación canina basada en el vínculo, el rigor técnico y la confianza mutua.
             </p>
           </div>
 

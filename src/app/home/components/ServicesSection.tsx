@@ -24,15 +24,15 @@ const services: ServiceData[] = [
   {
     id: 'adiestramiento',
     title: 'Adiestramiento',
-    cardSubtitle: 'EN POSITIVO · PERSONALIZADO',
-    shortDesc: 'Educación canina enfocada en positivo. Transforma la relación con tu perro construyendo confianza mutua, sin castigos.',
-    longDesc: 'Nuestro programa principal de educación en positivo se enfoca en la obediencia urbana, resolución de conflictos cotidianos y socialización progresiva. Realizamos sesiones personalizadas en tu propio domicilio, diseñando pautas que se ajustan al temperamento de tu perro y al estilo de vida de tu familia para lograr resultados estables y respetuosos.',
+    cardSubtitle: 'CONEXIÓN · PERSONALIZADO',
+    shortDesc: 'Educación canina basada en el vínculo y la confianza. Transforma la relación con tu perro con una comunicación clara y eficiente.',
+    longDesc: 'Nuestro programa principal se enfoca en forjar tu propia impronta: una conexión sólida, funcional y basada en la confianza mutua. Trabajamos la obediencia urbana, resolución de conflictos cotidianos y socialización progresiva a través de sesiones personalizadas en tu propio domicilio, diseñando pautas que se ajustan al temperamento de tu perro y al estilo de vida de tu familia, combinando rigor técnico con el respeto por su naturaleza.',
     icon: 'AcademicCapIcon',
     image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=600',
     color: 'var(--verde)',
     features: [
       'Diagnóstico inicial etológico de convivencia',
-      'Educación 100% libre de maltrato y castigos',
+      'Educación basada en la comunicación clara y el respeto',
       'Foco en obediencia urbana y paseos relajados',
       'Pautas claras adaptadas a la rutina de tu hogar'
     ],

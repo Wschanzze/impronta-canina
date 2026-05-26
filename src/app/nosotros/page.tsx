@@ -39,7 +39,7 @@ const founders: Founder[] = [
     bio: 'Formado como Adiestrador Profesional en EduCan K9 y Técnico en Criminalística, aporta una perspectiva altamente técnica a Impronta Canina. Especializado en el desarrollo de perros de trabajo, su metodología se centra en la precisión y el rendimiento operativo. Como Instructor y Guía de perros de Búsqueda, entrena canes capaces de superar grandes desafíos.',
     credentials: ['Adiestrador EduCan K9', 'Técnico Criminalística', 'Guía Perros Búsqueda', 'Perros de Trabajo'],
     photo:
-      '/assets/images/companero.jfif',
+      '/assets/images/Carlos Polizza.jfif',
     photoLabel: 'Instructor',
     accentColor: 'var(--tangerine)',
     imageOnLeft: false,
@@ -209,23 +209,23 @@ const NosotrosPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {[
                 {
-                  title: 'Ciencia del comportamiento',
-                  desc: 'Todo nuestro trabajo está respaldado por la etología moderna y el aprendizaje basado en evidencia.',
-                  image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800',
+                  title: 'Rigor técnico',
+                  desc: 'Educación actualizada y etología aplicada con rigor, construyendo una estructura emocional sólida y de confianza.',
+                  image: '/assets/images/nicolas-pellizzari 4.jfif',
                   accentColor: 'var(--verde)',
                   icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 3a9 9 0 00-9 9c0 3.32 1.8 6.22 4.5 7.82V21a1 1 0 001 1h6a1 1 0 001-1v-1.18c2.7-1.6 4.5-4.5 4.5-7.82 0-4.97-4.03-9-9-9z"/></svg>
                 },
                 {
-                  title: 'Sin castigos, nunca',
-                  desc: 'Creemos que el miedo nunca es una herramienta válida. El refuerzo positivo es el único camino que usamos.',
-                  image: 'https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=800',
+                  title: 'Entendimiento mutuo',
+                  desc: 'Lejos de fórmulas rígidas, creamos un canal de comunicación claro y eficiente que respeta la naturaleza de tu perro.',
+                  image: '/assets/images/Carlos Polizza 2.jfif',
                   accentColor: 'var(--tangerine)',
                   icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                 },
                 {
-                  title: 'El vínculo primero',
-                  desc: 'Antes de enseñar un comando, construimos una relación de confianza y comunicación real.',
-                  image: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=800',
+                  title: 'Vínculo y confianza',
+                  desc: 'Te ayudamos a forjar tu propia impronta: una conexión sólida, funcional y basada en la confianza mutua.',
+                  image: '/assets/images/nicolas-pellizzari 1.jfif',
                   accentColor: 'var(--honey-gold)',
                   icon: <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                 },
