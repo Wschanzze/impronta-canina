@@ -4,21 +4,21 @@ import { motion } from 'framer-motion';
 
 const communityTestimonials = [
   {
-    quote: 'Llegué desesperada porque mi cachorro de 4 meses destruía todo. En solo 3 sesiones entendimos qué estábamos haciendo mal. Nos cambiaron la vida por completo.',
+    quote: 'Nos ayudaron a entender qué necesitaba nuestro cachorro para sentirse seguro. Aprendimos a establecer una comunicación clara y pautas acordes a su naturaleza. La convivencia mejoró muchísimo al forjar un vínculo de confianza mutua.',
     author: 'Carolina S.',
-    sub: 'Dueña de Max (Golden Retriever) · Tandil',
+    sub: 'Tutora de Max (Golden Retriever) · Tandil',
     avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150',
   },
   {
-    quote: 'He pasado por tres entrenadores distintos. Lo que más destaco es que no usan castigos. Mi perra ahora me obedece por conexión y confianza, no por miedo.',
+    quote: 'Estábamos buscando un enfoque que no se basara en castigos o reglas estrictas. En Impronta Canina encontramos un método respetuoso y muy técnico. Ahora nuestra perra responde por pura conexión y entendimiento, dándonos tranquilidad diaria.',
     author: 'Martín R.',
-    sub: 'Dueño de Sasha (Pastor Alemán) · Tandil',
+    sub: 'Tutor de Sasha (Pastor Alemán) · Tandil',
     avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=150',
   },
   {
-    quote: 'El curso de socialización temprana debería ser obligatorio. Ver cómo mi perro aprendió a comunicarse sin ansiedad ni agresividad no tiene precio.',
+    quote: 'El grupo de socialización nos enseñó la importancia de la estructura emocional. Vimos cómo nuestro perro aprendió a relacionarse en entornos reales de forma progresiva, gestionando sus emociones frente a otros perros de manera muy relajada.',
     author: 'Laura y Tomás',
-    sub: 'Dueños de Rocky (Mestizo) · Tandil',
+    sub: 'Tutores de Rocky (Mestizo) · Tandil',
     avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=150',
   },
 ];
