@@ -63,8 +63,8 @@ const CursosPage: React.FC = () => {
                 Quiénes Somos
               </span>
               <h2 className="font-serif font-bold text-3xl md:text-5xl text-charcoal leading-tight">
-                Nuestra pasión es tender puentes de{' '}
-                <span className="text-verde">comunicación y entendimiento mutuo</span>
+                Comunicación clara y{' '}
+                <span className="text-verde">entendimiento mutuo</span>
               </h2>
               <p className="text-slate-mid font-medium leading-relaxed text-sm md:text-base">
                 Impronta Canina nació con la convicción de que la educación es esa huella en el aprendizaje que forma una estructura emocional sólida y de confianza entre el perro y su tutor o guía. Con más de diez años de trayectoria tanto en el mundo de los perros de búsqueda como en el ámbito domiciliario, entendemos que la comunicación clara y eficiente forma un vínculo inquebrantable.
