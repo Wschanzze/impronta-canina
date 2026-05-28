@@ -101,19 +101,11 @@ const Footer: React.FC = () => {
               <ul className="space-y-3 text-white/85 text-xs md:text-sm font-medium">
                 <li className="flex items-center gap-2.5 justify-center md:justify-start">
                   <Icon name="MapPinIcon" size={16} className="text-white/70 shrink-0" />
-                  <span>Buenos Aires, Argentina (Atención a domicilio)</span>
+                  <span>Tandil, Buenos Aires, Argentina</span>
                 </li>
                 <li className="flex items-center gap-2.5 justify-center md:justify-start">
                   <Icon name="PhoneIcon" size={16} className="text-white/70 shrink-0" />
                   <span>+54 9 11 1234-5678</span>
-                </li>
-                <li className="flex items-center gap-2.5 justify-center md:justify-start">
-                  <Icon name="EnvelopeIcon" size={16} className="text-white/70 shrink-0" />
-                  <span>hola@improntacanina.com</span>
-                </li>
-                <li className="flex items-center gap-2.5 justify-center md:justify-start">
-                  <Icon name="ClockIcon" size={16} className="text-white/70 shrink-0" />
-                  <span>Lun - Sab: 09:00 - 18:00</span>
                 </li>
               </ul>
             </div>
