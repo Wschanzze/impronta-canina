@@ -70,7 +70,7 @@ const CursosPage: React.FC = () => {
                 Impronta Canina nació con la convicción de que la educación es esa huella en el aprendizaje que forma una estructura emocional sólida y de confianza entre el perro y su tutor o guía. Con más de diez años de trayectoria tanto en el mundo de los perros de búsqueda como en el ámbito domiciliario, entendemos que la comunicación clara y eficiente forma un vínculo inquebrantable.
               </p>
               <p className="text-slate-mid font-medium leading-relaxed text-sm md:text-base">
-                Por eso, diseñamos programas formativos tanto para familias que buscan mejorar la convivencia cotidiana, como para educadores que deseen profundizar en la etología aplicada de manera formal y rigurosa. Lejos de fórmulas rígidas, nuestro enfoque combina rigor técnico y actualizado con el respeto por la naturaleza canina para crear un canal de entendimiento mutuo.
+                Por eso, diseñamos programas formativos tanto para familias que buscan mejorar la convivencia cotidiana, como para educadores y futuros guías de perro de trabajo.
               </p>
             </motion.div>
 
