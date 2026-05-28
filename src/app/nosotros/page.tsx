@@ -146,7 +146,7 @@ const NosotrosPage: React.FC = () => {
         <section className="relative py-24 md:py-32 px-4 overflow-hidden bg-gradient-to-br from-verde/10 via-warm-cream to-tangerine/5">
           <div className="absolute inset-0 z-0 opacity-20 select-none pointer-events-none">
             <img
-              src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=1600"
+              src="/assets/images/nicolas-pellizzari-5.jfif"
               alt="Impronta Canina"
               className="w-full h-full object-cover"
             />

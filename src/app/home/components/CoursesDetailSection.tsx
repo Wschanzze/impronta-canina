@@ -23,7 +23,7 @@ const DEFAULT_COURSES: CourseItem[] = [
     description:
       'El período más importante en la vida de tu perro. Sentamos las bases para un perro adulto equilibrado, sociable y sin miedos.',
     image:
-      '/assets/images/nicolas-pellizzari-5.jfif',
+      '/assets/images/curso 1.jfif',
     cta: 'Conocé más →',
     hidden: false,
   },
@@ -36,7 +36,7 @@ const DEFAULT_COURSES: CourseItem[] = [
     description:
       'Herramientas prácticas para convivir en armonía en el mundo real: calles, plazas y cafés sin tirones de correa ni frustración.',
     image:
-      '/assets/images/Carlos-Polizza-2.jfif',
+      '/assets/images/curso 2.jfif',
     cta: 'Conocé más →',
     hidden: false,
   },
@@ -49,7 +49,7 @@ const DEFAULT_COURSES: CourseItem[] = [
     description:
       'Canalizá la energía de tu perro a través de su sentido más desarrollado. Ideal para reducir la hiperactividad y el estrés.',
     image:
-      '/assets/images/perro-3.jpg',
+      '/assets/images/curso 3.jfif',
     cta: 'Conocé más →',
     hidden: false,
   },
@@ -62,7 +62,7 @@ const DEFAULT_COURSES: CourseItem[] = [
     description:
       'Encuentros grupales en entornos controlados para que tu perro aprenda a comunicarse correctamente con otros de su especie.',
     image:
-      '/assets/images/perro-4.png',
+      '/assets/images/curso 4.jfif',
     cta: 'Conocé más →',
     hidden: false,
   },

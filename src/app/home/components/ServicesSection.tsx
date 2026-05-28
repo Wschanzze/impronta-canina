@@ -27,7 +27,7 @@ const services: ServiceData[] = [
     shortDesc: 'Educación canina basada en el vínculo y la confianza. Transforma la relación con tu perro con una comunicación clara y eficiente.',
     longDesc: 'Nuestro programa principal se enfoca en forjar tu propia impronta: una conexión sólida, funcional y basada en la confianza mutua. Trabajamos la obediencia urbana, resolución de conflictos cotidianos y socialización progresiva a través de sesiones personalizadas en tu propio domicilio, diseñando pautas que se ajustan al temperamento de tu perro y al estilo de vida de tu familia, combinando rigor técnico con el respeto por su naturaleza.',
     icon: 'AcademicCapIcon',
-    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=600',
+    image: '/assets/images/nicolas-pellizzari-3.jfif',
     color: 'var(--verde)',
     features: [
       'Diagnóstico inicial etológico de convivencia',
@@ -46,7 +46,7 @@ const services: ServiceData[] = [
     shortDesc: 'Soluciones a problemas de conducta. Ansiedad, miedos o reactividad con protocolos personalizados.',
     longDesc: 'Evaluamos de forma profesional problemas complejos del comportamiento canino como la ansiedad por separación, miedos severos, fobias urbanas o reactividad hacia otros perros y personas. Elaboramos un diagnóstico etológico y te guiamos paso a paso con un plan terapéutico seguro y libre de confrontación.',
     icon: 'ChatBubbleOvalLeftEllipsisIcon',
-    image: 'https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&q=80&w=600',
+    image: '/assets/images/nicolas-pellizzari-1.jfif',
     color: 'var(--tangerine)',
     features: [
       'Evaluación científica de problemas de comportamiento',
@@ -65,7 +65,7 @@ const services: ServiceData[] = [
     shortDesc: 'Aprendizaje dinámico en comunidad y socialización controlada.',
     longDesc: 'Talleres prácticos y clases grupales de socialización, obediencia bajo distracción y estimulación en entornos reales controlados. Es el espacio ideal para que tu perro aprenda a gestionar su atención en presencia de otros canes y personas, compartiendo con una comunidad de familias responsables.',
     icon: 'UserGroupIcon',
-    image: 'https://images.unsplash.com/photo-1560743641-3914f2c45636?auto=format&fit=crop&q=80&w=600',
+    image: '/assets/images/curso 1.jfif',
     color: 'var(--honey-gold)',
     features: [
       'Grupos reducidos (máximo 5 perros por instructor)',
@@ -84,7 +84,7 @@ const services: ServiceData[] = [
     shortDesc: 'Paseos estructurados enfocados en la estimulación cognitiva y conductas de calma.',
     longDesc: 'Nuestros paseos funcionales no buscan simplemente "cansar" al perro físicamente corriendo kilómetros. Siguiendo la filosofía de la empresa, diseñamos paseos individuales o grupales muy reducidos orientados a la estimulación cognitiva, la propiocepción, el olfato y las conductas de calma, ayudando a canalizar su energía de manera prolija y a reforzar su equilibrio emocional en entornos reales.',
     icon: 'MapIcon',
-    image: 'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&q=80&w=600',
+    image: '/assets/images/perro-5.jpg',
     color: 'var(--verde)',
     features: [
       'Paseos individuales o de parejas compatibles',
@@ -103,7 +103,7 @@ const services: ServiceData[] = [
     shortDesc: 'Transporte seguro puerta a puerta para tu tranquilidad.',
     longDesc: 'Servicio de traslado puerta a puerta adaptado para las necesidades y comodidad de tu perro. Contamos con equipamiento seguro y homologado para traslados veterinarios, visitas familiares, guarderías o urgencias, garantizando un viaje tranquilo y sin niveles de estrés innecesarios.',
     icon: 'TruckIcon',
-    image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=600',
+    image: '/assets/images/companero.jfif',
     color: 'var(--tangerine)',
     features: [
       'Vehículo climatizado y adaptado',

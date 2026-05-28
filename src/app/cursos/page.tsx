@@ -19,8 +19,8 @@ const CursosPage: React.FC = () => {
         <section className="relative py-20 md:py-28 bg-gradient-to-br from-verde/10 via-warm-cream to-tangerine/5 overflow-hidden">
           <div className="absolute inset-0 z-0 opacity-20 select-none pointer-events-none">
             <img
-              src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=1600"
-              alt="Dogs playing"
+              src="/assets/images/curso 3.jfif"
+              alt="Cursos de Impronta Canina"
               className="w-full h-full object-cover"
             />
           </div>
