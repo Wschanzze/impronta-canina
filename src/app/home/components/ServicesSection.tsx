@@ -14,8 +14,8 @@ interface ServiceData {
   image: string;
   color: string;
   features: string[];
-  duration: string;
-  modality: string;
+  stat1: { label: string; value: string; icon: string };
+  stat2: { label: string; value: string; icon: string };
   badge?: string;
 }
 
@@ -35,8 +35,8 @@ const services: ServiceData[] = [
       'Foco en obediencia urbana y paseos relajados',
       'Pautas claras adaptadas a la rutina de tu hogar'
     ],
-    duration: 'Sesiones de 60 min',
-    modality: 'Presencial a domicilio',
+    stat1: { label: 'Ubicación', value: 'Presencial a domicilio', icon: 'MapPinIcon' },
+    stat2: { label: 'Duración', value: 'Sesiones de 60 min', icon: 'ClockIcon' },
     badge: 'El más solicitado'
   },
   {
@@ -54,8 +54,8 @@ const services: ServiceData[] = [
       'Asesoramiento integral para toda la familia',
       'Seguimiento telefónico y por WhatsApp incluido'
     ],
-    duration: 'Sesión inicial de 90 min',
-    modality: 'A domicilio o Virtual',
+    stat1: { label: 'Ubicación', value: 'A domicilio o Virtual', icon: 'MapPinIcon' },
+    stat2: { label: 'Duración', value: 'Sesión inicial de 90 min', icon: 'ClockIcon' },
     badge: 'Sesión diagnóstica etológica'
   },
   {
@@ -73,8 +73,8 @@ const services: ServiceData[] = [
       'Socialización estructurada y libre de riesgos',
       'Material complementario en PDF y video'
     ],
-    duration: 'Ciclos de 4 encuentros',
-    modality: 'Espacios públicos autorizados',
+    stat1: { label: 'Lanzamiento', value: 'Próximamente', icon: 'CalendarIcon' },
+    stat2: { label: 'Cupos', value: 'A confirmar', icon: 'UserGroupIcon' },
     badge: 'Cupos limitados'
   },
   {
@@ -92,8 +92,8 @@ const services: ServiceData[] = [
       'Gestión emocional y conductas de calma',
       'Uso de arnés en H (bienestar físico y sin tirones)'
     ],
-    duration: 'Sesiones de 45 a 60 min',
-    modality: 'Zonas seguras de Tandil',
+    stat1: { label: 'Ubicación', value: 'Zonas seguras de Tandil', icon: 'MapPinIcon' },
+    stat2: { label: 'Duración', value: 'Sesiones de 45 a 60 min', icon: 'ClockIcon' },
     badge: 'Paseo cognitivo y funcional'
   },
   {
@@ -103,7 +103,7 @@ const services: ServiceData[] = [
     shortDesc: 'Transporte seguro puerta a puerta para tu tranquilidad.',
     longDesc: 'Servicio de traslado puerta a puerta adaptado para las necesidades y comodidad de tu perro. Contamos con equipamiento seguro y homologado para traslados veterinarios, visitas familiares, guarderías o urgencias, garantizando un viaje tranquilo y sin niveles de estrés innecesarios.',
     icon: 'TruckIcon',
-    image: '/assets/images/companero.jfif',
+    image: '/assets/images/traslados.jpg',
     color: 'var(--tangerine)',
     features: [
       'Vehículo climatizado y adaptado',
@@ -111,8 +111,8 @@ const services: ServiceData[] = [
       'Chofer con formación en comportamiento canino',
       'Acompañamiento a consultas veterinarias'
     ],
-    duration: 'Trayectos locales y regionales',
-    modality: 'Puerta a puerta (Tandil y zona)',
+    stat1: { label: 'Ubicación', value: 'Puerta a puerta (Tandil y zona)', icon: 'MapPinIcon' },
+    stat2: { label: 'Duración', value: 'Trayectos locales y regionales', icon: 'ClockIcon' },
     badge: 'Seguridad garantizada'
   },
 ];
@@ -259,20 +259,20 @@ const ServicesSection: React.FC = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-[#fdfbf7] border border-[#eae6db]/60 rounded-2xl p-4 flex items-center gap-3">
                       <div className="p-2 rounded-xl bg-white text-slate-500 border border-[#eae6db]/50">
-                        <Icon name="MapPinIcon" size={18} />
+                        <Icon name={selectedService.stat1.icon} size={18} />
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">Ubicación</p>
-                        <p className="text-xs font-bold text-charcoal leading-tight">{selectedService.modality}</p>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">{selectedService.stat1.label}</p>
+                        <p className="text-xs font-bold text-charcoal leading-tight">{selectedService.stat1.value}</p>
                       </div>
                     </div>
                     <div className="bg-[#fdfbf7] border border-[#eae6db]/60 rounded-2xl p-4 flex items-center gap-3">
                       <div className="p-2 rounded-xl bg-white text-slate-500 border border-[#eae6db]/50">
-                        <Icon name="ClockIcon" size={18} />
+                        <Icon name={selectedService.stat2.icon} size={18} />
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">Duración</p>
-                        <p className="text-xs font-bold text-charcoal leading-tight">{selectedService.duration}</p>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">{selectedService.stat2.label}</p>
+                        <p className="text-xs font-bold text-charcoal leading-tight">{selectedService.stat2.value}</p>
                       </div>
                     </div>
                   </div>

@@ -118,21 +118,21 @@ const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 Impronta Canina. Todos los derechos reservados.</p>
           
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2 text-[13px]">
             <span>Creado por</span>
             <a
               href="https://www.notanother.company/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 hover:text-verde transition-colors font-bold text-charcoal"
+              className="flex items-center gap-1.5 hover:text-verde transition-colors font-bold text-charcoal"
             >
-              <span>Not another consultora</span>
+              <span className="text-[14px]">Not another consultora</span>
               <Image
                 src="/assets/images/Gemini_Generated_Image_b89zf1b89zf1b89z__1_-removebg-preview.png"
                 alt="Not another consultora logo"
-                width={18}
-                height={18}
-                className="object-contain inline-block ml-0.5 filter brightness-90"
+                width={26}
+                height={26}
+                className="object-contain inline-block ml-1 filter brightness-90"
               />
             </a>
           </div>
