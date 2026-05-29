@@ -1,6 +1,6 @@
-# Goldie — Golden Retriever Health & Genetics Guide
+# Impronta Canina
 
-Una aplicación moderna construida con Next.js 15, React 19 y Tailwind CSS.
+Una aplicación web moderna para un centro de educación y servicios caninos en Tandil. Construida con Next.js 15, React 19 y Tailwind CSS.
 
 ## 🚀 Características
 
@@ -9,6 +9,7 @@ Una aplicación moderna construida con Next.js 15, React 19 y Tailwind CSS.
 - **Tailwind CSS** - Framework CSS utility-first para desarrollo rápido
 - **TypeScript** - Tipado estático para mayor seguridad
 - **Responsive Design** - Diseño adaptable a todos los dispositivos
+- **Framer Motion** - Animaciones fluidas y modernas
 
 ## 🛠️ Instalación Local
 
@@ -29,7 +30,7 @@ npm install
 
 ```bash
 cp .env.example .env.local
-# Editar .env.local con tus valores
+# Editar .env.local con tus valores si es necesario
 ```
 
 4. Iniciar servidor de desarrollo:
@@ -38,7 +39,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Abre [http://localhost:4028](http://localhost:4028) en tu navegador.
+Abre [http://localhost:3000](http://localhost:3000) o el puerto que te asigne la terminal (por ejemplo 4028) en tu navegador.
 
 ## 📁 Estructura del Proyecto
 
@@ -48,23 +49,24 @@ src/
 │   ├── layout.tsx          # Layout raíz
 │   ├── page.tsx            # Página principal
 │   ├── not-found.tsx       # Página 404
-│   └── home/
-│       └── components/     # Componentes de la página principal
+│   ├── admin/              # Panel de administración
+│   ├── cursos/             # Sección de cursos
+│   ├── home/               # Componentes de la landing page
+│   └── nosotros/           # Sección nosotros
 ├── components/
-│   ├── Header.tsx
-│   ├── Footer.tsx
+│   ├── Header.tsx          # Navegación principal
+│   ├── Footer.tsx          # Pie de página
 │   └── ui/                 # Componentes UI reutilizables
 └── styles/
-    ├── tailwind.css
-    └── index.css
+    ├── tailwind.css        # Variables y utilidades CSS
+    └── index.css           # Estilos globales
 ```
 
 ## 📦 Scripts Disponibles
 
-- `npm run dev` - Inicia servidor de desarrollo (puerto 4028)
+- `npm run dev` - Inicia servidor de desarrollo
 - `npm run build` - Construye la aplicación para producción
 - `npm run start` - Inicia servidor de producción
-- `npm run serve` - Alias para `npm run start`
 - `npm run lint` - Ejecuta ESLint
 - `npm run lint:fix` - Corrige problemas de ESLint automáticamente
 - `npm run format` - Formatea código con Prettier
@@ -72,82 +74,20 @@ src/
 
 ## 🚀 Despliegue en Vercel
 
-### Opción 1: Desde GitHub (Recomendado)
-
 1. Sube tu código a GitHub
 2. Ve a [vercel.com](https://vercel.com)
 3. Haz clic en "New Project"
-4. Selecciona tu repositorio
+4. Selecciona tu repositorio (impronta-canina)
 5. Vercel detectará automáticamente que es un proyecto Next.js
-6. Configura las variables de entorno en "Environment Variables"
+6. Configura las variables de entorno en "Environment Variables" si las utilizas.
 7. Haz clic en "Deploy"
 
-### Opción 2: Desde CLI
+## 🎨 Personalización y Estilos
 
-```bash
-npm install -g vercel
-vercel
-```
-
-Sigue las instrucciones interactivas.
-
-### Variables de Entorno en Vercel
-
-En el dashboard de Vercel, añade las siguientes variables:
-
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `OPENAI_API_KEY` (si es necesario)
-- `GEMINI_API_KEY` (si es necesario)
-- `ANTHROPIC_API_KEY` (si es necesario)
-- `PERPLEXITY_API_KEY` (si es necesario)
-- `NEXT_PUBLIC_GA_MEASUREMENT_ID` (si es necesario)
-- `NEXT_PUBLIC_ADSENSE_ID` (si es necesario)
-- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` (si es necesario)
-
-## 🎨 Personalización
-
-### Tailwind CSS
-
-Edita `tailwind.config.js` para personalizar colores, fuentes y otros estilos.
-
-### Componentes
-
-Los componentes principales están en `src/components/` y `src/app/home/components/`.
-
-## 📚 Recursos
-
-- [Documentación de Next.js](https://nextjs.org/docs)
-- [Documentación de Tailwind CSS](https://tailwindcss.com/docs)
-- [Documentación de React](https://react.dev)
-- [Documentación de Vercel](https://vercel.com/docs)
-
-## 🔧 Troubleshooting
-
-### Error: "Cannot find module"
-
-```bash
-npm install
-```
-
-### Error de build en Vercel
-
-1. Verifica que todas las variables de entorno estén configuradas
-2. Revisa los logs de build en el dashboard de Vercel
-3. Asegúrate de que `package.json` tiene todas las dependencias
-
-### Puerto 4028 en uso
-
-```bash
-npm run dev -- -p 3000
-```
+- **Tailwind CSS:** Las configuraciones de colores, fuentes y demás estilos base se encuentran en `tailwind.config.js`.
+- **CSS Vanilla:** Los estilos globales y animaciones de keyframes adicionales están en `src/styles/index.css`.
+- **Componentes UI:** Utiliza la carpeta `src/components/ui/` para encontrar botones, inputs y otros elementos reutilizables.
 
 ## 📝 Licencia
 
-Construido con ❤️ en Rocket.new
-
-## 🙏 Agradecimientos
-
-- Powered by Next.js y React
-- Styled with Tailwind CSS
-- Deployed on Vercel
+Construido para Impronta Canina. Todos los derechos reservados.
